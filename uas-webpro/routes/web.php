@@ -23,6 +23,10 @@ Route::get('/admin', function () {
     return view('admin/loginAdmin');
 });
 
+Route::get('/admin/dashboard', function () {
+    return view('admin/dashboardAdmin');
+});
+
 Route::get('/admin/dokter', function () {
     return view('admin/profilDokter');
 });

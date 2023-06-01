@@ -29,7 +29,7 @@
     </nav>
     
     <div class="container">
-        <form action="" method="get">
+        <form action="{{url('/admin/dashboard')}}" method="get">
             <span>Username</span>
             <input type="text" name="username" class="form-control">
             <span>Password</span>
