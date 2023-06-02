@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,30 +19,27 @@ Route::get('/', function () {
 });
 
 //  Routing Admin
-
-Route::get('/admin', function () {
-    return view('admin/loginAdmin');
+Route::controller(AdminController::class)->group(function(){
+    Route::get('/admin', 'index');
+    Route::post('/admin/dashboard', 'login')->middleware('web');
+    
+    Route::get('/admin/dokter', function () {
+        return view('admin/profilDokter');
+    });
+    
+    Route::get('/admin/pasien', function () {
+        return view('admin/dataPasien');
+    });
+    
+    Route::get('/admin/berkas', function () {
+        return view('admin/berkasJanji');
+    });
+    
+    Route::get('/admin/profil', function () {
+        return view('admin/profilAdmin');
+    });
 });
 
-Route::get('/admin/dashboard', function () {
-    return view('admin/dashboardAdmin');
-});
-
-Route::get('/admin/dokter', function () {
-    return view('admin/profilDokter');
-});
-
-Route::get('/admin/pasien', function () {
-    return view('admin/dataPasien');
-});
-
-Route::get('/admin/berkas', function () {
-    return view('admin/berkasJanji');
-});
-
-Route::get('/admin/profil', function () {
-    return view('admin/profilAdmin');
-});
 
 //  Routing Pasien
 

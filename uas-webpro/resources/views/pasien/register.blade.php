@@ -29,15 +29,24 @@
     </nav>
     
     <div class="container">
-        <form action="" method="get">
-            <span>Username</span>
-            <input type="text" name="username" class="form-control">
+        <form action="{{url('/pasien')}}" method="get">
+            <span>Nama Lengkap</span>
+            <input type="text" name="nama" class="form-control">
+            <span>Tempat Lahir</span>
+            <input type="text" name="tempatlahir" class="form-control">
+            <span>Tanggal Lahir</span>
+            <input type="text" name="tanggallahir" class="form-control">
+            <span>Nomor Telepon</span>
+            <input type="text" name="telp" class="form-control">
+            <span>Alamat</span>
+            <input type="text" name="alamat" class="form-control">
             <span>Password</span>
             <input type="password" name="password" class="form-control">
             <span>Confirm Password</span>
-            <input type="passwordConfirm" name="password" class="form-control">
+            <input type="passwordConfirm" name="confirmpassword" class="form-control">
             <br><button class="btn btn-primary">Create Account</button>
         </form>
+        <a href="{{url('/pasien')}}">Already have an account?</a>
     </div>
 </body>
 </html>

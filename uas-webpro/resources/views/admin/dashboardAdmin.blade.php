@@ -26,13 +26,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/admin/profil')}}">Berkas Janji</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/admin/profil')}}">Profil Admin</a>
-                    </li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    admin
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="{{url('/admin/profil')}}">Profil Admin</a></li>
+                    <li><a class="dropdown-item" href="#">Log Out</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+    
     <div class="container">
         <div class="text-center">
             <img src="{{url('/images/klinik.jpg')}}" alt="..." style="width: 50%;">

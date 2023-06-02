@@ -29,7 +29,8 @@
     </nav>
     
     <div class="container">
-        <form action="{{url('/admin/dashboard')}}" method="get">
+        <form action="{{url('/admin/dashboard')}}" method="post">
+            @csrf
             <span>Username</span>
             <input type="text" name="username" class="form-control">
             <span>Password</span>
