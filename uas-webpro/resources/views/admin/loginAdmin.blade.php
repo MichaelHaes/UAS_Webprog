@@ -41,7 +41,12 @@
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control">
+                            <div class="input-group">
+                            <input type="password" name="password" class="form-control" id="passwordInput">
+                            <button type="button" id="toggleButton" class="btn btn-secondary" onclick="togglePasswordVisibility()">
+                                Show
+                            </button>
+                            </div>
                         </div>
                         <div class="d-grid">
                             <button class="btn btn-primary">Log In</button>
@@ -52,4 +57,18 @@
         </div>
     </div>
 </body>
+<script>
+  function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("passwordInput");
+    var toggleButton = document.getElementById("toggleButton");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      toggleButton.textContent = "Hide";
+    } else {
+      passwordInput.type = "password";
+      toggleButton.textContent = "Show";
+    }
+  }
+</script>
 </html>
