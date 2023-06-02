@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PasienController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 })->name('index');
+
+Route::get('/insert', function(){
+    // $username = 'admin';
+    // $password = 'admin123';
+    // $hashedPassword = Hash::make($password);
+
+    // DB::insert("insert into admin(idAdmin, username, password) values(?,?,?)",
+    // [1, $username, $hashedPassword]);
+});
 
 //  Routing Admin
 Route::controller(AdminController::class)->group(function(){

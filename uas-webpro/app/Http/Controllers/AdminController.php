@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class AdminController extends Controller
 {
@@ -26,14 +29,27 @@ class AdminController extends Controller
 
     public function login()
     {
-        Session::start();
-        Session::put('username', $_POST["username"]);
-        Session::put('password', $_POST["password"]);
-        return view('admin/dashboardAdmin',
-            [
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password')
+        $res = DB::select("select * from admin where idAdmin = ?", [1]);
+        if($_POST["username"] == $res[0]->username ) {
+            if(Hash::check($_POST["password"], $res[0]->password)) {
+                Session::start();
+                Session::put('username', $_POST["username"]);
+                Session::put('password', $_POST["password"]);
+                return view('admin/dashboardAdmin',
+                    [
+                        'username'=>Session::get('username'),
+                        'password'=>Session::get('password')
+                    ]);
+            } else {
+                throw ValidationException::withMessages([
+                    'password' => 'Wrong Password!',
+                ]);
+            }
+        } else {
+            throw ValidationException::withMessages([
+                'password' => 'Wrong Username!',
             ]);
+        }
     }
 
     public function logout()

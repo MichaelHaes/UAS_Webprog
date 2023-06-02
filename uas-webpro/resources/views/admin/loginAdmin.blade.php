@@ -55,6 +55,17 @@
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <div class="card card-body border-0">
+                    @if($errors->has('password'))
+                        <div class="alert alert-danger">
+                            {{ $errors->first('password') }}
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 <script>
