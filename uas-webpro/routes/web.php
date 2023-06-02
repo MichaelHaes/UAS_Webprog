@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PasienController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,57 +17,39 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 //  Routing Admin
 Route::controller(AdminController::class)->group(function(){
     Route::get('/admin', 'index');
+    Route::get('/admin/dashboard', 'dashboard');
     Route::post('/admin/dashboard', 'login')->middleware('web');
-    
-    Route::get('/admin/dokter', function () {
-        return view('admin/profilDokter');
-    });
-    
-    Route::get('/admin/pasien', function () {
-        return view('admin/dataPasien');
-    });
-    
-    Route::get('/admin/berkas', function () {
-        return view('admin/berkasJanji');
-    });
-    
-    Route::get('/admin/profil', function () {
-        return view('admin/profilAdmin');
-    });
+    Route::get('/admin/dokter', 'dokter')->middleware('web');
+    Route::get('/admin/pasien', 'pasien')->middleware('web');
+    Route::get('/admin/berkas', 'berkas')->middleware('web');
+    Route::get('/admin/profil', 'profil')->middleware('web');
+    Route::get('/admin/logout', 'logout')->name('logout');
 });
 
 
 //  Routing Pasien
 
-Route::get('/pasien', function () {
-    return view('pasien/loginPasien');
-});
+Route::controller(PasienController::class)->group(function(){
+    Route::get('/pasien', 'index');
+    Route::get('/pasien/dashboard', 'dashboard');
+    Route::post('/pasien/dashboard', 'login')->middleware('web');
+    Route::get('/pasien/logout', 'logout')->name('logout');
+    Route::get('/pasien/janji', 'janji');
+    Route::get('/pasien/review', 'review');
 
-Route::get('/pasien/dashboard', function () {
-    return view('pasien/dashboard');
-});
+    Route::get('/pasien/profil', 'profil');
 
-Route::get('/pasien/register', function () {
-    return view('pasien/register');
-});
-
-Route::get('/pasien/forgotpass', function () {
-    return view('pasien/forgotPassword');
-});
-
-Route::get('/pasien/janji', function () {
-    return view('pasien/buatJanji');
-});
-
-Route::get('/pasien/review', function () {
-    return view('pasien/reviewDokter');
-});
-
-Route::get('/pasien/profil', function () {
-    return view('pasien/profilPasien');
+    
+    Route::get('/pasien/register', function () {
+        return view('pasien/register');
+    });
+    
+    Route::get('/pasien/forgotpass', function () {
+        return view('pasien/forgotPassword');
+    });
 });

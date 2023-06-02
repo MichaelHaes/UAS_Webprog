@@ -16,7 +16,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link active" href="{{url('/pasien')}}">Pasien</a>
                     </li>
@@ -27,17 +27,39 @@
             </div>
         </div>
     </nav>
-    
+    <br>
     <div class="container">
-        <form action="" method="get">
-            <span>Username</span>
-            <input type="text" name="username" class="form-control">
-            <span>Password</span>
-            <input type="password" name="password" class="form-control">
-            <span>Confirm Password</span>
-            <input type="passwordConfirm" name="password" class="form-control">
-            <br><button class="btn btn-primary">Change Password</button>
-        </form>
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <div class="card card-body">
+                    <h5 class="card-title">Forgot Password</h5>
+                    <form action="{{url('/pasien')}}" method="post">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="passwordConfirm" class="form-label">Confirm Password</label>
+                            <input type="password" name="passwordConfirm" class="form-control">
+                        </div>
+                        <div class="row">
+                            <div class="col-3 d-grid">
+                                <a href="{{url('/pasien')}}" class="btn btn-danger">Back</a>
+                            </div>
+                            <div class="col d-grid">
+                                <button class="btn btn-primary">Change Password</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+
 </body>
 </html>

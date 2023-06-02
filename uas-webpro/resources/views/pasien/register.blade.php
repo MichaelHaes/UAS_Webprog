@@ -11,12 +11,12 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{url('/')}}">Navbar</a>
+            <a class="navbar-brand" href="{{url('/')}}">KKS</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link active" href="{{url('/pasien')}}">Pasien</a>
                     </li>
@@ -27,26 +27,54 @@
             </div>
         </div>
     </nav>
-    
+    <br>
     <div class="container">
-        <form action="{{url('/pasien')}}" method="get">
-            <span>Nama Lengkap</span>
-            <input type="text" name="nama" class="form-control">
-            <span>Tempat Lahir</span>
-            <input type="text" name="tempatlahir" class="form-control">
-            <span>Tanggal Lahir</span>
-            <input type="text" name="tanggallahir" class="form-control">
-            <span>Nomor Telepon</span>
-            <input type="text" name="telp" class="form-control">
-            <span>Alamat</span>
-            <input type="text" name="alamat" class="form-control">
-            <span>Password</span>
-            <input type="password" name="password" class="form-control">
-            <span>Confirm Password</span>
-            <input type="passwordConfirm" name="confirmpassword" class="form-control">
-            <br><button class="btn btn-primary">Create Account</button>
-        </form>
-        <a href="{{url('/pasien')}}">Already have an account?</a>
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Create Account</h5>
+                        <form action="{{url('/pasien')}}" method="get">
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Nama Lengkap</label>
+                                <input type="text" name="nama" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="tempatlahir" class="form-label">Tempat Lahir</label>
+                                <input type="text" name="tempatlahir" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="tanggallahir" class="form-label">Tanggal Lahir</label>
+                                <input type="text" name="tanggallahir" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="telp" class="form-label">Nomor Telepon</label>
+                                <input type="text" name="telp" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="alamat" class="form-label">Alamat</label>
+                                <input type="text" name="alamat" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmpassword" class="form-label">Confirm Password</label>
+                                <input type="password" name="confirmpassword" class="form-control">
+                            </div>
+                            <div class="d-grid">
+                                <button class="btn btn-primary">Create Account</button>
+                            </div>
+                        </form>
+                        <div class="text-center mt-3">
+                            <a href="{{url('/pasien')}}" class="text-decoration-none">Already have an account?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 </body>
 </html>

@@ -11,12 +11,12 @@
 <body>
     <nav class="navbar navbar-expand-sm bg-info navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{url('/')}}">Navbar</a>
+            <a class="navbar-brand" href="{{url('/')}}">KKS</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link active" href="{{url('/pasien')}}">Pasien</a>
                     </li>
@@ -27,17 +27,36 @@
             </div>
         </div>
     </nav>
-    
+    <br>
     <div class="container">
-        <form action="{{url('/pasien/dashboard')}}" method="get">
-            <span>Username</span>
-            <input type="text" name="username" class="form-control">
-            <span>Password</span>
-            <input type="password" name="password" class="form-control">
-            <br><button class="btn btn-primary">Log In</button>
-        </form>
-        <a href="{{url('/pasien/register')}}">Register</a>
-        <a href="{{url('/pasien/forgotpass')}}">Forgot Password?</a>
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <div class="card card-body">
+                    <h5 class="card-title">Log in KKS</h5>
+                    <form action="{{url('/pasien/dashboard')}}" method="post">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control" autofocus>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control">
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary">Log In</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3">
+                        <a href="{{url('/pasien/register')}}" class="text-decoration-none">Register</a>
+                    </div>
+                    <div class="text-center mt-2">
+                        <a href="{{url('/pasien/forgotpass')}}" class="text-decoration-none">Forgot Password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 </body>
 </html>

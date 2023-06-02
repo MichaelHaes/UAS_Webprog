@@ -23,12 +23,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/pasien/review')}}">Review Dokter</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/pasien/profil')}}">Profil Pasien</a>
-                    </li>
                 </ul>
             </div>
         </div>
+            <div class="dropdown">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{$username}}
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="{{url('/pasien/profil')}}">Profil Pasien</a></li>
+                    <li><a class="dropdown-item" href="{{url('/pasien/logout')}}">Log Out</a></li>
+                </ul>
+            </div>
     </nav>
     <div class="container">
         <div class="text-center">

@@ -5,19 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class AdminController extends Controller
+class PasienController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin/loginAdmin');
+        return view('pasien/loginPasien');
     }
 
     public function dashboard()
     {
-        return view('admin/dashboardAdmin',
+        return view('pasien/dashboard',
             [
                 'username'=>Session::get('username'),
                 'password'=>Session::get('password')
@@ -29,7 +29,7 @@ class AdminController extends Controller
         Session::start();
         Session::put('username', $_POST["username"]);
         Session::put('password', $_POST["password"]);
-        return view('admin/dashboardAdmin',
+        return view('pasien/dashboard',
             [
                 'username'=>Session::get('username'),
                 'password'=>Session::get('password')
@@ -42,38 +42,36 @@ class AdminController extends Controller
         return redirect()->route('index');
     }
 
-
-    public function dokter() {
-        return view('admin/profilDokter',
+    public function janji()
+    {
+        return view('pasien/buatJanji',
             [
                 'username'=>Session::get('username'),
                 'password'=>Session::get('password')
             ]);
     }
 
-    public function pasien() {
-        return view('admin/dataPasien',
+    public function review()
+    {
+        return view('pasien/reviewDokter',
             [
                 'username'=>Session::get('username'),
                 'password'=>Session::get('password')
             ]);
     }
 
-    public function berkas() {
-        return view('admin/berkasJanji',
+    public function profil()
+    {
+        return view('pasien/profilPasien',
             [
                 'username'=>Session::get('username'),
                 'password'=>Session::get('password')
             ]);
     }
 
-    public function profil() {
-        return view('admin/profilAdmin',
-            [
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password')
-            ]);
-    }
+
+
+
 
 
 

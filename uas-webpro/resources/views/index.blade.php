@@ -19,7 +19,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/pasien')}}">Pasien</a>
                     </li>
@@ -30,6 +30,7 @@
             </div>
         </div>
     </nav>
+
 
     <div class="container">
         <div class="text-center">
