@@ -69,9 +69,15 @@ class PasienController extends Controller
             ]);
     }
 
+    public function register()
+    {
+        return view('pasien/register');
+    }
 
-
-
+    public function forgotpass()
+    {
+        return view('pasien/forgotPassword');
+    }
 
 
 

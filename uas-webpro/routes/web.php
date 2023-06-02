@@ -31,7 +31,6 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/admin/logout', 'logout')->name('logout');
 });
 
-
 //  Routing Pasien
 
 Route::controller(PasienController::class)->group(function(){
@@ -41,15 +40,7 @@ Route::controller(PasienController::class)->group(function(){
     Route::get('/pasien/logout', 'logout')->name('logout');
     Route::get('/pasien/janji', 'janji');
     Route::get('/pasien/review', 'review');
-
     Route::get('/pasien/profil', 'profil');
-
-    
-    Route::get('/pasien/register', function () {
-        return view('pasien/register');
-    });
-    
-    Route::get('/pasien/forgotpass', function () {
-        return view('pasien/forgotPassword');
-    });
+    Route::get('/pasien/register', 'register');
+    Route::get('/pasien/forgotpass', 'forgotpass');
 });
