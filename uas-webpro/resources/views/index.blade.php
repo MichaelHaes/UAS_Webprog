@@ -7,9 +7,12 @@
     <title>Klinik Kita Sehat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <style>
+        p {text-align: center;}
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <nav class="navbar navbar-expand-sm bg-info navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{url('/')}}">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,8 +35,20 @@
         <div class="text-center">
             <img src="{{url('/images/klinik.jpg')}}" alt="..." style="width: 50%;">
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odit sunt doloremque, iste placeat laudantium facere corporis inventore quae blanditiis voluptatem quod vero, deleniti voluptatum voluptate unde distinctio nostrum omnis!
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio sint aperiam obcaecati sit fuga illum mollitia odio similique esse, totam sunt nam nulla, molestias ipsa consectetur accusantium impedit. Perferendis, repellat!
+        <p>
+            Untuk mendapat sebuah pencapaian yang maksimal dalam memberikan pelayanan kesehatan yang terbaik maka sudah selayaknya sebuah klinik memiliki visi dan misi yang jelas agar semua tujuan dapat mudah dicapai. Adapun visi dan misi Klinik Kita Sehat adalah sebagai  berikut :
+            </p>
+        <p> 
+        <b>Visi :</b><br>
+            Menyehatkan masyarakat dan memasyarakatkan kesehatan
+        </p>
+        <p>
+        <b>Misi :</b><br>
+            1. Sebagai mitra pemerintah maupun swasta dalam memberikan pelayanan prefentif, kuratif dan rehabilitative yang komprehensif dan berkesinambungan.<br> 
+            2. Memberikan pelayanan medis dasar yang berbasis hemat dan terjangkau.<br>
+            3. Memberikan pelayanan kesehatan yang cepat, tepat, bermutu dan terjangkau.<br>
+            4. Menumbuhkan kesadaran budaya hidup sehat.<br>
+            5. Menjalin Kemitraan dengan masyarakat sekitar. 
         </p>
     </div>
     <div class="text-center text-lg-start bg-light text-muted" style="padding-top: 0.2px;">
