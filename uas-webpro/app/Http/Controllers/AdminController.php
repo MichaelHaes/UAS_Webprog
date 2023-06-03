@@ -30,24 +30,18 @@ class AdminController extends Controller
     public function login()
     {
         $res = DB::select("select * from admin where idAdmin = ?", [1]);
-        if($_POST["username"] == $res[0]->username ) {
-            if(Hash::check($_POST["password"], $res[0]->password)) {
-                Session::start();
-                Session::put('username', $_POST["username"]);
-                Session::put('password', $_POST["password"]);
-                return view('admin/dashboardAdmin',
-                    [
-                        'username'=>Session::get('username'),
-                        'password'=>Session::get('password')
-                    ]);
-            } else {
-                throw ValidationException::withMessages([
-                    'password' => 'Wrong Password!',
+        if(Hash::check($_POST["password"], $res[0]->password)) {
+            Session::start();
+            Session::put('username', $_POST["username"]);
+            Session::put('password', $_POST["password"]);
+            return view('admin/dashboardAdmin',
+                [
+                    'username'=>Session::get('username'),
+                    'password'=>Session::get('password')
                 ]);
-            }
         } else {
             throw ValidationException::withMessages([
-                'password' => 'Wrong Username!',
+                'passwordAdmin' => 'Wrong Password!',
             ]);
         }
     }

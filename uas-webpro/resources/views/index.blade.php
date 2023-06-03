@@ -17,24 +17,204 @@
     <nav class="navbar navbar-expand-sm bg-info navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{url('/')}}">
-                <img src="{{url('images/logo.jpg')}}" class="img-responsive" width="50" height="50">
+                <div style="display: flex; align-items: center;">
+                    <img src="{{url('images/logo.jpg')}}" class="img-responsive" width="50" height="50" style="margin-right: 10px;">
+                    <p style="margin: 0;">KKS</p>
+                </div>
             </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="{{url('/pasien')}}">Pasien</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/admin')}}">Admin</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <button class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#modalPasien">
+                            Pasien
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#modalAdmin">
+                            Admin
+                        </button>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Modal Pasien -->
+    <div class="modal fade" id="modalPasien" tabindex="-1" aria-labelledby="modalPasien" aria-hidden="true">>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h5>Login Pasien KKS</h5>
+                    </div>
+                    <br>
+                    <form action="{{url('/pasien/dashboard')}}" method="post">
+                        @csrf
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-2 col-form-label">Username</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="username" class="form-control" autofocus>
+                            </div>
+                        </div>
+                        <div class="mb-3 d-flex align-items-center">
+                            <label for="password" class="form-label me-2">Password</label>
+                            <div class="input-group">
+                                <input type="password" name="password" class="form-control" id="passwordInput">
+                                <button type="button" id="toggleButton" class="btn btn-secondary" onclick="togglePasswordVisibilityAdmin()">
+                                    Show
+                                </button>
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary">Log In</button>
+                        </div>
+                    </form>
+                    
+                    <div class="text-center mt-3">
+                        <button class="btn btn-link nav-link" id="registerBtn">Register</button>
+                        <!-- <a href="{{url('/pasien/register')}}" class="text-decoration-none">Register</a> -->
+                    </div>
+                    <div class="text-center mt-2">
+                        <a href="{{url('/pasien/forgotpass')}}" class="text-decoration-none">Forgot Password?</a>
+                    </div>
+                    @if($errors->has('passwordPasien'))
+                        <script type="text/javascript">
+                            window.addEventListener('DOMContentLoaded', function() {
+                                var modalPasien = document.getElementById('modalPasien');
+                                var modal = new bootstrap.Modal(modalPasien);
+                                modal.show();
+                            });
+                        </script>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <div class="card card-body border-0">
+                                    <div class="alert alert-danger">
+                                        {{ $errors->first('passwordPasien') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Register -->
+    <div class="modal fade" id="modalRegister" tabindex="-1" aria-labelledby="modalRegister" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h5>Register KKS</h5>
+                    </div>
+                    <br>
+                    <form action="{{url('/pasien')}}" method="get">
+                        <div class="mb-3">
+                            <label for="nama" class="form-label">Nama Lengkap</label>
+                            <input type="text" name="nama" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="tempatlahir" class="form-label">Tempat Lahir</label>
+                            <input type="text" name="tempatlahir" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="tanggallahir" class="form-label">Tanggal Lahir</label>
+                            <input type="text" name="tanggallahir" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="telp" class="form-label">Nomor Telepon</label>
+                            <input type="text" name="telp" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="alamat" class="form-label">Alamat</label>
+                            <input type="text" name="alamat" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmpassword" class="form-label">Confirm Password</label>
+                            <input type="password" name="confirmpassword" class="form-control">
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary">Create Account</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3">
+                        <!-- <a href="{{url('/pasien')}}" class="text-decoration-none">Already have an account?</a> -->
+                        <button class="btn btn-link nav-link" id="loginLink">Already have an account?</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Admin -->
+    <div class="modal fade" id="modalAdmin" tabindex="-1" aria-labelledby="modalAdmin" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h5>Login Admin KKS</h5>
+                    </div>
+                    <br>
+                    <form action="{{url('/admin/dashboard')}}" method="post">
+                        @csrf
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-2 col-form-label">Username</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="username" class="form-control" autofocus>
+                            </div>
+                        </div>
+                        <div class="mb-3 d-flex align-items-center">
+                            <label for="password" class="form-label me-2">Password</label>
+                            <div class="input-group">
+                                <input type="password" name="password" class="form-control" id="passwordInput">
+                                <button type="button" id="toggleButton" class="btn btn-secondary" onclick="togglePasswordVisibilityAdmin()">
+                                    Show
+                                </button>
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary">Log In</button>
+                        </div>
+                    </form>
+
+                    @if($errors->has('passwordAdmin'))
+                        <script type="text/javascript">
+                            window.addEventListener('DOMContentLoaded', function() {
+                                var modalAdmin = document.getElementById('modalAdmin');
+                                var modal = new bootstrap.Modal(modalAdmin);
+                                modal.show();
+                            });
+                        </script>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <div class="card card-body border-0">
+                                    <div class="alert alert-danger">
+                                        {{ $errors->first('passwordAdmin') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="text-center">
@@ -84,4 +264,60 @@
         </div>
     </div>
 </body>
+
+<script>
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("passwordInput");
+        var toggleButton = document.getElementById("toggleButton");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleButton.textContent = "Hide";
+        } else {
+            passwordInput.type = "password";
+            toggleButton.textContent = "Show";
+        }
+    }
+    
+    function togglePasswordVisibilityAdmin() {
+        var passwordInput = document.getElementById("passwordInputAdmin");
+        var toggleButton = document.getElementById("toggleButton");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleButton.textContent = "Hide";
+        } else {
+            passwordInput.type = "password";
+            toggleButton.textContent = "Show";
+        }
+    }
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var registerBtn = document.getElementById("registerBtn");
+        var loginLink = document.getElementById("loginLink");
+        var modalPasien = document.getElementById("modalPasien");
+        var modalRegister = document.getElementById("modalRegister");
+
+        // Register button click event
+        registerBtn.addEventListener("click", function() {
+            modalPasien.classList.remove("show");
+            modalPasien.style.display = "none";
+            modalRegister.classList.add("show");
+            modalRegister.style.display = "block";
+        });
+
+        // Already have an account link click event
+        loginLink.addEventListener("click", function() {
+            modalRegister.classList.remove("show");
+            modalRegister.style.display = "none";
+            modalPasien.classList.add("show");
+            modalPasien.style.display = "block";
+        });
+    });
+
+
+
+
+</script>
 </html>
