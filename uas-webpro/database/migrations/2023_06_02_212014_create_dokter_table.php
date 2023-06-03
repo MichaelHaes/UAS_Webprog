@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('namaDokter');
             $table->string('jenisDokter');
             $table->string('fotoDokter');
+            $table->timestamps();
         });
     }
 

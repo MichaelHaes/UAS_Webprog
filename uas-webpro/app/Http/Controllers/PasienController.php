@@ -71,7 +71,7 @@ class PasienController extends Controller
 
     public function register()
     {
-        return view('pasien/register');
+        return redirect()->route('index');
     }
 
     public function forgotpass()

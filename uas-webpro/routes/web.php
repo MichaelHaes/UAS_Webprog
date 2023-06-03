@@ -32,10 +32,11 @@ Route::get('/insert', function(){
 
 //  Routing Admin
 Route::controller(AdminController::class)->group(function(){
-    Route::get('/admin', 'index');
+    Route::get('/admin', 'index');      
     Route::get('/admin/dashboard', 'dashboard');
     Route::post('/admin/dashboard', 'login')->middleware('web');
-    Route::get('/admin/dokter', 'dokter')->middleware('web');
+    Route::get('/admin/dokter', 'dokter')->middleware('web')->name('dokter');
+    Route::post('/admin/tambahdokter', 'tambahDokter')->middleware('web');
     Route::get('/admin/pasien', 'pasien')->middleware('web');
     Route::get('/admin/berkas', 'berkas')->middleware('web');
     Route::get('/admin/profil', 'profil')->middleware('web');
@@ -49,9 +50,9 @@ Route::controller(PasienController::class)->group(function(){
     Route::get('/pasien/dashboard', 'dashboard');
     Route::post('/pasien/dashboard', 'login')->middleware('web');
     Route::get('/pasien/logout', 'logout')->name('logout');
+    Route::post('/pasien/register', 'register');
     Route::get('/pasien/janji', 'janji');
     Route::get('/pasien/review', 'review');
     Route::get('/pasien/profil', 'profil');
-    Route::get('/pasien/register', 'register');
     Route::get('/pasien/forgotpass', 'forgotpass');
 });

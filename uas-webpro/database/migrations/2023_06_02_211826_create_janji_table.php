@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('idPasien')->references('idPasien')->on('pasien');
             $table->date('tanggal_temu');
             $table->string('status');
+            $table->timestamps();
         });
     }
 

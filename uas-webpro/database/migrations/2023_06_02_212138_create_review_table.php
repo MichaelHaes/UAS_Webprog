@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('idPasien')->references('idPasien')->on('janji');
             $table->integer('rating');
             $table->text('review');
+            $table->timestamps();
         });
     }
 

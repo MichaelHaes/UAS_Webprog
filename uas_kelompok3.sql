@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2023 at 12:20 AM
+-- Generation Time: Jun 03, 2023 at 08:44 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`idAdmin`, `username`, `password`) VALUES
-(1, 'admin', '$2y$10$JI47DcpWsnDleueRegF59efSwI9H8SF3ExA9ogTrpXZosgvd.sq8a');
+(1, 'admin', '$2y$10$Xm27dHVP9PVfn0liNlnST.oH8jU4Ji4xFgLa7venbItkWRCRn4EX6');
 
 -- --------------------------------------------------------
 
@@ -50,8 +50,18 @@ CREATE TABLE `dokter` (
   `idDokter` bigint(20) UNSIGNED NOT NULL,
   `namaDokter` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jenisDokter` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fotoDokter` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `fotoDokter` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `dokter`
+--
+
+INSERT INTO `dokter` (`idDokter`, `namaDokter`, `jenisDokter`, `fotoDokter`, `created_at`, `updated_at`) VALUES
+(1, 'Mikael', 'Dokter Umum', 'dokter/hUVJBj0bpdQePlCFaKQQL4iZub2FJI8QIwLrfogU.png', '2023-06-03 10:44:23', '2023-06-03 10:44:23'),
+(2, 'Harry', 'Dokter Hewan', 'dokter/kGfoZFUDEcAyKt92N7qbmbJN8f8LcYfdF5wbaqFs.png', '2023-06-03 11:15:00', '2023-06-03 11:15:00');
 
 -- --------------------------------------------------------
 
@@ -64,7 +74,9 @@ CREATE TABLE `janji` (
   `idDokter` bigint(20) UNSIGNED NOT NULL,
   `idPasien` bigint(20) UNSIGNED NOT NULL,
   `tanggal_temu` date NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -84,11 +96,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2023_06_02_212114_create_pasien_table', 1),
-(2, '2023_06_02_212014_create_dokter_table', 2),
-(3, '2023_06_02_212049_create_admin_table', 3),
-(4, '2023_06_02_211826_create_janji_table', 4),
-(5, '2023_06_02_212138_create_review_table', 5);
+(1, '2023_06_02_212014_create_dokter_table', 1),
+(2, '2023_06_02_212049_create_admin_table', 2),
+(3, '2023_06_02_212114_create_pasien_table', 3),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 4),
+(5, '2023_06_02_211826_create_janji_table', 4),
+(6, '2023_06_02_212138_create_review_table', 4);
 
 -- --------------------------------------------------------
 
@@ -103,7 +116,28 @@ CREATE TABLE `pasien` (
   `tanggalLahir` date NOT NULL,
   `telepon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `expires_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -117,7 +151,9 @@ CREATE TABLE `review` (
   `idDokter` bigint(20) UNSIGNED NOT NULL,
   `idPasien` bigint(20) UNSIGNED NOT NULL,
   `rating` int(11) NOT NULL,
-  `review` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `review` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -151,6 +187,14 @@ ALTER TABLE `pasien`
   ADD PRIMARY KEY (`idPasien`);
 
 --
+-- Indexes for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
@@ -166,7 +210,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `dokter`
 --
 ALTER TABLE `dokter`
-  MODIFY `idDokter` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idDokter` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `janji`
@@ -178,13 +222,19 @@ ALTER TABLE `janji`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
   MODIFY `idPasien` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `review`

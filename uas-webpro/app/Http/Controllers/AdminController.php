@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Dokter;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 
 class AdminController extends Controller
@@ -54,11 +56,40 @@ class AdminController extends Controller
 
 
     public function dokter() {
+        $dokters = Dokter::all();
+        $dokterData = [];
+
+        foreach ($dokters as $dokter) {
+            $foto = Storage::url($dokter->fotoDokter);
+
+            $dokterData[] = [
+                'id' => $dokter->id,
+                'namaDokter' => $dokter->namaDokter,
+                'jenisDokter' => $dokter->jenisDokter,
+                'foto' => $foto
+            ];
+        }
+        
         return view('admin/profilDokter',
             [
                 'username'=>Session::get('username'),
-                'password'=>Session::get('password')
+                'password'=>Session::get('password'),
+                'dokters'=>$dokterData
             ]);
+    }
+
+    public function tambahDokter(Request $request) {
+        $path = $request->file('foto')->storePublicly('dokter', 'public');
+        $ext = $request->file('foto')->extension();
+
+        $dokter = new Dokter();
+        $dokter->namaDokter = $request->nama;
+        $dokter->jenisDokter = $request->spesialisasi;
+        $dokter->fotoDokter = $path;
+        $dokter->save();
+        
+
+        return redirect()->route('dokter');
     }
 
     public function pasien() {

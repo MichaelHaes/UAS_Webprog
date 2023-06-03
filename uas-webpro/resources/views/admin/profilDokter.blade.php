@@ -7,9 +7,20 @@
     <title>Profil Dokter</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <style>
+        .container {
+            width: 50%;
+            margin-top: 20px;
+        }
+        img {
+            width: 180px;
+        }
+        
+    </style>
+
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{url('/admin/dashboard')}}">KKS</a>
@@ -40,5 +51,88 @@
             </div>
         </div>
     </nav>
+
+    <div class="container" id="containerSize">
+        <div class="d-grid col-4 mx-auto">
+            <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalDokter">
+                Tambah Dokter
+            </button>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-body">
+                @foreach($dokters as $dokter)
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <img src="{{asset($dokter['foto'])}}">
+                                </div>
+                                <div class="col">
+                                    <h3 class="mb-1">{{$dokter['namaDokter']}}</h3>
+                                    <h6 class="text-muted">{{$dokter['jenisDokter']}}</h6>
+                                    <br><br><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="d-grid">
+                                                <button class="btn btn-primary">Update</button>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="d-grid">
+                                                <button class="btn btn-danger">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+            
+    </div>
+
+    <!-- Modal Add Doctor -->
+    <div class="modal fade" id="modalDokter" tabindex="-1" aria-labelledby="modalPasien" aria-hidden="true">    
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h5>Tambah Dokter</h5>
+                    </div>
+                    <br>
+                    <form action="{{url('/admin/tambahdokter')}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-3 col-form-label">Nama Dokter</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="nama" class="form-control" autofocus>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-3 col-form-label">Spesialisasi</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="spesialisasi" class="form-control">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-3 col-form-label">Foto</label>
+                            <div class="col-sm-9">
+                                <input type="file" name="foto" class="form-control">
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary">Tambah</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </body>
 </html>

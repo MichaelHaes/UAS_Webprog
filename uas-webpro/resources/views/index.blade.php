@@ -9,8 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <style>
         p {text-align: center;}
-        
-        
     </style>
 </head>
 <body>
@@ -18,8 +16,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="{{url('/')}}">
                 <div style="display: flex; align-items: center;">
-                    <img src="{{url('images/logo.jpg')}}" class="img-responsive" width="50" height="50" style="margin-right: 10px;">
-                    <p style="margin: 0;">KKS</p>
+                    <img src="{{url('images/logo.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
                 </div>
             </a>
 
@@ -50,7 +47,7 @@
     </nav>
 
     <!-- Modal Pasien -->
-    <div class="modal fade" id="modalPasien" tabindex="-1" aria-labelledby="modalPasien" aria-hidden="true">>
+    <div class="modal fade" id="modalPasien" tabindex="-1" aria-labelledby="modalPasien" aria-hidden="true">    
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
@@ -80,9 +77,8 @@
                         </div>
                     </form>
                     
-                    <div class="text-center mt-3">
+                    <div class="d-flex justify-content-center mt-3">
                         <button class="btn btn-link nav-link" id="registerBtn">Register</button>
-                        <!-- <a href="{{url('/pasien/register')}}" class="text-decoration-none">Register</a> -->
                     </div>
                     <div class="text-center mt-2">
                         <a href="{{url('/pasien/forgotpass')}}" class="text-decoration-none">Forgot Password?</a>
@@ -119,7 +115,8 @@
                         <h5>Register KKS</h5>
                     </div>
                     <br>
-                    <form action="{{url('/pasien')}}" method="get">
+                    <form action="{{url('pasien/register')}}" method="post">
+                        @csrf
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Lengkap</label>
                             <input type="text" name="nama" class="form-control">
@@ -152,7 +149,7 @@
                             <button class="btn btn-primary">Create Account</button>
                         </div>
                     </form>
-                    <div class="text-center mt-3">
+                    <div class="d-flex justify-content-center mt-3">
                         <!-- <a href="{{url('/pasien')}}" class="text-decoration-none">Already have an account?</a> -->
                         <button class="btn btn-link nav-link" id="loginLink">Already have an account?</button>
                     </div>
