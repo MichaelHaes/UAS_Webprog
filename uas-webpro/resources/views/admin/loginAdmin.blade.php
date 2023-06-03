@@ -11,7 +11,9 @@
 <body>
     <nav class="navbar navbar-expand-sm bg-info navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{url('/')}}">KKS</a>
+            <a class="navbar-brand" href="{{url('/')}}">
+                <img src="{{url('images/logo.jpg')}}" class="img-responsive" width="50" height="50">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
