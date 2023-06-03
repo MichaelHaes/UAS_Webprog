@@ -29,6 +29,9 @@
     </nav>
     <br>
     <div class="container">
+        <div class="text-center">
+            <img src="{{url('/images/klinik.jpg')}}" alt="..." style="width: 50%;">
+        </div>
         <div class="row justify-content-center">
             <div class="col-lg-4">
                 <div class="card card-body">
@@ -62,7 +65,19 @@
             </div>
         </div>
     </div>
-
+    <div class="text-center text-lg-start bg-light text-muted" style="padding-top: 0.2px;">
+        <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3 justify-content-center">
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-center">
+                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                    <p><i class="fas fa-print me-3"></i>+62-21.5422.0800</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2023 Klinik Kita Sehat
+        </div>
+    </div>
 </body>
 <script>
   function togglePasswordVisibility() {
