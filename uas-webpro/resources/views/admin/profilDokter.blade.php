@@ -21,9 +21,11 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-sm bg-info navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{url('/admin/dashboard')}}">KKS</a>
+            <a class="navbar-brand" href="{{url('/admin/dashboard')}}">
+                <img src="{{url('images/logo.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 5px;">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -66,7 +68,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-auto">
-                                    <img src="{{asset($dokter['foto'])}}">
+                                    <img src="{{asset($dokter['foto'])}}" id="fotoDokter">
                                 </div>
                                 <div class="col">
                                     <h3 class="mb-1">{{$dokter['namaDokter']}}</h3>

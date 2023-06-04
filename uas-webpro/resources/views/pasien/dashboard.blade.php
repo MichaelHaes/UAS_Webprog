@@ -9,9 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-sm bg-info navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{url('/pasien/dashboard')}}">Navbar</a>
+            <a class="navbar-brand" href="{{url('/pasien/dashboard')}}">
+                <img src="{{url('images/logo.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,12 +42,26 @@
         <div class="text-center">
             <img src="{{url('/images/klinik.jpg')}}" alt="..." style="width: 50%;">
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odit sunt doloremque, iste placeat laudantium facere corporis inventore quae blanditiis voluptatem quod vero, deleniti voluptatum voluptate unde distinctio nostrum omnis!
+        <br>
+        <div class="text-center">
+            <a class="nav-link" href="{{url('/pasien/janji')}}">
+                <img src="{{url('images/janji.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+            </a>
+        </div>
+        <br>
+        <div class="text-center">
+            <a class="nav-link" href="{{url('/pasien/review')}}">
+                <img src="{{url('images/review.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+            </a>
+        </div>
+
+        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odit sunt doloremque, iste placeat laudantium facere corporis inventore quae blanditiis voluptatem quod vero, deleniti voluptatum voluptate unde distinctio nostrum omnis!
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio sint aperiam obcaecati sit fuga illum mollitia odio similique esse, totam sunt nam nulla, molestias ipsa consectetur accusantium impedit. Perferendis, repellat!
-        </p>
+        </p> -->
     </div>
 </body>
-<footer class="text-white text-center text-lg-start navbar fixed-bottom" style="background-color: #23242a;">
+<br>
+<footer class="text-white text-center text-lg-start navbar " style="background-color: #23242a;">
     <!-- Grid container -->
     <div class="container p-4">
         <!--Grid row-->

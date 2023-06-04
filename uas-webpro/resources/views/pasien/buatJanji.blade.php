@@ -9,9 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-sm bg-info navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{url('/pasien/dashboard')}}">Navbar</a>
+            <a class="navbar-brand" href="{{url('/pasien/dashboard')}}">
+                <img src="{{url('images/logo.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -36,6 +38,13 @@
             </ul>
         </div>
     </nav>
+    <br>
+    <div class="container">
+        <div class="text-center">
+            <img src="{{url('/images/janji.png')}}" alt="..." style="width: 30%;">
+        </div>
+    </div>
+    <br>
 </body>
 <footer class="text-white text-center text-lg-start navbar fixed-bottom" style="background-color: #23242a;">
     <!-- Grid container -->

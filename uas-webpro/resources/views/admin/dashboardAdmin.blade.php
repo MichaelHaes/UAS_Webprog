@@ -10,7 +10,7 @@
     <style>
         @media only screen and (max-width: 600px) {
             .navbar {
-                height: ;
+                height: 0;
             }
         }
 
@@ -35,9 +35,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-sm bg-info navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{url('/admin/dashboard')}}">KKS</a>
+            <a class="navbar-brand" href="{{url('/admin/dashboard')}}">
+                <img src="{{url('images/logo.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -71,12 +73,32 @@
             <img src="{{url('/images/klinik.jpg')}}" alt="..." style="width: 50%;">
         </div>
         <br>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odit sunt doloremque, iste placeat laudantium facere corporis inventore quae blanditiis voluptatem quod vero, deleniti voluptatum voluptate unde distinctio nostrum omnis!
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio sint aperiam obcaecati sit fuga illum mollitia odio similique esse, totam sunt nam nulla, molestias ipsa consectetur accusantium impedit. Perferendis, repellat!
-        </p>
+        <div class="text-center">
+            <a class="nav-link" href="{{url('/admin/dokter')}}">
+                <img src="{{url('images/.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+            </a>
+        </div>
+        <br>
+        <div class="text-center">
+            <a class="nav-link" href="{{url('/admin/pasien')}}">
+                <img src="{{url('images/data.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+            </a>
+        </div>
+        <br>
+        <div class="text-center">
+            <a class="nav-link" href="{{url('/admin/berkas')}}">
+                <img src="{{url('images/berkas.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+            </a>
+        </div>
+        <!-- <div style="display: flex; align-items: center;">
+            <img src="dokter.png" width="500" height="600">
+        </div> -->
+        <!-- <p>
+            Klinik Kita Sehat memberikan pelayanan yang cepat, prefentif kepada pasien dengan harga yang terjangkau.
+        </p> -->
     </div>
 </body>
-
+<br>
 <footer class="text-white text-center text-lg-start navbar" style="background-color: #23242a;">
     <!-- Grid container -->
     <div class="container p-4">
