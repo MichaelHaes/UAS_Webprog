@@ -92,6 +92,26 @@
                         </div>
                     </div>
                     <br>
+                    <div class="form-group row">
+                        <label for="tanggal" class="col-sm-2 col-form-label">Tanggal:</label>
+                        <div class="col-sm-10">
+                            <select id="waktu" name="waktu" class="form-control">
+                                <option>9.00 - 10.00</option>
+                                <option>10.00 - 11.00</option>
+                                <option>11.00 - 12.00</option>
+                                <option>12.00 - 13.00</option>
+                                <option>13.00 - 14.00</option>
+                                <option>14.00 - 15.00</option>
+                                <option>15.00 - 16.00</option>
+                                <option>16.00 - 17.00</option>
+                                <option>17.00 - 18.00</option>
+                                <option>18.00 - 19.00</option>
+                                <option>19.00 - 20.00</option>
+                                <option>20.00 - 21.00</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
