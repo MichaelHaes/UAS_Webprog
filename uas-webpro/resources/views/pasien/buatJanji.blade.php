@@ -79,6 +79,13 @@
                     </div>
                     <br>
                     <div class="form-group row">
+                        <label for="tanggal" class="col-sm-2 col-form-label">Keluhan:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="keluhan" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
                         <label for="tanggal" class="col-sm-2 col-form-label">Tanggal:</label>
                         <div class="col-sm-10">
                             <input type="date" id="tanggal" class="form-control">
