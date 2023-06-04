@@ -42,12 +42,41 @@
         </div>
     </nav>
     <br>
-<div class="container">
-    <div class="text-center">
-        <img src="{{url('/images/data.png')}}" alt="..." style="width: 30%;">
+    <div class="container">
+        <div class="text-center">
+            <img src="{{url('/images/data.png')}}" alt="..." style="width: 5%;">
+            <h4>Data Pasien</h4>
+        </div>
+        <br>
+
+        <div class="card">
+            <div class="card-body">
+                @foreach($pasien as $index => $pasen)
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $index }}" aria-expanded="false" aria-controls="collapse{{ $index }}">
+                                    {{ $pasen['id'] }}# {{ $pasen['nama'] }}
+                                </button>
+                            </h2>
+                            <div id="collapse{{ $index }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p><strong>Username:</strong> {{ $pasen['username'] }}</p>
+                                    <p><strong>Tempat Lahir:</strong> {{ $pasen['tempatlahir'] }}</p>
+                                    <p><strong>Tanggal Lahir:</strong> {{ $pasen['tanggallahir'] }}</p>
+                                    <p><strong>Telepon:</strong> {{ $pasen['telepon'] }}</p>
+                                    <p><strong>Alamat:</strong> {{ $pasen['alamat'] }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+
     </div>
-</div>
-<br>
+    <br>
 </body>
 <footer class="text-white text-center text-lg-start navbar" style="background-color: #23242a;">
     <!-- Grid container -->

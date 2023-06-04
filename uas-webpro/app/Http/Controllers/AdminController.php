@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dokter;
+use App\Models\Pasien;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -93,10 +94,25 @@ class AdminController extends Controller
     }
 
     public function pasien() {
+        $pasiens = Pasien::all();
+        $pasienData = [];
+
+        foreach ($pasiens as $pasien) {
+            $pasienData[] = [
+                'id' => $pasien->idPasien,
+                'username'=>$pasien->username,
+                'nama' => $pasien->nama,
+                'tempatlahir' => $pasien->tempatLahir,
+                'tanggallahir' => $pasien->tanggalLahir,
+                'telepon' => $pasien->telepon,
+                'alamat' => $pasien->alamat
+            ];
+        }
         return view('admin/dataPasien',
             [
                 'username'=>Session::get('username'),
-                'password'=>Session::get('password')
+                'password'=>Session::get('password'),
+                'pasien'=>$pasienData
             ]);
     }
 
