@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
     <style>
-        img {
+        .imgDokter {
             width: 180px;
         }
 
@@ -72,7 +72,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-auto">
-                                    <img src="{{asset($dokter['foto'])}}" id="fotoDokter">
+                                    <img src="{{asset($dokter['foto'])}}" class="imgDokter">
                                 </div>
                                 <div class="col">
                                     <h3 class="mb-1">{{$dokter['namaDokter']}}</h3>
