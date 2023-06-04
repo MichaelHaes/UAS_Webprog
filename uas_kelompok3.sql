@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2023 at 08:44 PM
+-- Generation Time: Jun 04, 2023 at 10:09 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`idAdmin`, `username`, `password`) VALUES
-(1, 'admin', '$2y$10$Xm27dHVP9PVfn0liNlnST.oH8jU4Ji4xFgLa7venbItkWRCRn4EX6');
+(1, 'admin', '$2y$10$L3LUeu0tshSmsPPEJVg1P.C7BMbivGXF.8SFQ3Ynenx3fxqv5asZO');
 
 -- --------------------------------------------------------
 
@@ -60,8 +60,8 @@ CREATE TABLE `dokter` (
 --
 
 INSERT INTO `dokter` (`idDokter`, `namaDokter`, `jenisDokter`, `fotoDokter`, `created_at`, `updated_at`) VALUES
-(1, 'Mikael', 'Dokter Umum', 'dokter/hUVJBj0bpdQePlCFaKQQL4iZub2FJI8QIwLrfogU.png', '2023-06-03 10:44:23', '2023-06-03 10:44:23'),
-(2, 'Harry', 'Dokter Hewan', 'dokter/kGfoZFUDEcAyKt92N7qbmbJN8f8LcYfdF5wbaqFs.png', '2023-06-03 11:15:00', '2023-06-03 11:15:00');
+(1, 'Mikael', 'Dokter Umum', 'dokter/ooQKdCBnQmpuoWaxl6T5Qg27YEjzZIEhFEFReufI.png', '2023-06-04 01:08:17', '2023-06-04 01:08:17'),
+(2, 'Harry', 'Dokter Hewan', 'dokter/qJQdbyhW7MuteVgfR5YHFeBkJDOzqjULzUbzm27g.png', '2023-06-04 01:08:31', '2023-06-04 01:08:31');
 
 -- --------------------------------------------------------
 
@@ -96,12 +96,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2023_06_02_212014_create_dokter_table', 1),
-(2, '2023_06_02_212049_create_admin_table', 2),
-(3, '2023_06_02_212114_create_pasien_table', 3),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 4),
-(5, '2023_06_02_211826_create_janji_table', 4),
-(6, '2023_06_02_212138_create_review_table', 4);
+(11, '2023_06_02_212114_create_pasien_table', 1),
+(12, '2023_06_02_212049_create_admin_table', 2),
+(13, '2023_06_02_212014_create_dokter_table', 3),
+(14, '2019_12_14_000001_create_personal_access_tokens_table', 4),
+(15, '2023_06_02_211826_create_janji_table', 4),
+(16, '2023_06_02_212138_create_review_table', 4);
 
 -- --------------------------------------------------------
 
@@ -111,6 +111,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `pasien` (
   `idPasien` bigint(20) UNSIGNED NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tempatLahir` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggalLahir` date NOT NULL,
@@ -120,6 +121,13 @@ CREATE TABLE `pasien` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pasien`
+--
+
+INSERT INTO `pasien` (`idPasien`, `username`, `nama`, `tempatLahir`, `tanggalLahir`, `telepon`, `alamat`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'pasien', 'pasien', 'Tangerang', '2023-06-02', '12345678', 'Tangerang', '$2y$10$kjxQ2URCgf8/OymhC1/bb.0R2pIohnsdqJPT8mq8K7EigiUOHkHM6', '2023-06-04 01:07:51', '2023-06-04 01:07:51');
 
 -- --------------------------------------------------------
 
@@ -210,7 +218,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `dokter`
 --
 ALTER TABLE `dokter`
-  MODIFY `idDokter` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idDokter` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `janji`
@@ -222,13 +230,13 @@ ALTER TABLE `janji`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `idPasien` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idPasien` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`

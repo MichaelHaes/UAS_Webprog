@@ -67,7 +67,7 @@
                             <label for="password" class="form-label me-2">Password</label>
                             <div class="input-group">
                                 <input type="password" name="password" class="form-control" id="passwordInput">
-                                <button type="button" id="toggleButton" class="btn btn-secondary" onclick="togglePasswordVisibilityAdmin()">
+                                <button type="button" id="toggleButton" class="btn btn-secondary" onclick="togglePasswordVisibility()">
                                     Show
                                 </button>
                             </div>
@@ -80,9 +80,6 @@
                     <div class="d-flex justify-content-center mt-3">
                         <button class="btn btn-link nav-link" id="registerBtn">Register</button>
                     </div>
-                    <div class="text-center mt-2">
-                        <a href="{{url('/pasien/forgotpass')}}" class="text-decoration-none">Forgot Password?</a>
-                    </div>
                     @if($errors->has('passwordPasien'))
                         <script type="text/javascript">
                             window.addEventListener('DOMContentLoaded', function() {
@@ -92,10 +89,13 @@
                             });
                         </script>
                         <div class="row justify-content-center">
-                            <div class="col-lg-6">
+                            <div class="col-lg-8">
                                 <div class="card card-body border-0">
                                     <div class="alert alert-danger">
                                         {{ $errors->first('passwordPasien') }}
+                                        <div>
+                                            <a href="{{url('/pasien/forgotpass')}}" class="text-decoration-none">Forgot password?</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -117,46 +117,90 @@
                     <br>
                     <form action="{{url('pasien/register')}}" method="post">
                         @csrf
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Lengkap</label>
-                            <input type="text" name="nama" class="form-control">
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-2 col-form-label">Username</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="username" class="form-control" autofocus>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="tempatlahir" class="form-label">Tempat Lahir</label>
-                            <input type="text" name="tempatlahir" class="form-control">
+                        <div class="mb-3 row">
+                            <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="nama" class="form-control">
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="tanggallahir" class="form-label">Tanggal Lahir</label>
-                            <input type="text" name="tanggallahir" class="form-control">
+                        <div class="mb-3 row">
+                            <label for="tempatlahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="tempatlahir" class="form-control">
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="telp" class="form-label">Nomor Telepon</label>
-                            <input type="text" name="telp" class="form-control">
+                        <div class="mb-3 row">
+                            <label for="tanggallahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                            <div class="col-sm-10">
+                                <input type="date" name="tanggallahir" class="form-control">
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <input type="text" name="alamat" class="form-control">
+                        <div class="mb-3 row">
+                            <label for="telp" class="col-sm-2 col-form-label">Nomor Telepon</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="telp" class="form-control">
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control">
+                        <div class="mb-3 row">
+                            <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="alamat" class="form-control">
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="confirmpassword" class="form-label">Confirm Password</label>
-                            <input type="password" name="confirmpassword" class="form-control">
+                        <div class="mb-3 d-flex align-items-center">
+                            <label for="password" class="col-sm-2 col-form-label">Password</label>
+                            <div class="input-group">
+                                <input type="password" name="password" class="form-control" id="passwordInputRegister">
+                                <button type="button" id="toggleButtonReg" class="btn btn-secondary" onclick="togglePasswordVisibilityReg()">
+                                    Show
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mb-3 d-flex align-items-center">
+                            <label for="confirmpassword" class="col-sm-2 col-form-label">Confirm Password</label>
+                            <div class="input-group">
+                                <input type="password" name="confirmPassword" class="form-control" id="passwordConfirmRegister">
+                                <button type="button" id="toggleButtonRegConfirm" class="btn btn-secondary" onclick="togglePasswordVisibilityRegConfirm()">
+                                    Show
+                                </button>
+                            </div>
                         </div>
                         <div class="d-grid">
                             <button class="btn btn-primary">Create Account</button>
                         </div>
                     </form>
                     <div class="d-flex justify-content-center mt-3">
-                        <!-- <a href="{{url('/pasien')}}" class="text-decoration-none">Already have an account?</a> -->
                         <button class="btn btn-link nav-link" id="loginLink">Already have an account?</button>
                     </div>
+                    @if($errors->has('registration'))
+                        <script type="text/javascript">
+                            window.addEventListener('DOMContentLoaded', function() {
+                                var modalRegister = document.getElementById('modalRegister');
+                                var modal = new bootstrap.Modal(modalRegister);
+                                modal.show();
+                            });
+                        </script>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="card card-body border-0">
+                                    <div class="alert alert-danger">
+                                        {{ $errors->first('registration') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
+
 
 
     <!-- Modal Admin -->
@@ -180,7 +224,7 @@
                             <label for="password" class="form-label me-2">Password</label>
                             <div class="input-group">
                                 <input type="password" name="password" class="form-control" id="passwordInput">
-                                <button type="button" id="toggleButton" class="btn btn-secondary" onclick="togglePasswordVisibilityAdmin()">
+                                <button type="button" id="toggleButtonAdmin" class="btn btn-secondary" onclick="togglePasswordVisibilityAdmin()">
                                     Show
                                 </button>
                             </div>
@@ -248,27 +292,38 @@
     </div>
     <br>
     <!-- Remove the container if you want to extend the Footer to full width. -->
-    <!-- Footer -->
-    <footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
-    <!-- Grid container -->
-    <div class="container p-4">
-        <!--Grid row-->
-        <div class="row mt-4">
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-            <h5 class="text-uppercase mb-4 text-center">Tentang Klinik</h5>
+<footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row mt-4">
+      <!--Grid column-->
+      <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4">Tentang Klinik</h5>
 
-            <p>
-            Klinik Kita Sehat selalu memberikan layanan kesehatan untuk semua orang dengan cepat dan harga yang terjangkau.
-            </p>
+        <p>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+          voluptatum deleniti atque corrupti.
+        </p>
 
-            <!-- <p>
-            Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
-            molestias.
-            </p> -->
+        <p>
+          Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
+          molestias.
+        </p>
 
+        <div class="mt-4">
+          <!-- Facebook -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-facebook-f"></i></a>
+          <!-- Dribbble -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-dribbble"></i></a>
+          <!-- Twitter -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-twitter"></i></a>
+          <!-- Google + -->
+          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-google-plus-g"></i></a>
+          <!-- Linkedin -->
         </div>
-        <!--Grid column-->
+      </div>
+      <!--Grid column-->
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
@@ -335,9 +390,35 @@
         }
     }
     
+    function togglePasswordVisibilityReg() {
+        var passwordInput = document.getElementById("passwordInputRegister");
+        var toggleButton = document.getElementById("toggleButtonReg");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleButton.textContent = "Hide";
+        } else {
+            passwordInput.type = "password";
+            toggleButton.textContent = "Show";
+        }
+    }
+
+    function togglePasswordVisibilityRegConfirm() {
+        var passwordInput = document.getElementById("passwordConfirmRegister");
+        var toggleButton = document.getElementById("toggleButtonRegConfirm");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleButton.textContent = "Hide";
+        } else {
+            passwordInput.type = "password";
+            toggleButton.textContent = "Show";
+        }
+    }
+    
     function togglePasswordVisibilityAdmin() {
         var passwordInput = document.getElementById("passwordInputAdmin");
-        var toggleButton = document.getElementById("toggleButton");
+        var toggleButton = document.getElementById("toggleButtonAdmin");
 
         if (passwordInput.type === "password") {
             passwordInput.type = "text";

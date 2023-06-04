@@ -29,13 +29,13 @@ class AdminController extends Controller
             ]);
     }
 
-    public function login()
+    public function login(Request $request)
     {
         $res = DB::select("select * from admin where idAdmin = ?", [1]);
-        if(Hash::check($_POST["password"], $res[0]->password)) {
+        if(Hash::check($request->password, $res[0]->password)) {
             Session::start();
-            Session::put('username', $_POST["username"]);
-            Session::put('password', $_POST["password"]);
+            Session::put('username', $request->username);
+            Session::put('password', $request->password);
             return view('admin/dashboardAdmin',
                 [
                     'username'=>Session::get('username'),
