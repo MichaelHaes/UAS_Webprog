@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pasien;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class PasienController extends Controller
 {
@@ -24,16 +28,23 @@ class PasienController extends Controller
             ]);
     }
 
-    public function login()
+    public function login(Request $request)
     {
-        Session::start();
-        Session::put('username', $_POST["username"]);
-        Session::put('password', $_POST["password"]);
-        return view('pasien/dashboard',
-            [
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password')
+        $pasien = Pasien::where('username', $request->username)->first();
+        if($pasien && Hash::check($request->password, $pasien->password)) {
+            Session::start();
+            Session::put('username', $request->username);
+            Session::put('password', $request->password);
+            return view('pasien/dashboard',
+                [
+                    'username'=>Session::get('username'),
+                    'password'=>Session::get('password')
+                ]);
+        } else {
+            throw ValidationException::withMessages([
+                'passwordPasien' => 'That password was incorrect. Please try again.',
             ]);
+        }
     }
 
     public function logout()
@@ -69,8 +80,25 @@ class PasienController extends Controller
             ]);
     }
 
-    public function register()
+    public function register(Request $request)
     {
+        if($request->password == $request->confirmPassword) {
+            $hashedPassword = Hash::make($request->password);
+            $pasien = new Pasien();
+            $pasien->username = $request->username;
+            $pasien->nama = $request->nama;
+            $pasien->tempatLahir = $request->tempatlahir;
+            $pasien->tanggalLahir = $request->tanggallahir;
+            $pasien->telepon = $request->telp;
+            $pasien->alamat = $request->alamat;
+            $pasien->password = $hashedPassword;
+            $pasien->save();
+        } else {
+            throw ValidationException::withMessages([
+                'registration' => 'Password must be the same!',
+            ]);
+        }
+
         return redirect()->route('index');
     }
 
