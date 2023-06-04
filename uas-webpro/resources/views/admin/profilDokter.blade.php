@@ -9,10 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
     <style>
-        .container {
-            width: 50%;
-            margin-top: 20px;
-        }
         img {
             width: 180px;
         }
@@ -61,7 +57,7 @@
             </div>
         </div>
     </nav>
-
+    <br>
     <div class="container" id="containerSize">
         <div class="d-grid col-4 mx-auto">
             <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalDokter">
@@ -69,7 +65,7 @@
             </button>
         </div>
         <br>
-        <div class="card">
+        <div class="card w-50 mx-auto">
             <div class="card-body">
                 @foreach($dokters as $dokter)
                     <div class="card mb-3">
