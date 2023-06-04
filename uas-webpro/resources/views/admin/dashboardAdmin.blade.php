@@ -7,6 +7,31 @@
     <title>Klinik Kita Sehat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <style>
+        @media only screen and (max-width: 600px) {
+            .navbar {
+                height: ;
+            }
+        }
+
+        @media only screen and (max-width: 800px) {
+            .navbar {
+                height: 100px;
+            }
+        }
+        
+        @media only screen and (max-width: 1000px) {
+            .navbar {
+                height: 150px;
+            }
+        }
+
+        @media only screen and (max-width: 1200px) {
+            .navbar {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -19,13 +44,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/admin/dokter')}}">Profil Dokter</a>
+                        <a class="nav-link text-end" href="{{url('/admin/dokter')}}">Profil Dokter</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/admin/pasien')}}">Data Pasien</a>
+                        <a class="nav-link text-end" href="{{url('/admin/pasien')}}">Data Pasien</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/admin/berkas')}}">Berkas Janji</a>
+                        <a class="nav-link text-end" href="{{url('/admin/berkas')}}">Berkas Janji</a>
                     </li> 
                 </ul>
             </div>
@@ -52,7 +77,7 @@
     </div>
 </body>
 
-<footer class="text-white text-center text-lg-start navbar fixed-bottom" style="background-color: #23242a;">
+<footer class="text-white text-center text-lg-start navbar" style="background-color: #23242a;">
     <!-- Grid container -->
     <div class="container p-4">
         <!--Grid row-->
