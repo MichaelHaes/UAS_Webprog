@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2023 at 10:09 AM
+-- Generation Time: Jun 04, 2023 at 06:45 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -74,6 +74,7 @@ CREATE TABLE `janji` (
   `idDokter` bigint(20) UNSIGNED NOT NULL,
   `idPasien` bigint(20) UNSIGNED NOT NULL,
   `tanggal_temu` date NOT NULL,
+  `keluhan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -127,7 +128,8 @@ CREATE TABLE `pasien` (
 --
 
 INSERT INTO `pasien` (`idPasien`, `username`, `nama`, `tempatLahir`, `tanggalLahir`, `telepon`, `alamat`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'pasien', 'pasien', 'Tangerang', '2023-06-02', '12345678', 'Tangerang', '$2y$10$kjxQ2URCgf8/OymhC1/bb.0R2pIohnsdqJPT8mq8K7EigiUOHkHM6', '2023-06-04 01:07:51', '2023-06-04 01:07:51');
+(1, 'pasien', 'pasien', 'Tangerang', '2023-06-02', '12345678', 'Tangerang', '$2y$10$kjxQ2URCgf8/OymhC1/bb.0R2pIohnsdqJPT8mq8K7EigiUOHkHM6', '2023-06-04 01:07:51', '2023-06-04 01:07:51'),
+(2, 'michael', 'Michael Harry Setiawan', 'Cirebon', '2002-10-01', '0812345678', 'Allogio', '$2y$10$iMHA.TFwefFBbMf9atsZ9eoekt5adfC3lNzPPZxEnzM4SYLKEP4PG', '2023-06-04 07:40:21', '2023-06-04 07:40:21');
 
 -- --------------------------------------------------------
 
@@ -236,7 +238,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `idPasien` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idPasien` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
