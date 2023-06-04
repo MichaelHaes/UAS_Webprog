@@ -45,25 +45,14 @@
         <div class="text-center">
             <img src="{{url('/images/klinik.jpg')}}" alt="..." style="width: 50%;">
         </div>
+        <br>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odit sunt doloremque, iste placeat laudantium facere corporis inventore quae blanditiis voluptatem quod vero, deleniti voluptatum voluptate unde distinctio nostrum omnis!
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio sint aperiam obcaecati sit fuga illum mollitia odio similique esse, totam sunt nam nulla, molestias ipsa consectetur accusantium impedit. Perferendis, repellat!
         </p>
     </div>
-    <div class="text-center text-lg-start bg-light text-muted" style="padding-top: 0.2px;">
-        <div class="container text-center text-md-start mt-5">
-            <div class="row mt-3 justify-content-center">
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-center">
-                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                    <p><i class="fas fa-print me-3"></i>+62-21.5422.0800</p>
-                </div>
-            </div>
-        </div>
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2023 Klinik Kita Sehat
-        </div>
-    </div>
 </body>
-<footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
+
+<footer class="text-white text-center text-lg-start navbar fixed-bottom" style="background-color: #23242a;">
     <!-- Grid container -->
     <div class="container p-4">
         <!--Grid row-->
@@ -86,6 +75,7 @@
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4 text-center">INFORMASI KLINIK</h5>
             <ul class="fa-ul" style="margin-left: 1.65em;">
             <li class="mb-3">
                 <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Jl. Boulevard, Gading Serpong, Kel. Curug Sangereng, Kec. Kelapa Dua, Kab. Tangerang,
@@ -107,7 +97,7 @@
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase mb-4">Jam Buka</h5>
+            <h5 class="text-uppercase mb-4 text-center">Jam Buka</h5>
 
             <table class="table text-center text-black">
             <tbody class="font-weight-normal">

@@ -272,6 +272,7 @@
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4 text-center">INFORMASI KLINIK</h5>
             <ul class="fa-ul" style="margin-left: 1.65em;">
             <li class="mb-3">
                 <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Jl. Boulevard, Gading Serpong, Kel. Curug Sangereng, Kec. Kelapa Dua, Kab. Tangerang,
@@ -293,7 +294,7 @@
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase mb-4">Jam Buka</h5>
+            <h5 class="text-uppercase mb-4 text-center">Jam Buka</h5>
 
             <table class="table text-center text-black">
             <tbody class="font-weight-normal">
@@ -312,12 +313,7 @@
         </div>
         <!--Grid row-->
     </div>
-    <!-- Grid container -->
 
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2023 Klinik Kita Sehat
-    </div>
   <!-- Copyright -->
 </footer>
 

@@ -63,7 +63,7 @@
 
 </body>
 
-<footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
+<footer class="text-white text-center text-lg-start navbar fixed-bottom" style="background-color: #23242a;">
     <!-- Grid container -->
     <div class="container p-4">
         <!--Grid row-->
@@ -86,6 +86,7 @@
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4 text-center">INFORMASI KLINIK</h5>
             <ul class="fa-ul" style="margin-left: 1.65em;">
             <li class="mb-3">
                 <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Jl. Boulevard, Gading Serpong, Kel. Curug Sangereng, Kec. Kelapa Dua, Kab. Tangerang,
@@ -107,7 +108,7 @@
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase mb-4">Jam Buka</h5>
+            <h5 class="text-uppercase mb-4 text-center">Jam Buka</h5>
 
             <table class="table text-center text-black">
             <tbody class="font-weight-normal">
@@ -127,5 +128,5 @@
         <!--Grid row-->
     </div>
     <!-- Grid container -->
-    
+
 </html>
