@@ -38,6 +38,7 @@ class PasienController extends Controller
         }
         return view('pasien/dashboard',
             [
+                'namaPasien'=>Session::get('nama'),
                 'username'=>Session::get('username'),
                 'password'=>Session::get('password'),
                 'dokters'=>$dokterData
@@ -63,10 +64,12 @@ class PasienController extends Controller
         $pasien = Pasien::where('username', $request->username)->first();
         if($pasien && Hash::check($request->password, $pasien->password)) {
             Session::start();
+            Session::put('nama', $pasien->nama);
             Session::put('username', $request->username);
             Session::put('password', $request->password);
             return view('pasien/dashboard',
                 [
+                    'namaPasien'=>Session::get('nama'),
                     'username'=>Session::get('username'),
                     'password'=>Session::get('password'),
                     'dokters'=>$dokterData
@@ -86,10 +89,25 @@ class PasienController extends Controller
 
     public function janji()
     {
+        $dokters = Dokter::all();
+        $dokterData = [];
+
+        foreach ($dokters as $dokter) {
+            $foto = Storage::url($dokter->fotoDokter);
+
+            $dokterData[] = [
+                'id' => $dokter->id,
+                'namaDokter' => $dokter->namaDokter,
+                'jenisDokter' => $dokter->jenisDokter,
+                'foto' => $foto
+            ];
+        }
         return view('pasien/buatJanji',
             [
                 'username'=>Session::get('username'),
-                'password'=>Session::get('password')
+                'password'=>Session::get('password'),
+                'dokters'=>$dokterData,
+                'namaPasien'=>Session::get('nama')
             ]);
     }
 
@@ -97,6 +115,7 @@ class PasienController extends Controller
     {
         return view('pasien/reviewDokter',
             [
+                'namaPasien'=>Session::get('nama'),
                 'username'=>Session::get('username'),
                 'password'=>Session::get('password')
             ]);
@@ -106,6 +125,7 @@ class PasienController extends Controller
     {
         return view('pasien/profilPasien',
             [
+                'namaPasien'=>Session::get('nama'),
                 'username'=>Session::get('username'),
                 'password'=>Session::get('password')
             ]);

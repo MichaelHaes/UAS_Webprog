@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreign('idDokter')->references('idDokter')->on('dokter');
             $table->foreign('idPasien')->references('idPasien')->on('pasien');
             $table->date('tanggal_temu');
+            $table->string('keluhan');
             $table->string('status');
             $table->timestamps();
         });

@@ -16,6 +16,9 @@
         .custom-bg {
             background-color: #008cb4;
         }
+        .imgDokter {
+            width: 120px;
+        }
     </style>
 </head>
 <body>
@@ -51,7 +54,42 @@
     <br>
     <div class="container">
         <div class="text-center">
-            <img src="{{url('/images/janji.png')}}" alt="..." style="width: 30%;">
+            <img src="{{url('/images/janji.png')}}" alt="..." style="width: 7.5%;">
+            <h3>Janji Dengan Dokter</h3>
+        </div>
+        <div class="card mb-3 w-50 mx-auto">
+            <div class="card-body">
+                <form action="/action_page.php" class="form-inline">
+                    <div class="form-group row">
+                        <label for="dokter" class="col-sm-2 col-form-label">Dokter:</label>
+                        <div class="col-sm-10">
+                            <select id="dokter" name="dokter" class="form-control">
+                            @foreach($dokters as $dokter)
+                                <option value="{{$dokter['namaDokter']}}">{{$dokter['namaDokter']}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label for="pasien" class="col-sm-2 col-form-label">Pasien:</label>
+                        <div class="col-sm-10">
+                            <input id="pasien" class="form-control" value="{{$namaPasien}}" disabled>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label for="tanggal" class="col-sm-2 col-form-label">Tanggal:</label>
+                        <div class="col-sm-10">
+                            <input type="date" id="tanggal" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     <br>
@@ -118,7 +156,7 @@
         </div>
         <!--Grid column-->
         </div>
-        <!--Grid row-->
+        Grid row
     </div>
     <!-- Grid container -->
 </html>
