@@ -50,12 +50,6 @@
             <p class="text-center">
             Klinik Kita Sehat selalu memberikan layanan kesehatan untuk semua orang dengan cepat dan harga yang terjangkau.
             </p>
-
-            <!-- <p>
-            Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
-            molestias.
-            </p> -->
-
         </div>
         <!--Grid column-->
 
@@ -86,13 +80,13 @@
             <h5 class="text-uppercase mb-4 text-center">Jam Buka</h5>
             <table class="table text-center text-black">
             <tbody class="font-weight-normal">
-                <tr>
-                <td>Senin - Jum'at:</td>
-                <td>08:00 - 23:00</td>
-                </tr>
-                <tr>
-                <td>Sabtu - Minggu:</td>
-                <td>08:00 - 21:00</td>
+            <tr>
+                    <td class="text-light bg-dark">Senin - Jum'at:</td>
+                    <td class="text-light bg-dark">08:00 - 23:00</td>
+                    </tr>
+                    <tr>
+                    <td class="text-light bg-dark">Sabtu - Minggu:</td>
+                    <td class="text-light bg-dark">08:00 - 21:00</td>
                 </tr>
             </tbody>
             </table>

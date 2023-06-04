@@ -105,13 +105,13 @@
 
             <table class="table text-center text-black">
             <tbody class="font-weight-normal">
-                <tr>
-                <td>Senin - Jum'at:</td>
-                <td>08:00 - 23:00</td>
-                </tr>
-                <tr>
-                <td>Sabtu - Minggu:</td>
-                <td>08:00 - 21:00</td>
+            <tr>
+                    <td class="text-light bg-dark">Senin - Jum'at:</td>
+                    <td class="text-light bg-dark">08:00 - 23:00</td>
+                    </tr>
+                    <tr>
+                    <td class="text-light bg-dark">Sabtu - Minggu:</td>
+                    <td class="text-light bg-dark">08:00 - 21:00</td>
                 </tr>
             </tbody>
             </table>
