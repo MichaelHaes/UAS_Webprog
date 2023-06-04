@@ -44,19 +44,6 @@
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio sint aperiam obcaecati sit fuga illum mollitia odio similique esse, totam sunt nam nulla, molestias ipsa consectetur accusantium impedit. Perferendis, repellat!
         </p>
     </div>
-    <div class="text-center text-lg-start bg-light text-muted" style="padding-top: 0.2px;">
-            <div class="container text-center text-md-start mt-5">
-                <div class="row mt-3 justify-content-center">
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-center">
-                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                        <p><i class="fas fa-print me-3"></i>+62-21.5422.0800</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-                © 2023 Klinik Kita Sehat
-            </div>
-        </div>
 </body>
 <footer class="text-white text-center text-lg-start navbar fixed-bottom" style="background-color: #23242a;">
     <!-- Grid container -->
@@ -67,7 +54,7 @@
         <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
             <h5 class="text-uppercase mb-4 text-center">Tentang Klinik</h5>
 
-            <p>
+            <p class="text-center">
             Klinik Kita Sehat selalu memberikan layanan kesehatan untuk semua orang dengan cepat dan harga yang terjangkau.
             </p>
 
@@ -122,5 +109,7 @@
         </div>
         <!--Grid row-->
     </div>
-    <!-- Grid container -->
+
+  <!-- Copyright -->
+</footer>
 </html>

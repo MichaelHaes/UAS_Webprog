@@ -61,15 +61,9 @@
         <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
             <h5 class="text-uppercase mb-4 text-center">Tentang Klinik</h5>
 
-            <p>
+            <p class="text-center">
             Klinik Kita Sehat selalu memberikan layanan kesehatan untuk semua orang dengan cepat dan harga yang terjangkau.
             </p>
-
-            <!-- <p>
-            Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
-            molestias.
-            </p> -->
-
         </div>
         <!--Grid column-->
 
