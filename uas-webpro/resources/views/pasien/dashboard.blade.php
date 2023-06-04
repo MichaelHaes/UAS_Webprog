@@ -12,7 +12,11 @@
         .imgDokter {
             width: 120px;
         }
-        
+
+        .navbar{
+            background-color: #008cb4;
+        }
+ 
     </style>
 </head>
 <body>
