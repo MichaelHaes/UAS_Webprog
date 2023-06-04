@@ -43,16 +43,25 @@
             <img src="{{url('/images/klinik.jpg')}}" alt="..." style="width: 50%;">
         </div>
         <br>
-        <div class="text-center">
-            <a class="nav-link" href="{{url('/pasien/janji')}}">
-                <img src="{{url('images/janji.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
-            </a>
-        </div>
-        <br>
-        <div class="text-center">
-            <a class="nav-link" href="{{url('/pasien/review')}}">
-                <img src="{{url('images/review.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
-            </a>
+        <div class="container w-50">
+            <div class="d-flex justify-content-between">
+                <div class="item">
+                    <a class="nav-link" href="{{url('/pasien/janji')}}">
+                        <img src="{{url('images/janji.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+                    </a>
+                    <div class="text">
+                        <p>Buat Janji</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a class="nav-link" href="{{url('/pasien/review')}}">
+                        <img src="{{url('images/review.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+                    </a>
+                    <div class="text">
+                        <p>Review Dokter</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odit sunt doloremque, iste placeat laudantium facere corporis inventore quae blanditiis voluptatem quod vero, deleniti voluptatum voluptate unde distinctio nostrum omnis!
@@ -61,7 +70,7 @@
     </div>
 </body>
 <br>
-<footer class="text-white text-center text-lg-start navbar " style="background-color: #23242a;">
+<footer class="text-white text-center text-lg-start navbar" style="background-color: #23242a;">
     <!-- Grid container -->
     <div class="container p-4">
         <!--Grid row-->

@@ -31,6 +31,7 @@
                 height: 200px;
             }
         }
+
     </style>
 </head>
 
@@ -73,23 +74,35 @@
             <img src="{{url('/images/klinik.jpg')}}" alt="..." style="width: 50%;">
         </div>
         <br>
-        <div class="text-center">
-            <a class="nav-link" href="{{url('/admin/dokter')}}">
-                <img src="{{url('images/.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
-            </a>
+        <div class="container w-50">
+            <div class="d-flex justify-content-between">
+                <div class="item">
+                    <a class="nav-link" href="{{url('/admin/dokter')}}">
+                        <img src="{{url('images/profil.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+                    </a>
+                    <div class="text">
+                        <p>Profil Dokter</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a class="nav-link" href="{{url('/admin/pasien')}}">
+                        <img src="{{url('images/data.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+                    </a>
+                    <div class="text">
+                        <p>Data Pasien</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a class="nav-link" href="{{url('/admin/berkas')}}">
+                        <img src="{{url('images/berkas.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+                    </a>
+                    <div class="text">
+                        <p>Berkas Janji</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <br>
-        <div class="text-center">
-            <a class="nav-link" href="{{url('/admin/pasien')}}">
-                <img src="{{url('images/data.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
-            </a>
-        </div>
-        <br>
-        <div class="text-center">
-            <a class="nav-link" href="{{url('/admin/berkas')}}">
-                <img src="{{url('images/berkas.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
-            </a>
-        </div>
+
         <!-- <div style="display: flex; align-items: center;">
             <img src="dokter.png" width="500" height="600">
         </div> -->
