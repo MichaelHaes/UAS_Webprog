@@ -7,9 +7,19 @@
     <title>Profil Dokter</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <style>
+        .navbar{
+            background-color: #008cb4;
+        }
+
+        .custom-bg {
+            background-color: #008cb4;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{url('/admin/dashboard')}}">
                 <img src="{{url('images/logo.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
@@ -44,41 +54,12 @@
     <br>
     <div class="container">
         <div class="text-center">
-            <img src="{{url('/images/data.png')}}" alt="..." style="width: 5%;">
-            <h4>Data Pasien</h4>
+            <img src="{{url('/images/data.png')}}" alt="..." style="width: 30%;">
         </div>
-        <br>
-
-        <div class="card">
-            <div class="card-body">
-                @foreach($pasien as $index => $pasen)
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $index }}" aria-expanded="false" aria-controls="collapse{{ $index }}">
-                                    {{ $pasen['id'] }}# {{ $pasen['nama'] }}
-                                </button>
-                            </h2>
-                            <div id="collapse{{ $index }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p><strong>Username:</strong> {{ $pasen['username'] }}</p>
-                                    <p><strong>Tempat Lahir:</strong> {{ $pasen['tempatlahir'] }}</p>
-                                    <p><strong>Tanggal Lahir:</strong> {{ $pasen['tanggallahir'] }}</p>
-                                    <p><strong>Telepon:</strong> {{ $pasen['telepon'] }}</p>
-                                    <p><strong>Alamat:</strong> {{ $pasen['alamat'] }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-
-
     </div>
     <br>
 </body>
-<footer class="text-white text-center text-lg-start navbar" style="background-color: #23242a;">
+<footer class="text-white text-center text-lg-start navbar" style="background-color: #008cb4;">
     <!-- Grid container -->
     <div class="container p-4">
         <!--Grid row-->
@@ -123,12 +104,12 @@
             <table class="table text-center text-black">
             <tbody class="font-weight-normal">
             <tr>
-                    <td class="text-light bg-dark">Senin - Jum'at:</td>
-                    <td class="text-light bg-dark">08:00 - 23:00</td>
+                    <td class="text-light" style="background-color: #008cb4">Senin - Jum'at:</td>
+                    <td class="text-light" style="background-color: #008cb4">08:00 - 23:00</td>
                     </tr>
                     <tr>
-                    <td class="text-light bg-dark">Sabtu - Minggu:</td>
-                    <td class="text-light bg-dark">08:00 - 21:00</td>
+                    <td class="text-light" style="background-color: #008cb4">Sabtu - Minggu:</td>
+                    <td class="text-light" style="background-color: #008cb4">08:00 - 21:00</td>
                 </tr>
             </tbody>
             </table>

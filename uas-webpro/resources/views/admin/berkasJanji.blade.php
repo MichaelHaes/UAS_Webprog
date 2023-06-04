@@ -7,9 +7,19 @@
     <title>Profil Dokter</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <style>
+        .navbar{
+            background-color: #008cb4;
+        }
+
+        .custom-bg {
+            background-color: #008cb4;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{url('/admin/dashboard')}}">
                 <img src="{{url('images/logo.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
@@ -50,7 +60,7 @@
 </div>
 <br>
 
-<footer class="text-white text-center text-lg-start navbar" style="background-color: #23242a;">
+<footer class="text-white text-center text-lg-start navbar" style="background-color: #008cb4;">
     <!-- Grid container -->
     <div class="container p-4">
         <!--Grid row-->
@@ -94,12 +104,12 @@
             <table class="table text-center">
             <tbody class="font-weight-normal">
                 <tr>
-                <td class="text-light bg-dark">Senin - Jum'at:</td>
-                <td class="text-light bg-dark">08:00 - 23:00</td>
+                <td class="text-light" style="background-color: #008cb4">Senin - Jum'at:</td>
+                <td class="text-light" style="background-color: #008cb4">08:00 - 23:00</td>
                 </tr>
                 <tr>
-                <td class="text-light bg-dark">Sabtu - Minggu:</td>
-                <td class="text-light bg-dark">08:00 - 21:00</td>
+                <td class="text-light" style="background-color: #008cb4">Sabtu - Minggu:</td>
+                <td class="text-light" style="background-color: #008cb4">08:00 - 21:00</td>
                 </tr>
             </tbody>
             </table>
