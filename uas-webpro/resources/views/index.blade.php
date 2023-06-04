@@ -305,7 +305,7 @@
     </div>
     <br>
     <!-- Remove the container if you want to extend the Footer to full width. -->
-<footer class="text-white text-center text-lg-start" style="background-color: #008cb4;">
+<footer class="text-white text-center text-lg-start navbar" style="background-color: #008cb4;">
   <!-- Grid container -->
   <div class="container p-4">
     <!--Grid row-->
@@ -326,20 +326,20 @@
             <div class="d-flex flex-column">
                 <div>
                     <div class="d-flex justify-content-start">
-                        <img src="{{url('images/pinpoint.png')}}" class="img-responsive" width="20" height="20" style="margin-left: 10px;">
-                        <p class="mb-2 ml-2">Jl. Boulevard no 74 Gading Serpong, Kelapa Dua, Tangerang</p>
+                        <img src="{{url('images/pinpoint.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
+                         <p>Jl. Boulevard no 74 Gading Serpong, Kelapa Dua, Tangerang</p>
                     </div>
                 </div>
                 <div>
                     <div class="d-flex justify-content-start">
-                        <img src="{{url('images/mail.png')}}" class="img-responsive" width="20" height="20" style="margin-left: 10px;">
-                        <p class="mb-2 ml-2">admisi@klinikkitasehat.ac.id tanya@klinikkitasehat.ac.id</p>
+                        <img src="{{url('images/mail.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
+                        <p>admisi@klinikkitasehat.ac.id tanya@klinikkitasehat.ac.id</p>
                     </div>
-                </div>
+                </div> 
                 <div>
                     <div class="d-flex justify-content-start">
-                        <img src="{{url('images/call.png')}}" class="img-responsive" width="20" height="20" style="margin-left: 10px;">
-                        <p class="mb-2 ml-2">+62 823 7070 5050 (chat) +62 823 7070 6060 (call)</p>
+                        <img src="{{url('images/call.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
+                        <p>+62 823 7070 5050 (chat)<br>+62 823 7070 6060 (call)</p>
                     </div>
                 </div>
             </div>

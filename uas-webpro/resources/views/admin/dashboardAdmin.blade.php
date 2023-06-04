@@ -137,23 +137,27 @@
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4 text-center">INFORMASI KLINIK</h5>
-            <ul class="fa-ul" style="margin-left: 1.65em;">
-            <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Jl. Boulevard, Gading Serpong, Kel. Curug Sangereng, Kec. Kelapa Dua, Kab. Tangerang,
-    Prov. Banten, Indonesia
-    </span>
-            </li>
-            <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">admisi@umn.ac.id</span>
-            </li>
-            <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+62-21.5422.0800</span>
-            </li>
-            <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+62-21.5422.0808</span>
-            </li>
-            </ul>
+            <h5 class="text-uppercase mb-4 text-center">INFORMASI KLINIK</h5>
+            <div class="d-flex flex-column">
+                <div>
+                    <div class="d-flex justify-content-start">
+                        <img src="{{url('images/pinpoint.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
+                         <p>Jl. Boulevard no 74 Gading Serpong, Kelapa Dua, Tangerang</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex justify-content-start">
+                        <img src="{{url('images/mail.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
+                        <p>admisi@klinikkitasehat.ac.id tanya@klinikkitasehat.ac.id</p>
+                    </div>
+                </div> 
+                <div>
+                    <div class="d-flex justify-content-start">
+                        <img src="{{url('images/call.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
+                        <p>+62 823 7070 5050 (chat)<br>+62 823 7070 6060 (call)</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <!--Grid column-->
 
