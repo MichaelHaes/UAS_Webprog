@@ -386,9 +386,5 @@ Prov. Banten, Indonesia
             modalPasien.style.display = "block";
         });
     });
-
-
-
-
 </script>
 </html>
