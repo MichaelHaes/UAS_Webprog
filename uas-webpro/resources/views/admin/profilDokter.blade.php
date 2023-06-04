@@ -80,9 +80,11 @@
                                     <br><br><br>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="d-grid">
-                                                <button class="btn btn-primary">Update</button>
-                                            </div>
+                                        <div class="d-grid">
+                                            <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalUpdate{{$dokter['id']}}">
+                                                Update
+                                            </button>
+                                        </div>
                                         </div>
                                         <div class="col">
                                             <div class="d-grid">
@@ -101,7 +103,45 @@
     </div>
 
     <!-- Modal Add Doctor -->
-    <div class="modal fade" id="modalDokter" tabindex="-1" aria-labelledby="modalPasien" aria-hidden="true">    
+    <div class="modal fade" id="modalDokter" tabindex="-1" aria-labelledby="modalDokter" aria-hidden="true">    
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h5>Tambah Dokter</h5>
+                    </div>
+                    <br>
+                    <form action="{{url('/admin/tambahdokter')}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-3 col-form-label">Nama Dokter</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="nama" class="form-control" autofocus>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-3 col-form-label">Spesialisasi</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="spesialisasi" class="form-control">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-3 col-form-label">Foto</label>
+                            <div class="col-sm-9">
+                                <input type="file" name="foto" class="form-control">
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary">Tambah</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Update -->
+    <div class="modal fade" id="modalUpdate" tabindex="-1" aria-labelledby="modalUpdate{{$dokter['id']}}" aria-hidden="true">    
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
