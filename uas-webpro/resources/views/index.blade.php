@@ -259,33 +259,38 @@
 
     <div class="container">
         <div class="text-center">
-            <img src="{{url('/images/klinik.jpg')}}" alt="..." style="width: 50%;">
+            <img src="{{url('/images/klinik.jpg')}}" alt="..." style="width: 50%;" id="gambarKlinik">
         </div>
 
-        <div class="card text-center mx-auto border-0" style="width: 50rem; border: 2px solid #ccc; border-radius: 10px; padding: 20px;">
+        <div class="d-flex justify-content-center">
             <div class="card-body">
+                <p style="font-size: 18px; line-height: 1.5; text-align: justify;">
+                    Klinik Kita Sehat adalah sebuah lembaga kesehatan yang didedikasikan untuk memberikan perawatan dan layanan kesehatan yang komprehensif kepada masyarakat. Klinik ini berkomitmen untuk meningkatkan kualitas hidup dan kesejahteraan fisik serta mental pasien-pasiennya. Klinik Kita Sehat menyediakan berbagai layanan medis, termasuk pemeriksaan umum, konsultasi dokter, pemeriksaan laboratorium, serta layanan kesehatan lainnya. Tim medis yang terlatih dan berpengalaman di klinik ini siap melayani setiap pasien dengan perhatian dan keahlian yang tinggi.
+                </p>
                 <p style="font-size: 18px; line-height: 1.5; text-align: justify;">
                     Untuk mendapat sebuah pencapaian yang maksimal dalam memberikan pelayanan kesehatan yang terbaik, maka sudah selayaknya sebuah klinik memiliki visi dan misi yang jelas agar semua tujuan dapat mudah dicapai. Adapun visi dan misi Klinik Kita Sehat adalah sebagai berikut:
                 </p>
-                <div class="card mx-auto" style="width: 40rem; border: 2px solid #ccc; border-radius: 10px; padding: 20px; margin-top: 20px;">
-                    <div class="card-body">
-                        <h4 style="color: #333; margin-bottom: 10px;">Visi:</h4>
-                        <p style="font-size: 16px; line-height: 1.5; text-align: justify;">
-                        Menjadi penyedia layanan kesehatan yang dapat menyehatkan masyarakat, memasyarakatkan kesehatan, serta terdepan dalam memberikan perawatan berkualitas tinggi dan inovatif kepada pasien, dengan fokus pada pemulihan dan kesejahteraan yang holistik
-                        </p>
-                    </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row">
+            <div class="card mx-auto" style="width: 40rem; border: 2px solid #ccc; border-radius: 10px; padding: 10px; margin-top: 10px;">
+                <div class="card-body">
+                    <h4 class="d-flex justify-content-center" style="color: #333; margin-bottom: 10px;">Visi</h4>
+                    <p style="font-size: 16px; line-height: 1.5; text-align: justify;">
+                    Menjadi penyedia layanan kesehatan yang dapat menyehatkan masyarakat, memasyarakatkan kesehatan, serta terdepan dalam memberikan perawatan berkualitas tinggi dan inovatif kepada pasien, dengan fokus pada pemulihan dan kesejahteraan yang holistik
+                    </p>    
                 </div>
-                <div class="card mx-auto" style="width: 40rem; border: 2px solid #ccc; border-radius: 10px; padding: 20px; margin-top: 20px;">
-                    <div class="card-body">
-                        <h4 style="color: #333; margin-bottom: 10px;">Misi:</h4>
+            </div>
+            <div class="card mx-auto" style="width: 40rem; border: 2px solid #ccc; border-radius: 10px; padding: 10px; margin-top: 10px;">
+                <div class="card-body">
+                    <h4 class="d-flex justify-content-center" style="color: #333; margin-bottom: 10px;">Misi</h4>
                         <ol style="font-size: 16px; line-height: 1.5; text-align: left;">
-                            <li>Sebagai mitra pemerintah maupun swasta dalam memberikan pelayanan prefentif, kuratif, dan rehabilitative yang komprehensif dan berkesinambungan.</li>
-                            <li>Memberikan pelayanan medis dasar yang berbasis hemat dan terjangkau.</li>
-                            <li>Memberikan pelayanan kesehatan yang cepat, tepat, bermutu, dan terjangkau.</li>
-                            <li>Menumbuhkan kesadaran budaya hidup sehat.</li>
-                            <li>Menjalin kemitraan dengan masyarakat sekitar.</li>
-                        </ol>
-                    </div>
+                        <li>Sebagai mitra pemerintah maupun swasta dalam memberikan pelayanan prefentif, kuratif, dan rehabilitative yang komprehensif dan berkesinambungan.</li>
+                        <li>Memberikan pelayanan medis dasar yang berbasis hemat dan terjangkau.</li>
+                        <li>Memberikan pelayanan kesehatan yang cepat, tepat, bermutu, dan terjangkau.</li>
+                        <li>Menumbuhkan kesadaran budaya hidup sehat.</li>
+                        <li>Menjalin kemitraan dengan masyarakat sekitar.</li>
+                    </ol>
                 </div>
             </div>
         </div>
@@ -309,23 +314,27 @@
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4 text-center">INFORMASI KLINIK</h5>
-            <ul class="fa-ul" style="margin-left: 1.65em;">
-            <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Jl. Boulevard, Gading Serpong, Kel. Curug Sangereng, Kec. Kelapa Dua, Kab. Tangerang,
-    Prov. Banten, Indonesia
-    </span>
-            </li>
-            <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">admisi@umn.ac.id</span>
-            </li>
-            <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+62-21.5422.0800</span>
-            </li>
-            <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+62-21.5422.0808</span>
-            </li>
-            </ul>
+            <h5 class="text-uppercase mb-4 text-center">INFORMASI KLINIK</h5>
+            <div class="d-flex flex-column">
+                <div>
+                    <div class="d-flex justify-content-start">
+                        <img src="{{url('images/pinpoint.png')}}" class="img-responsive" width="20" height="20" style="margin-left: 10px;">
+                        <p class="mb-2 ml-2">Jl. Boulevard no 74 Gading Serpong, Kelapa Dua, Tangerang</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex justify-content-start">
+                        <img src="{{url('images/mail.png')}}" class="img-responsive" width="20" height="20" style="margin-left: 10px;">
+                        <p class="mb-2 ml-2">admisi@klinikkitasehat.ac.id tanya@klinikkitasehat.ac.id</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex justify-content-start">
+                        <img src="{{url('images/call.png')}}" class="img-responsive" width="20" height="20" style="margin-left: 10px;">
+                        <p class="mb-2 ml-2">+62 823 7070 5050 (chat) +62 823 7070 6060 (call)</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <!--Grid column-->
 
