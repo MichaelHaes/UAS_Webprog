@@ -64,7 +64,7 @@ class AdminController extends Controller
             $foto = Storage::url($dokter->fotoDokter);
 
             $dokterData[] = [
-                'id' => $dokter->id,
+                'id' => $dokter->idDokter,
                 'namaDokter' => $dokter->namaDokter,
                 'jenisDokter' => $dokter->jenisDokter,
                 'foto' => $foto
@@ -91,6 +91,12 @@ class AdminController extends Controller
         
 
         return redirect()->route('dokter');
+    }
+
+    public function updateDokter($id) {
+        $dokter = Dokter::where('idDokter', $id)->firstOrFail();
+
+        return $dokter->idDokter;
     }
 
     public function pasien() {

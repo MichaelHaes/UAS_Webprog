@@ -37,6 +37,7 @@ Route::controller(AdminController::class)->group(function(){
     Route::post('/admin/dashboard', 'login')->middleware('web');
     Route::get('/admin/dokter', 'dokter')->middleware('web')->name('dokter');
     Route::post('/admin/tambahdokter', 'tambahDokter')->middleware('web');
+    Route::get('/admin/updatedokter/{id}', 'updateDokter')->middleware('web');
     Route::get('/admin/pasien', 'pasien')->middleware('web');
     Route::get('/admin/berkas', 'berkas')->middleware('web');
     Route::get('/admin/profil', 'profil')->middleware('web');

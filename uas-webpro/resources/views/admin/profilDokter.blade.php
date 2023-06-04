@@ -80,11 +80,11 @@
                                     <br><br><br>
                                     <div class="row">
                                         <div class="col">
-                                        <div class="d-grid">
-                                            <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalUpdate{{$dokter['id']}}">
-                                                Update
-                                            </button>
-                                        </div>
+                                            <div class="d-grid">                        
+                                                <a class="btn btn-outline-secondary" href="{{url('/admin/updatedokter/'.$dokter['id'])}}">
+                                                    Update
+                                                </a>
+                                            </div>
                                         </div>
                                         <div class="col">
                                             <div class="d-grid">
@@ -140,44 +140,6 @@
         </div>
     </div>
 
-    <!-- Modal Update -->
-    <div class="modal fade" id="modalUpdate" tabindex="-1" aria-labelledby="modalUpdate{{$dokter['id']}}" aria-hidden="true">    
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="text-center">
-                        <h5>Tambah Dokter</h5>
-                    </div>
-                    <br>
-                    <form action="{{url('/admin/tambahdokter')}}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <div class="mb-3 row">
-                            <label for="username" class="col-sm-3 col-form-label">Nama Dokter</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="nama" class="form-control" autofocus>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="username" class="col-sm-3 col-form-label">Spesialisasi</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="spesialisasi" class="form-control">
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="username" class="col-sm-3 col-form-label">Foto</label>
-                            <div class="col-sm-9">
-                                <input type="file" name="foto" class="form-control">
-                            </div>
-                        </div>
-                        <div class="d-grid">
-                            <button class="btn btn-primary">Tambah</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
 <br>
 <footer class="text-white text-center text-lg-start navbar" style="background-color: #008cb4;">
     <!-- Grid container -->
@@ -242,4 +204,5 @@
         <!--Grid row-->
     </div>
     <!-- Grid container -->
+</body>
 </html>
