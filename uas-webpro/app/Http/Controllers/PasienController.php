@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pasien;
+use App\Models\Dokter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
@@ -20,16 +22,44 @@ class PasienController extends Controller
     }
 
     public function dashboard()
-    {
+    {        
+        $dokters = Dokter::all();
+        $dokterData = [];
+
+        foreach ($dokters as $dokter) {
+            $foto = Storage::url($dokter->fotoDokter);
+
+            $dokterData[] = [
+                'id' => $dokter->id,
+                'namaDokter' => $dokter->namaDokter,
+                'jenisDokter' => $dokter->jenisDokter,
+                'foto' => $foto
+            ];
+        }
         return view('pasien/dashboard',
             [
                 'username'=>Session::get('username'),
-                'password'=>Session::get('password')
+                'password'=>Session::get('password'),
+                'dokters'=>$dokterData
             ]);
     }
 
     public function login(Request $request)
     {
+        $dokters = Dokter::all();
+        $dokterData = [];
+
+        foreach ($dokters as $dokter) {
+            $foto = Storage::url($dokter->fotoDokter);
+
+            $dokterData[] = [
+                'id' => $dokter->id,
+                'namaDokter' => $dokter->namaDokter,
+                'jenisDokter' => $dokter->jenisDokter,
+                'foto' => $foto
+            ];
+        }
+
         $pasien = Pasien::where('username', $request->username)->first();
         if($pasien && Hash::check($request->password, $pasien->password)) {
             Session::start();
@@ -38,7 +68,8 @@ class PasienController extends Controller
             return view('pasien/dashboard',
                 [
                     'username'=>Session::get('username'),
-                    'password'=>Session::get('password')
+                    'password'=>Session::get('password'),
+                    'dokters'=>$dokterData
                 ]);
         } else {
             throw ValidationException::withMessages([

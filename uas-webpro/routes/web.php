@@ -47,7 +47,7 @@ Route::controller(AdminController::class)->group(function(){
 
 Route::controller(PasienController::class)->group(function(){
     Route::get('/pasien', 'index');
-    Route::get('/pasien/dashboard', 'dashboard');
+    // Route::get('/pasien/dashboard', 'dashboard');
     Route::post('/pasien/dashboard', 'login')->middleware('web');
     Route::get('/pasien/logout', 'logout')->name('logout');
     Route::post('/pasien/register', 'register');
