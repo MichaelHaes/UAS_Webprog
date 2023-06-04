@@ -248,82 +248,71 @@
     </div>
     <br>
     <!-- Remove the container if you want to extend the Footer to full width. -->
-<footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
-  <!-- Grid container -->
-  <div class="container p-4">
-    <!--Grid row-->
-    <div class="row mt-4">
-      <!--Grid column-->
-      <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4">Tentang Klinik</h5>
+    <!-- Footer -->
+    <footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
+    <!-- Grid container -->
+    <div class="container p-4">
+        <!--Grid row-->
+        <div class="row mt-4">
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-4 text-center">Tentang Klinik</h5>
 
-        <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-          voluptatum deleniti atque corrupti.
-        </p>
+            <p>
+            Klinik Kita Sehat selalu memberikan layanan kesehatan untuk semua orang dengan cepat dan harga yang terjangkau.
+            </p>
 
-        <p>
-          Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
-          molestias.
-        </p>
+            <!-- <p>
+            Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
+            molestias.
+            </p> -->
 
-        <div class="mt-4">
-          <!-- Facebook -->
-          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-facebook-f"></i></a>
-          <!-- Dribbble -->
-          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-dribbble"></i></a>
-          <!-- Twitter -->
-          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-twitter"></i></a>
-          <!-- Google + -->
-          <a type="button" class="btn btn-floating btn-warning btn-lg"><i class="fab fa-google-plus-g"></i></a>
-          <!-- Linkedin -->
         </div>
-      </div>
-      <!--Grid column-->
+        <!--Grid column-->
 
-      <!--Grid column-->
-      <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-        <ul class="fa-ul" style="margin-left: 1.65em;">
-          <li class="mb-3">
-            <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Jl. Boulevard, Gading Serpong, Kel. Curug Sangereng, Kec. Kelapa Dua, Kab. Tangerang,
-Prov. Banten, Indonesia
-</span>
-          </li>
-          <li class="mb-3">
-            <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">admisi@umn.ac.id</span>
-          </li>
-          <li class="mb-3">
-            <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+62-21.5422.0800</span>
-          </li>
-          <li class="mb-3">
-            <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+62-21.5422.0808</span>
-          </li>
-        </ul>
-      </div>
-      <!--Grid column-->
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <ul class="fa-ul" style="margin-left: 1.65em;">
+            <li class="mb-3">
+                <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Jl. Boulevard, Gading Serpong, Kel. Curug Sangereng, Kec. Kelapa Dua, Kab. Tangerang,
+    Prov. Banten, Indonesia
+    </span>
+            </li>
+            <li class="mb-3">
+                <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">admisi@umn.ac.id</span>
+            </li>
+            <li class="mb-3">
+                <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+62-21.5422.0800</span>
+            </li>
+            <li class="mb-3">
+                <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+62-21.5422.0808</span>
+            </li>
+            </ul>
+        </div>
+        <!--Grid column-->
 
-      <!--Grid column-->
-      <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4">Jam Buka</h5>
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-4">Jam Buka</h5>
 
-        <table class="table text-center text-black">
-          <tbody class="font-weight-normal">
-            <tr>
-              <td>Senin - Jum'at:</td>
-              <td>08:00 - 23:00</td>
-            </tr>
-            <tr>
-              <td>Sabtu - Minggu:</td>
-              <td>08:00 - 21:00</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <!--Grid column-->
+            <table class="table text-center text-black">
+            <tbody class="font-weight-normal">
+                <tr>
+                <td>Senin - Jum'at:</td>
+                <td>08:00 - 23:00</td>
+                </tr>
+                <tr>
+                <td>Sabtu - Minggu:</td>
+                <td>08:00 - 21:00</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <!--Grid column-->
+        </div>
+        <!--Grid row-->
     </div>
-    <!--Grid row-->
-  </div>
-  <!-- Grid container -->
+    <!-- Grid container -->
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
