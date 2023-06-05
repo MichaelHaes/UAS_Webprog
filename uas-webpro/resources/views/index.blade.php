@@ -44,7 +44,7 @@
         }
 
 
-        /* @media only screen and (max-width: 575px) {
+        @media only screen and (max-width: 575px) {
             .navbar {
                 height: 85px;
             }
@@ -53,10 +53,10 @@
             .logo {
                 margin-bottom: 10px;
             }
-        } */
+        } 
 
 
-        /* @media only screen and (max-width: 1200px) {
+        @media only screen and (max-width: 1200px) {
             #gambarKlinik {
                 width: 100%;
                 max-width: 600px;
@@ -67,10 +67,10 @@
             #divGambar {
                 height: 400px;
             }
-        } */
+        }
     </style>
 </head>
-<body>
+<body class="fade-in">
     <!-- <nav class="navbar navbar-expand-sm navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{url('/')}}">
