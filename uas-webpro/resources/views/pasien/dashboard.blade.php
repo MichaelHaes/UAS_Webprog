@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Klinik Kita Sehat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     
     <style>
@@ -15,6 +16,17 @@
 
         .navbar{
             background-color: #008cb4;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
  
     </style>
@@ -57,7 +69,7 @@
         <br>
         <div class="container w-50">
             <div class="d-flex justify-content-between">
-                <div class="item">
+                <div class="item animate__animated animate__slideInLeft">
                     <a class="nav-link" href="{{url('/pasien/janji')}}">
                         <img src="{{url('images/janji.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
                     </a>
@@ -65,7 +77,7 @@
                         <p>Buat Janji</p>
                     </div>
                 </div>
-                <div class="item">
+                <div class="item animate__animated animate__slideInRight">
                     <a class="nav-link" href="{{url('/pasien/review')}}">
                         <img src="{{url('images/review.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
                     </a>
