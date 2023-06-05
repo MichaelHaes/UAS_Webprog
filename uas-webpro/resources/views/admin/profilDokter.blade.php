@@ -131,7 +131,7 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="text-center">
-                        <h5>Tambah Dokter</h5>
+                        <h5>Update Dokter</h5>
                     </div>
                     <br>
                     <form id="updateForm" action="" method="get" enctype="multipart/form-data">
@@ -155,7 +155,7 @@
                             </div>
                         </div>
                         <div class="d-grid">
-                            <button class="btn btn-primary">Tambah</button>
+                            <button class="btn btn-primary">Update</button>
                         </div>
                     </form>
                 </div>
