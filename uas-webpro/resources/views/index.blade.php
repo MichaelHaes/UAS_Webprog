@@ -213,25 +213,25 @@
                                 <input type="text" name="username" class="form-control" autofocus>
                             </div>
                         </div>
-                        <div class="mb-3 row">
+                        <div class="mb-3 row d-flex align-items-center">
                             <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
                             <div class="col-sm-10">
                                 <input type="text" name="nama" class="form-control">
                             </div>
                         </div>
-                        <div class="mb-3 row">
+                        <div class="mb-3 row d-flex align-items-center">
                             <label for="tempatlahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
                             <div class="col-sm-10">
                                 <input type="text" name="tempatlahir" class="form-control">
                             </div>
                         </div>
-                        <div class="mb-3 row">
+                        <div class="mb-3 row d-flex align-items-center">
                             <label for="tanggallahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-10">
                                 <input type="date" name="tanggallahir" class="form-control">
                             </div>
                         </div>
-                        <div class="mb-3 row">
+                        <div class="mb-3 row d-flex align-items-center">
                             <label for="telp" class="col-sm-2 col-form-label">Nomor Telepon</label>
                             <div class="col-sm-10">
                                 <input type="text" name="telp" class="form-control">
@@ -254,7 +254,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mb-3 row">
+                        <div class="mb-3 row d-flex align-items-center">
                             <label for="password" class="col-sm-2 col-form-label">Confirm Password</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
@@ -323,7 +323,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mb-3 row">
+                        <div class="mb-3 row d-flex align-items-center">
                             <label for="password" class="col-sm-2 col-form-label">Confirm Password</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
@@ -378,13 +378,15 @@
                                 <input type="text" name="username" class="form-control" autofocus>
                             </div>
                         </div>
-                        <div class="mb-3 d-flex align-items-center">
-                            <label for="password" class="form-label me-2">Password</label>
-                            <div class="input-group">
-                                <input type="password" name="password" class="form-control" id="passwordInput">
-                                <button type="button" id="toggleButtonAdmin" class="btn btn-secondary" onclick="togglePasswordVisibilityAdmin()">
-                                    Show
-                                </button>
+                        <div class="mb-3 row">
+                            <label for="password" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="password" name="password" class="form-control" id="passwordInputAdmin">
+                                    <button type="button" id="toggleButtonAdmin" class="btn btn-secondary" onclick="togglePasswordVisibilityAdmin()">
+                                        Show
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="d-grid">
