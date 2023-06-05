@@ -68,17 +68,21 @@
             <h3>Data Pasien</h3>
         </div>
         <div class="card">
-            <div class="card-body d-flex justify-content-between">
+            <div class="card-body row">
                 @foreach($pasien as $pasen)
-                <div class="card" style="width: 48%;">
-                    <div class="card-body row">
-                        <strong class="col-3">ID</strong> <p class="col-9">: {{$pasen['id']}}</p>
-                        <strong class="col-3">Nama</strong> <p class="col-9">: {{$pasen['nama']}}</p>
-                        <strong class="col-3">Username</strong> <p class="col-9">: {{$pasen['username']}}</p>
-                        <strong class="col-3">Tempat Lahir</strong> <p class="col-9">: {{$pasen['tempatlahir']}}</p>
-                        <strong class="col-3">Tanggal Lahir</strong> <p class="col-9">: {{$pasen['tanggallahir']}}</p>
-                        <strong class="col-3">Telepon</strong> <p class="col-9">: {{$pasen['telepon']}}</p>
-                        <strong class="col-3">Alamat</strong> <p class="col-9">: {{$pasen['alamat']}}</p>
+                <div class="col-lg-4">
+                    <div class="card mb-3" >
+                        <div class="card-header">
+                            <p class="col-8"><strong class="col-4">ID #</strong>{{$pasen['id']}}</p>
+                        </div>
+                        <div class="card-body row">
+                            <strong class="col-4">Nama</strong>          <p class="col-8">: {{$pasen['nama']}}</p>
+                            <strong class="col-4">Username</strong>      <p class="col-8">: {{$pasen['username']}}</p>
+                            <strong class="col-4">Tempat Lahir</strong>  <p class="col-8">: {{$pasen['tempatlahir']}}</p>
+                            <strong class="col-4">Tanggal Lahir</strong> <p class="col-8">: {{$pasen['tanggallahir']}}</p>
+                            <strong class="col-4">Telepon</strong>       <p class="col-8">: {{$pasen['telepon']}}</p>
+                            <strong class="col-4">Alamat</strong>        <p class="col-8">: {{$pasen['alamat']}}</p>
+                        </div>
                     </div>
                 </div>
                 @endforeach
