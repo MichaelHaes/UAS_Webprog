@@ -7,48 +7,90 @@
     <title>Klinik Kita Sehat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to toggle flex-row and flex-column classes
+            function toggleFlexClass() {
+                var screenWidth = $(window).width();
+                if (screenWidth < 992) {
+                $('#visimisi').removeClass('flex-row').addClass('flex-column');
+                } else {
+                $('#visimisi').removeClass('flex-column').addClass('flex-row');
+                }
+            }
+
+
+            // Initial call to set the class based on the initial screen width
+            toggleFlexClass();
+
+
+            // Call the toggleFlexClass function on window resize
+            $(window).resize(function() {
+                toggleFlexClass();
+            });
+        });
+    </script>
     <style>
         p {text-align: center;}
+
 
         .navbar{
             background-color: #008cb4;
         }
-        
+       
         .custom-bg {
             background-color: #008cb4;
         }
 
-        .fade-in {
-            animation: fadeInAnimation 1s ease-in forwards;
-            opacity: 0;
-        }
-        
-        @keyframes fadeInAnimation {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
+
+        /* @media only screen and (max-width: 575px) {
+            .navbar {
+                height: 85px;
+            }
+
+
+            .logo {
+                margin-bottom: 10px;
+            }
+        } */
+
+
+        /* @media only screen and (max-width: 1200px) {
+            #gambarKlinik {
+                width: 100%;
+                max-width: 600px;
+                height: auto;
+            }
+
+
+            #divGambar {
+                height: 400px;
+            }
+        } */
     </style>
 </head>
-<body class="fade-in">
-    <nav class="navbar navbar-expand-sm navbar-dark">
+<body>
+    <!-- <nav class="navbar navbar-expand-sm navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{url('/')}}">
                 <div style="display: flex; align-items: center;">
-                    <img src="{{url('images/logo.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+                    <img src="{{url('images/logo.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;" id="logo">
                 </div>
             </a>
+
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{url('/pasien')}}">Pasien</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/admin')}}">Admin</a>
-                    </li> -->
+                    </li>
                     <li class="nav-item">
                         <button class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#modalPasien">
                             Pasien
@@ -62,8 +104,35 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{url('/')}}">
+                <div style="display: flex; align-items: center;">
+                    <img src="{{url('images/logo.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;" id="logo">
+                </div>
+            </a>
 
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <button class="btn btn-link nav-link float-end" data-bs-toggle="modal" data-bs-target="#modalPasien">
+                            Pasien
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-link nav-link float-end" data-bs-toggle="modal" data-bs-target="#modalAdmin">
+                            Admin
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <!-- Modal Pasien -->
     <div class="modal fade" id="modalPasien" tabindex="-1" aria-labelledby="modalPasien" aria-hidden="true">    
         <div class="modal-dialog modal-dialog-centered">
@@ -94,7 +163,7 @@
                             <button class="btn btn-primary">Log In</button>
                         </div>
                     </form>
-                    
+                   
                     <div class="d-flex justify-content-center mt-3">
                         <button class="btn btn-link nav-link" id="registerBtn">Register</button>
                     </div>
@@ -123,6 +192,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Modal Register -->
     <div class="modal fade" id="modalRegister" tabindex="-1" aria-labelledby="modalRegister" aria-hidden="true">
@@ -221,6 +291,9 @@
 
 
 
+
+
+
     <!-- Modal Admin -->
     <div class="modal fade" id="modalAdmin" tabindex="-1" aria-labelledby="modalAdmin" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -252,6 +325,7 @@
                         </div>
                     </form>
 
+
                     @if($errors->has('passwordAdmin'))
                         <script type="text/javascript">
                             window.addEventListener('DOMContentLoaded', function() {
@@ -275,10 +349,12 @@
         </div>
     </div>
 
+
     <div class="container">
-        <div class="text-center">
+        <div class="text-center" id="divGambar">
             <img src="{{url('/images/klinik.jpg')}}" alt="..." style="width: 50%;" id="gambarKlinik">
         </div>
+
 
         <div class="d-flex justify-content-center">
             <div class="card-body">
@@ -290,8 +366,8 @@
                 </p>
             </div>
         </div>
-        <div class="d-flex flex-row">
-            <div class="card mx-auto" style="width: 40rem; border: 2px solid #ccc; border-radius: 10px; padding: 10px; margin-top: 10px;">
+        <!-- <div class="d-flex flex-row" id="visimisi">
+            <div class="card mx-2" style="width: 40rem; border: 2px solid #ccc; border-radius: 10px; padding: 10px; margin-top: 10px;">
                 <div class="card-body">
                     <h4 class="d-flex justify-content-center" style="color: #333; margin-bottom: 10px;">Visi</h4>
                     <p style="font-size: 16px; line-height: 1.5; text-align: justify;">
@@ -299,7 +375,7 @@
                     </p>    
                 </div>
             </div>
-            <div class="card mx-auto" style="width: 40rem; border: 2px solid #ccc; border-radius: 10px; padding: 10px; margin-top: 10px;">
+            <div class="card mx-2" style="width: 40rem; border: 2px solid #ccc; border-radius: 10px; padding: 10px; margin-top: 10px;">
                 <div class="card-body">
                     <h4 class="d-flex justify-content-center" style="color: #333; margin-bottom: 10px;">Misi</h4>
                         <ol style="font-size: 16px; line-height: 1.5; text-align: left;">
@@ -309,6 +385,34 @@
                         <li>Menumbuhkan kesadaran budaya hidup sehat.</li>
                         <li>Menjalin kemitraan dengan masyarakat sekitar.</li>
                     </ol>
+                </div>
+            </div>
+        </div> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="margin-top: 10px;">
+                    <div class="card" style="border: 2px solid #ccc; border-radius: 10px; padding: 10px;">
+                        <div class="card-body">
+                            <h4 class="text-center" style="color: #333; margin-bottom: 10px;">Visi</h4>
+                            <p style="font-size: 16px; line-height: 1.5; text-align: justify;">
+                                Menjadi penyedia layanan kesehatan yang dapat menyehatkan masyarakat, memasyarakatkan kesehatan, serta terdepan dalam memberikan perawatan berkualitas tinggi dan inovatif kepada pasien, dengan fokus pada pemulihan dan kesejahteraan yang holistik
+                            </p>    
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="margin-top: 10px;">
+                    <div class="card" style="border: 2px solid #ccc; border-radius: 10px; padding: 10px;">
+                        <div class="card-body">
+                            <h4 class="text-center" style="color: #333; margin-bottom: 10px;">Misi</h4>
+                            <ol style="font-size: 16px; line-height: 1.5; text-align: left;">
+                                <li>Sebagai mitra pemerintah maupun swasta dalam memberikan pelayanan prefentif, kuratif, dan rehabilitative yang komprehensif dan berkesinambungan.</li>
+                                <li>Memberikan pelayanan medis dasar yang berbasis hemat dan terjangkau.</li>
+                                <li>Memberikan pelayanan kesehatan yang cepat, tepat, bermutu, dan terjangkau.</li>
+                                <li>Menumbuhkan kesadaran budaya hidup sehat.</li>
+                                <li>Menjalin kemitraan dengan masyarakat sekitar.</li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -324,11 +428,13 @@
       <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
         <h5 class="text-uppercase mb-4 text-center">Tentang Klinik</h5>
 
+
         <p class="text-center">
           Klinik Kita Sehat memberikan pelayanan yang cepat, prefentif kepada pasien dengan harga yang terjangkau.
         </p>
       </div>
       <!--Grid column-->
+
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
@@ -343,7 +449,7 @@
                 <div>
                     <div class="d-flex justify-content-start">
                         <img src="{{url('images/mail.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
-                        <p class="mb-2 ml-2">admisi@klinikkitasehat.ac.id<br>tanya@klinikkitasehat.ac.id</p>
+                        <p class="mb-2 ml-2">admisi@klinikkitasehat.ac.id tanya@klinikkitasehat.ac.id</p>
                     </div>
                 </div>
                 <div>
@@ -356,9 +462,11 @@
         </div>
         <!--Grid column-->
 
+
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
             <h5 class="text-uppercase mb-4 text-center">Jam Buka</h5>
+
 
             <table class="table text-center text-black">
             <tbody class="font-weight-normal">
@@ -378,30 +486,21 @@
         <!--Grid row-->
     </div>
 
+
   <!-- Copyright -->
 </footer>
+
 
 </div>
 <!-- End of .container -->
 </body>
+
 
 <script>
     function togglePasswordVisibility() {
         var passwordInput = document.getElementById("passwordInput");
         var toggleButton = document.getElementById("toggleButton");
 
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            toggleButton.textContent = "Hide";
-        } else {
-            passwordInput.type = "password";
-            toggleButton.textContent = "Show";
-        }
-    }
-    
-    function togglePasswordVisibilityReg() {
-        var passwordInput = document.getElementById("passwordInputRegister");
-        var toggleButton = document.getElementById("toggleButtonReg");
 
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
@@ -411,23 +510,26 @@
             toggleButton.textContent = "Show";
         }
     }
+   
+    function togglePasswordVisibilityReg() {
+        var passwordInput = document.getElementById("passwordInputRegister");
+        var toggleButton = document.getElementById("toggleButtonReg");
+
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleButton.textContent = "Hide";
+        } else {
+            passwordInput.type = "password";
+            toggleButton.textContent = "Show";
+        }
+    }
+
 
     function togglePasswordVisibilityRegConfirm() {
         var passwordInput = document.getElementById("passwordConfirmRegister");
         var toggleButton = document.getElementById("toggleButtonRegConfirm");
 
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            toggleButton.textContent = "Hide";
-        } else {
-            passwordInput.type = "password";
-            toggleButton.textContent = "Show";
-        }
-    }
-    
-    function togglePasswordVisibilityAdmin() {
-        var passwordInput = document.getElementById("passwordInputAdmin");
-        var toggleButton = document.getElementById("toggleButtonAdmin");
 
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
@@ -437,6 +539,22 @@
             toggleButton.textContent = "Show";
         }
     }
+   
+    function togglePasswordVisibilityAdmin() {
+        var passwordInput = document.getElementById("passwordInputAdmin");
+        var toggleButton = document.getElementById("toggleButtonAdmin");
+
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleButton.textContent = "Hide";
+        } else {
+            passwordInput.type = "password";
+            toggleButton.textContent = "Show";
+        }
+    }
+
+
 
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -445,6 +563,7 @@
         var modalPasien = document.getElementById("modalPasien");
         var modalRegister = document.getElementById("modalRegister");
 
+
         // Register button click event
         registerBtn.addEventListener("click", function() {
             modalPasien.classList.remove("show");
@@ -452,6 +571,7 @@
             modalRegister.classList.add("show");
             modalRegister.style.display = "block";
         });
+
 
         // Already have an account link click event
         loginLink.addEventListener("click", function() {
@@ -463,3 +583,4 @@
     });
 </script>
 </html>
+
