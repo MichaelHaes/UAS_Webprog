@@ -76,7 +76,7 @@
                         <div class="col-sm-10">
                             <select id="dokter" name="dokter" class="form-control">
                             @foreach($dokters as $dokter)
-                                <option value="{{$dokter['namaDokter']}}">{{$dokter['namaDokter']}}</option>
+                                <option value="{{$dokter['id']}}">{{$dokter['namaDokter']}}</option>
                             @endforeach
                             </select>
                         </div>
@@ -85,21 +85,22 @@
                     <div class="form-group row">
                         <label for="pasien" class="col-sm-2 col-form-label">Pasien:</label>
                         <div class="col-sm-10">
-                            <input id="pasien" class="form-control" value="{{$namaPasien}}" disabled>
+                            <input id="pasien" class="form-control" value="{{$pasien['nama']}}" disabled>
+                            <input type="hidden" class="form-control" name="pasien" value="{{$pasien['idPasien']}}">
                         </div>
                     </div>
                     <br>
                     <div class="form-group row">
                         <label for="tanggal" class="col-sm-2 col-form-label">Keluhan:</label>
                         <div class="col-sm-10">
-                            <textarea id="keluhan" class="form-control"></textarea>
+                            <textarea id="keluhan" class="form-control" name="keluhan"></textarea>
                         </div>
                     </div>
                     <br>
                     <div class="form-group row">
                         <label for="tanggal" class="col-sm-2 col-form-label">Tanggal:</label>
                         <div class="col-sm-10">
-                            <input type="date" id="tanggal" class="form-control">
+                            <input type="date" id="tanggal" class="form-control" name="tanggal">
                         </div>
                     </div>
                     <br>
@@ -128,6 +129,18 @@
                     </div>
                 </form>
             </div>
+            
+            @if($errors->has('janji'))
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card card-body border-0">
+                            <div class="alert alert-danger">
+                                {{ $errors->first('janji') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
     <br>

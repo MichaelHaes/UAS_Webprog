@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pasien;
 use App\Models\Dokter;
+use App\Models\Janji;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -38,7 +39,7 @@ class PasienController extends Controller
         }
         return view('pasien/dashboard',
             [
-                'namaPasien'=>Session::get('nama'),
+                'pasien'=>Session::get('pasien'),
                 'username'=>Session::get('username'),
                 'password'=>Session::get('password'),
                 'dokters'=>$dokterData
@@ -64,12 +65,12 @@ class PasienController extends Controller
         $pasien = Pasien::where('username', $request->username)->first();
         if($pasien && Hash::check($request->password, $pasien->password)) {
             Session::start();
-            Session::put('nama', $pasien->nama);
+            Session::put('pasien', $pasien);
             Session::put('username', $request->username);
             Session::put('password', $request->password);
             return view('pasien/dashboard',
                 [
-                    'namaPasien'=>Session::get('nama'),
+                    'pasien'=>Session::get('pasien'),
                     'username'=>Session::get('username'),
                     'password'=>Session::get('password'),
                     'dokters'=>$dokterData
@@ -96,7 +97,7 @@ class PasienController extends Controller
             $foto = Storage::url($dokter->fotoDokter);
 
             $dokterData[] = [
-                'id' => $dokter->id,
+                'id' => $dokter->idDokter,
                 'namaDokter' => $dokter->namaDokter,
                 'jenisDokter' => $dokter->jenisDokter,
                 'foto' => $foto
@@ -107,26 +108,60 @@ class PasienController extends Controller
                 'username'=>Session::get('username'),
                 'password'=>Session::get('password'),
                 'dokters'=>$dokterData,
-                'namaPasien'=>Session::get('nama')
+                'pasien'=>Session::get('pasien')
             ]);
     }
 
     public function janjiConfirm(Request $request)
     {
-        return $request;
-        // return view('pasien/buatJanji',
-        //     [
-        //         'username'=>Session::get('username'),
-        //         'password'=>Session::get('password'),
-        //         'namaPasien'=>Session::get('nama')
-        //     ]);
+        $isExist = Janji::where('tanggal_temu', $request->tanggal)
+        ->where('jam_temu', $request->waktu)
+        ->where('idDokter', $request->dokter)
+        ->first();
+
+        $dokters = Dokter::all();
+        $dokterData = [];
+
+        foreach ($dokters as $dokter) {
+            $foto = Storage::url($dokter->fotoDokter);
+
+            $dokterData[] = [
+                'id' => $dokter->idDokter,
+                'namaDokter' => $dokter->namaDokter,
+                'jenisDokter' => $dokter->jenisDokter,
+                'foto' => $foto
+            ];
+        }
+
+        if ($isExist) {
+            throw ValidationException::withMessages([
+                'janji' => "Doctor already have an appointment at $request->tanggal on ($request->waktu)!",
+            ]);
+        } else {
+            $janji = new Janji();
+            $janji->idDokter = $request->dokter;
+            $janji->idPasien = $request->pasien;
+            $janji->tanggal_temu = $request->tanggal;
+            $janji->jam_temu = $request->waktu;
+            $janji->keluhan = $request->keluhan;
+            $janji->status = "Pending";
+            $janji->save();
+        }
+
+        return view('pasien/buatJanji',
+            [
+                'username'=>Session::get('username'),
+                'password'=>Session::get('password'),
+                'dokters'=>$dokterData,
+                'pasien'=>Session::get('pasien')
+            ]);
     }
 
     public function review()
     {
         return view('pasien/reviewDokter',
             [
-                'namaPasien'=>Session::get('nama'),
+                'pasien'=>Session::get('pasien'),
                 'username'=>Session::get('username'),
                 'password'=>Session::get('password')
             ]);
@@ -136,7 +171,7 @@ class PasienController extends Controller
     {
         return view('pasien/profilPasien',
             [
-                'namaPasien'=>Session::get('nama'),
+                'pasien'=>Session::get('pasien'),
                 'username'=>Session::get('username'),
                 'password'=>Session::get('password')
             ]);
