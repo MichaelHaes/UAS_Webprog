@@ -90,9 +90,10 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="d-grid">                        
-                                                <a class="btn btn-outline-secondary" href="{{url('/admin/updatedokter/'.$dokter['id'])}}">
+                                                <!-- <a class="btn btn-outline-secondary" href="{{url('/admin/updatedokter/'.$dokter['id'])}}">
                                                     Update
-                                                </a>
+                                                </a> -->
+                                                <button class="btn" onclick="openModal(`{{ $dokter['id'] }}`, `{{ $dokter['namaDokter'] }}`, `{{ $dokter['jenisDokter'] }}`)">Update</button>
                                             </div>
                                         </div>
                                         <div class="col">
@@ -108,7 +109,61 @@
                 @endforeach
             </div>
         </div>
-            
+    </div>
+
+
+    <!-- Modal Update Doctor -->
+    <script type="text/javascript">
+        function openModal(id, nama, spesialisasi) {
+            var form = document.getElementById('updateForm');
+            var namaInput = document.getElementById('namaInput');
+            var spesialisasiInput = document.getElementById('spesialisasiInput');
+
+            form.action = "{{ url('/admin/updatedokter') }}/" + id;
+            namaInput.value = nama;
+            spesialisasiInput.value = spesialisasi;
+
+            var update = document.getElementById('modalUpdate');
+            var modal = new bootstrap.Modal(update);
+            modal.show();
+
+        }
+    </script>
+    <div class="modal fade" id="modalUpdate" tabindex="-1" aria-labelledby="modalUpdate" aria-hidden="true">    
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h5>Tambah Dokter</h5>
+                    </div>
+                    <br>
+                    <form id="updateForm" action="" method="get" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-3 col-form-label">Nama Dokter</label>
+                            <div class="col-sm-9">
+                                <input id="namaInput" type="text" name="nama" class="form-control" value="" autofocus>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-3 col-form-label">Spesialisasi</label>
+                            <div class="col-sm-9">
+                                <input id="spesialisasiInput" type="text" name="spesialisasi" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-3 col-form-label">Foto</label>
+                            <div class="col-sm-9">
+                                <input id="fotoInput" type="file" name="foto" class="form-control">
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary">Tambah</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Modal Add Doctor -->

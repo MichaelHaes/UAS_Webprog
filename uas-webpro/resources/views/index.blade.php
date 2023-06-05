@@ -540,7 +540,7 @@
         var loginLink = document.getElementById("loginLink");
         var modalPasien = document.getElementById("modalPasien");
         var modalRegister = document.getElementById("modalRegister");
-
+        
 
         // Register button click event
         registerBtn.addEventListener("click", function() {

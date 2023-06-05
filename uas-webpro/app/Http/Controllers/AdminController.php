@@ -93,11 +93,23 @@ class AdminController extends Controller
         return redirect()->route('dokter');
     }
 
-    public function updateDokter($id) {
+    public function updateDokter($id, Request $request)
+    {
         $dokter = Dokter::where('idDokter', $id)->firstOrFail();
+    
+        $path = $dokter->fotoDokter;
+        if ($request->hasFile('foto')) {
+            $path = $request->file('foto')->storePublicly('dokter', 'public');
+        }
 
-        return $dokter->idDokter;
+        DB::update("UPDATE dokter SET namaDokter = ?, jenisDokter = ?, fotoDokter = ? WHERE idDokter = ?",
+        [$request->query('nama'), $request->query('spesialisasi'), $path, $id]);
+
+        
+        return redirect()->route('dokter');
     }
+    
+
 
     public function pasien() {
         $pasiens = Pasien::all();
