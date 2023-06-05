@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pasien;
 use App\Models\Dokter;
 use App\Models\Janji;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -160,11 +161,64 @@ class PasienController extends Controller
 
     public function review()
     {
+        $today = now()->toDateString();
+        $janjiData = [];
+        $janjis = Janji::
+        where('idPasien', Session::get('pasien')->idPasien)
+        ->where('status', 'Accepted')
+        ->where('tanggal_temu', '<', $today)->get();
+
+        foreach ($janjis as $janji) {
+            $janjiData[] = [
+                'idDokter' => $janji->idDokter
+            ];
+        }
+        $idDokters = collect($janjiData)->pluck('idDokter')->toArray();
+        $dokters = Dokter::whereIn('idDokter', $idDokters)->get();
+
+        // return $dokters;
         return view('pasien/reviewDokter',
             [
                 'pasien'=>Session::get('pasien'),
                 'username'=>Session::get('username'),
-                'password'=>Session::get('password')
+                'password'=>Session::get('password'),
+                'janjis'=>$janjiData,
+                'dokters'=>$dokters
+            ]);
+    }
+
+    public function reviewProses($id, Request $request)
+    {
+        $review = new Review();
+        $review->idDokter = $id;
+        $review->idPasien = Session::get('pasien')->idPasien;
+        $review->rating = $request->rate;
+        $review->review = $request->review;
+        $review->save();
+
+
+        $today = now()->toDateString();
+        $janjiData = [];
+        $janjis = Janji::
+        where('idPasien', Session::get('pasien')->idPasien)
+        ->where('status', 'Accepted')
+        ->where('tanggal_temu', '<', $today)->get();
+
+        foreach ($janjis as $janji) {
+            $janjiData[] = [
+                'idDokter' => $janji->idDokter
+            ];
+        }
+        $idDokters = collect($janjiData)->pluck('idDokter')->toArray();
+        $dokters = Dokter::whereIn('idDokter', $idDokters)->get();
+
+        return view('pasien/reviewDokter',
+            [
+                'pasien'=>Session::get('pasien'),
+                'username'=>Session::get('username'),
+                'password'=>Session::get('password'),
+                'janjis'=>$janjiData,
+                'dokters'=>$dokters
             ]);
     }
 
