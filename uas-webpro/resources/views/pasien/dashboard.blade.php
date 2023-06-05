@@ -98,7 +98,7 @@
             </div>
         </div>
 
-        <!-- <div class="card w-50 mx-auto">
+        <div class="card w-50 mx-auto">
             <div class="card-body">
                 @foreach($dokters as $dokter)
                     <div class="card mb-3">
@@ -116,8 +116,8 @@
                     </div>
                 @endforeach
             </div>
-        </div> -->
-        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        </div>
+        <!-- <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="mx-auto">
@@ -143,7 +143,7 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-        </div>
+        </div> -->
 
 
     </div>
