@@ -61,13 +61,24 @@
     <br>
     <div class="container">
         <div class="text-center">
-            <img src="{{url('/images/profil.png')}}" alt="..." style="width: 30%;">
+            <img src="{{url('/images/profil.png')}}" alt="..." style="width: 7.5%;">
+            <h3>Profil Pasien</h3>
+        </div>
+        <div class="card w-50 mx-auto">
+            <div class="card-body row">
+                <strong class="col-4">Nama</strong>          <p class="col-8">: {{$pasien['nama']}}</p>
+                <strong class="col-4">Username</strong>      <p class="col-8">: {{$pasien['username']}}</p>
+                <strong class="col-4">Tempat Lahir</strong>  <p class="col-8">: {{$pasien['tempatLahir']}}</p>
+                <strong class="col-4">Tanggal Lahir</strong> <p class="col-8">: {{$pasien['tanggalLahir']}}</p>
+                <strong class="col-4">Telepon</strong>       <p class="col-8">: {{$pasien['telepon']}}</p>
+                <strong class="col-4">Alamat</strong>        <p class="col-8">: {{$pasien['alamat']}}</p>
+            </div>
         </div>
     </div>
     <br>
 </body>
 
-<footer class="text-white text-center text-lg-start navbar fixed-bottom" style="background-color: #008cb4;">
+<footer class="text-white text-center text-lg-start navbar" style="background-color: #008cb4;">
     <!-- Grid container -->
     <div class="container p-4">
         <!--Grid row-->
