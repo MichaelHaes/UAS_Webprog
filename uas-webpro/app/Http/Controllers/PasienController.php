@@ -160,59 +160,25 @@ class PasienController extends Controller
         return redirect()->route('index');
     }
 
-    public function forgotpass()
+    public function forgotpass(Request $request)
     {
-        return view('pasien/forgotPassword');
+        $pasien = Pasien::where('username', $request->username)->first();
+
+        if (!$pasien) {
+            throw ValidationException::withMessages([
+                'forgotpass' => 'Username does not exists!',
+            ]);
+        } else if ($pasien && $request->password !== $request->confirmpassword) {
+            throw ValidationException::withMessages([
+                'forgotpass' => 'Password and confirm password must be the same!',
+            ]);
+        } else {
+            $hashedPassword = Hash::make($request->password);
+            DB::update("UPDATE pasien SET password = ? WHERE idPasien = ?",
+            [$hashedPassword, $pasien['idPasien']]);
+        }
+
+        return redirect()->route('index');
     }
 
-
-
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

@@ -56,5 +56,5 @@ Route::controller(PasienController::class)->group(function(){
     Route::get('/pasien/janji', 'janji')->middleware('web');
     Route::get('/pasien/review', 'review')->middleware('web');
     Route::get('/pasien/profil', 'profil')->middleware('web');
-    Route::get('/pasien/forgotpass', 'forgotpass');
+    Route::post('/pasien/forgotpass', 'forgotpass');
 });

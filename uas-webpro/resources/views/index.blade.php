@@ -133,6 +133,7 @@
             </div>
         </div>
     </nav>
+
     <!-- Modal Pasien -->
     <div class="modal fade" id="modalPasien" tabindex="-1" aria-labelledby="modalPasien" aria-hidden="true">    
         <div class="modal-dialog modal-dialog-centered">
@@ -150,13 +151,15 @@
                                 <input type="text" name="username" class="form-control" autofocus>
                             </div>
                         </div>
-                        <div class="mb-3 d-flex align-items-center">
-                            <label for="password" class="form-label me-2">Password</label>
-                            <div class="input-group">
-                                <input type="password" name="password" class="form-control" id="passwordInput">
-                                <button type="button" id="toggleButton" class="btn btn-secondary" onclick="togglePasswordVisibility()">
-                                    Show
-                                </button>
+                        <div class="mb-3 row">
+                            <label for="password" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="password" name="password" class="form-control" id="passwordInput">
+                                    <button type="button" id="toggleButton" class="btn btn-secondary" onclick="togglePasswordVisibility()">
+                                        Show
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="d-grid">
@@ -165,7 +168,7 @@
                     </form>
                    
                     <div class="d-flex justify-content-center mt-3">
-                        <button class="btn btn-link nav-link" id="registerBtn">Register</button>
+                        <button class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#modalRegister">Register</button>
                     </div>
                     @if($errors->has('passwordPasien'))
                         <script type="text/javascript">
@@ -181,7 +184,7 @@
                                     <div class="alert alert-danger">
                                         {{ $errors->first('passwordPasien') }}
                                         <div>
-                                            <a href="{{url('/pasien/forgotpass')}}" class="text-decoration-none">Forgot password?</a>
+                                            <button class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#modalForgotPass">Forgot password?</button>
                                         </div>
                                     </div>
                                 </div>
@@ -192,7 +195,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Modal Register -->
     <div class="modal fade" id="modalRegister" tabindex="-1" aria-labelledby="modalRegister" aria-hidden="true">
@@ -241,30 +243,34 @@
                                 <input type="text" name="alamat" class="form-control">
                             </div>
                         </div>
-                        <div class="mb-3 d-flex align-items-center">
+                        <div class="mb-3 row">
                             <label for="password" class="col-sm-2 col-form-label">Password</label>
-                            <div class="input-group">
-                                <input type="password" name="password" class="form-control" id="passwordInputRegister">
-                                <button type="button" id="toggleButtonReg" class="btn btn-secondary" onclick="togglePasswordVisibilityReg()">
-                                    Show
-                                </button>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="password" name="password" class="form-control" id="passwordInputRegister">
+                                    <button type="button" id="toggleButtonReg" class="btn btn-secondary" onclick="togglePasswordVisibilityReg()">
+                                        Show
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <div class="mb-3 d-flex align-items-center">
-                            <label for="confirmpassword" class="col-sm-2 col-form-label">Confirm Password</label>
-                            <div class="input-group">
-                                <input type="password" name="confirmPassword" class="form-control" id="passwordConfirmRegister">
-                                <button type="button" id="toggleButtonRegConfirm" class="btn btn-secondary" onclick="togglePasswordVisibilityRegConfirm()">
-                                    Show
-                                </button>
+                        <div class="mb-3 row">
+                            <label for="password" class="col-sm-2 col-form-label">Confirm Password</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="password" name="confirmPassword" class="form-control" id="passwordConfirmRegister">
+                                    <button type="button" id="toggleButtonRegConfirm" class="btn btn-secondary" onclick="togglePasswordVisibilityRegConfirm()">
+                                        Show
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+                        </div>  
                         <div class="d-grid">
                             <button class="btn btn-primary">Create Account</button>
                         </div>
                     </form>
                     <div class="d-flex justify-content-center mt-3">
-                        <button class="btn btn-link nav-link" id="loginLink">Already have an account?</button>
+                        <button class="btn btn-link nav-link" id="loginLink" data-bs-toggle="modal" data-bs-target="#modalPasien">Already have an account?</button>
                     </div>
                     @if($errors->has('registration'))
                         <script type="text/javascript">
@@ -289,10 +295,71 @@
         </div>
     </div>
 
-
-
-
-
+    <!-- Modal Forgot Password -->
+    <div class="modal fade" id="modalForgotPass" tabindex="-1" aria-labelledby="modalForgotPass" aria-hidden="true">    
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h5>Forgot Password KKS</h5>
+                    </div>
+                    <br>
+                    <form action="{{url('/pasien/forgotpass')}}" method="post">
+                        @csrf
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-2 col-form-label">Username</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="username" class="form-control" autofocus>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="password" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="password" name="password" class="form-control" id="passwordInputForgot">
+                                    <button type="button" id="toggleButtonForgot" class="btn btn-secondary" onclick="togglePasswordVisibilityForgot()">
+                                        Show
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="password" class="col-sm-2 col-form-label">Confirm Password</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="password" name="confirmpassword" class="form-control" id="passwordConfirmForgot">
+                                    <button type="button" id="toggleButtonForgotConfirm" class="btn btn-secondary" onclick="togglePasswordVisibilityForgotConfirm()">
+                                        Show
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary">Confirm</button>
+                        </div>
+                    </form>
+                    @if($errors->has('forgotpass'))
+                        <script type="text/javascript">
+                            window.addEventListener('DOMContentLoaded', function() {
+                                var modalForgotPass = document.getElementById('modalForgotPass');
+                                var modal = new bootstrap.Modal(modalForgotPass);
+                                modal.show();
+                            });
+                        </script>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="card card-body border-0">
+                                    <div class="alert alert-danger">
+                                        {{ $errors->first('forgotpass') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal Admin -->
     <div class="modal fade" id="modalAdmin" tabindex="-1" aria-labelledby="modalAdmin" aria-hidden="true">
@@ -489,35 +556,6 @@
         }
     }
    
-    function togglePasswordVisibilityReg() {
-        var passwordInput = document.getElementById("passwordInputRegister");
-        var toggleButton = document.getElementById("toggleButtonReg");
-
-
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            toggleButton.textContent = "Hide";
-        } else {
-            passwordInput.type = "password";
-            toggleButton.textContent = "Show";
-        }
-    }
-
-
-    function togglePasswordVisibilityRegConfirm() {
-        var passwordInput = document.getElementById("passwordConfirmRegister");
-        var toggleButton = document.getElementById("toggleButtonRegConfirm");
-
-
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            toggleButton.textContent = "Hide";
-        } else {
-            passwordInput.type = "password";
-            toggleButton.textContent = "Show";
-        }
-    }
-   
     function togglePasswordVisibilityAdmin() {
         var passwordInput = document.getElementById("passwordInputAdmin");
         var toggleButton = document.getElementById("toggleButtonAdmin");
@@ -531,34 +569,62 @@
             toggleButton.textContent = "Show";
         }
     }
+   
+   function togglePasswordVisibilityReg() {
+       var passwordInput = document.getElementById("passwordInputRegister");
+       var toggleButton = document.getElementById("toggleButtonReg");
 
 
+       if (passwordInput.type === "password") {
+           passwordInput.type = "text";
+           toggleButton.textContent = "Hide";
+       } else {
+           passwordInput.type = "password";
+           toggleButton.textContent = "Show";
+       }
+   }
+
+   function togglePasswordVisibilityRegConfirm() {
+       var passwordInput = document.getElementById("passwordConfirmRegister");
+       var toggleButton = document.getElementById("toggleButtonRegConfirm");
 
 
-    document.addEventListener("DOMContentLoaded", function() {
-        var registerBtn = document.getElementById("registerBtn");
-        var loginLink = document.getElementById("loginLink");
-        var modalPasien = document.getElementById("modalPasien");
-        var modalRegister = document.getElementById("modalRegister");
-        
-
-        // Register button click event
-        registerBtn.addEventListener("click", function() {
-            modalPasien.classList.remove("show");
-            modalPasien.style.display = "none";
-            modalRegister.classList.add("show");
-            modalRegister.style.display = "block";
-        });
+       if (passwordInput.type === "password") {
+           passwordInput.type = "text";
+           toggleButton.textContent = "Hide";
+       } else {
+           passwordInput.type = "password";
+           toggleButton.textContent = "Show";
+       }
+   }
+   
+   function togglePasswordVisibilityForgot() {
+       var passwordInput = document.getElementById("passwordInputForgot");
+       var toggleButton = document.getElementById("toggleButtonForgot");
 
 
-        // Already have an account link click event
-        loginLink.addEventListener("click", function() {
-            modalRegister.classList.remove("show");
-            modalRegister.style.display = "none";
-            modalPasien.classList.add("show");
-            modalPasien.style.display = "block";
-        });
-    });
+       if (passwordInput.type === "password") {
+           passwordInput.type = "text";
+           toggleButton.textContent = "Hide";
+       } else {
+           passwordInput.type = "password";
+           toggleButton.textContent = "Show";
+       }
+   }
+
+   function togglePasswordVisibilityForgotConfirm() {
+       var passwordInput = document.getElementById("passwordConfirmForgot");
+       var toggleButton = document.getElementById("toggleButtonForgotConfirm");
+
+
+       if (passwordInput.type === "password") {
+           passwordInput.type = "text";
+           toggleButton.textContent = "Hide";
+       } else {
+           passwordInput.type = "password";
+           toggleButton.textContent = "Show";
+       }
+   }
 </script>
 </html>
 
