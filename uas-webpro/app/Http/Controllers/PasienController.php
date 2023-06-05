@@ -133,6 +133,13 @@ class PasienController extends Controller
 
     public function register(Request $request)
     {
+        $isExist = Pasien::where('username', $request->username)->first();
+
+        if ($isExist) {
+            throw ValidationException::withMessages([
+                'registration' => 'Username already exists!',
+            ]);
+        }
         if($request->password == $request->confirmPassword) {
             $hashedPassword = Hash::make($request->password);
             $pasien = new Pasien();
