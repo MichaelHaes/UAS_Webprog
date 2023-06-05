@@ -111,6 +111,17 @@ class PasienController extends Controller
             ]);
     }
 
+    public function janjiConfirm(Request $request)
+    {
+        return $request;
+        // return view('pasien/buatJanji',
+        //     [
+        //         'username'=>Session::get('username'),
+        //         'password'=>Session::get('password'),
+        //         'namaPasien'=>Session::get('nama')
+        //     ]);
+    }
+
     public function review()
     {
         return view('pasien/reviewDokter',

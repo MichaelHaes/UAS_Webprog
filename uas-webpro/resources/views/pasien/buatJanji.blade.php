@@ -69,7 +69,8 @@
         </div>
         <div class="card mb-3 w-50 mx-auto">
             <div class="card-body">
-                <form action="/action_page.php" class="form-inline">
+                <form action="{{url('/pasien/janji/confirm')}}" class="form-inline" method="post">
+                    @csrf
                     <div class="form-group row">
                         <label for="dokter" class="col-sm-2 col-form-label">Dokter:</label>
                         <div class="col-sm-10">
@@ -106,18 +107,18 @@
                         <label for="tanggal" class="col-sm-2 col-form-label">Jam:</label>
                         <div class="col-sm-10">
                             <select id="waktu" name="waktu" class="form-control">
-                                <option>9.00 - 10.00</option>
-                                <option>10.00 - 11.00</option>
-                                <option>11.00 - 12.00</option>
-                                <option>12.00 - 13.00</option>
-                                <option>13.00 - 14.00</option>
-                                <option>14.00 - 15.00</option>
-                                <option>15.00 - 16.00</option>
-                                <option>16.00 - 17.00</option>
-                                <option>17.00 - 18.00</option>
-                                <option>18.00 - 19.00</option>
-                                <option>19.00 - 20.00</option>
-                                <option>20.00 - 21.00</option>
+                                <option value="09.00 - 10.00">09.00 - 10.00</option>
+                                <option value="10.00 - 11.00">10.00 - 11.00</option>
+                                <option value="11.00 - 12.00">11.00 - 12.00</option>
+                                <option value="12.00 - 13.00">12.00 - 13.00</option>
+                                <option value="13.00 - 14.00">13.00 - 14.00</option>
+                                <option value="14.00 - 15.00">14.00 - 15.00</option>
+                                <option value="15.00 - 16.00">15.00 - 16.00</option>
+                                <option value="16.00 - 17.00">16.00 - 17.00</option>
+                                <option value="17.00 - 18.00">17.00 - 18.00</option>
+                                <option value="18.00 - 19.00">18.00 - 19.00</option>
+                                <option value="19.00 - 20.00">19.00 - 20.00</option>
+                                <option value="20.00 - 21.00">20.00 - 21.00</option>
                             </select>
                         </div>
                     </div>
