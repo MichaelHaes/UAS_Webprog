@@ -123,7 +123,7 @@
                     <div class="mx-auto">
                         <div class="row">
                             @foreach($dokters as $dokter)
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="text-center">
                                     <img src="{{asset($dokter['foto'])}}" class="rounded-circle border border-dark imgDokter" width="150" height="150">
                                     <h3 class="mt-3 mb-1">{{$dokter['namaDokter']}}</h3>
