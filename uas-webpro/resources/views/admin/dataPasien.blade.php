@@ -64,7 +64,25 @@
     <br>
     <div class="container">
         <div class="text-center">
-            <img src="{{url('/images/data.png')}}" alt="..." style="width: 30%;">
+            <img src="{{url('/images/data.png')}}" alt="..." style="width: 7.5%;">
+            <h3>Data Pasien</h3>
+        </div>
+        <div class="card">
+            <div class="card-body d-flex justify-content-between">
+                @foreach($pasien as $pasen)
+                <div class="card" style="width: 48%;">
+                    <div class="card-body row">
+                        <strong class="col-3">ID</strong> <p class="col-9">: {{$pasen['id']}}</p>
+                        <strong class="col-3">Nama</strong> <p class="col-9">: {{$pasen['nama']}}</p>
+                        <strong class="col-3">Username</strong> <p class="col-9">: {{$pasen['username']}}</p>
+                        <strong class="col-3">Tempat Lahir</strong> <p class="col-9">: {{$pasen['tempatlahir']}}</p>
+                        <strong class="col-3">Tanggal Lahir</strong> <p class="col-9">: {{$pasen['tanggallahir']}}</p>
+                        <strong class="col-3">Telepon</strong> <p class="col-9">: {{$pasen['telepon']}}</p>
+                        <strong class="col-3">Alamat</strong> <p class="col-9">: {{$pasen['alamat']}}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
     <br>

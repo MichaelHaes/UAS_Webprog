@@ -66,7 +66,13 @@
     <br>
     <div class="container">
         <div class="text-center">
-            <img src="{{url('/images/profil.png')}}" alt="..." style="width: 30%;">
+            <img src="{{url('/images/profil.png')}}" alt="..." style="width: 7.5%;">
+            <h3>Profil Admin</h3>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                Username: {{$admin['username']}}
+            </div>
         </div>
     </div>
     <br>

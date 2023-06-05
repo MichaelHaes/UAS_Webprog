@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dokter;
 use App\Models\Pasien;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -149,10 +150,12 @@ class AdminController extends Controller
     }
 
     public function profil() {
+        $admin = Admin::first();
         return view('admin/profilAdmin',
             [
                 'username'=>Session::get('username'),
-                'password'=>Session::get('password')
+                'password'=>Session::get('password'),
+                'admin'=>$admin
             ]);
     }
 
