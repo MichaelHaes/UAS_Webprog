@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2023 at 01:01 PM
+-- Generation Time: Jun 05, 2023 at 04:58 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -80,6 +80,18 @@ CREATE TABLE `janji` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `janji`
+--
+
+INSERT INTO `janji` (`idJanji`, `idDokter`, `idPasien`, `tanggal_temu`, `jam_temu`, `keluhan`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '2023-06-23', '09.00 - 10.00', 'Test', 'Pending', '2023-06-05 06:38:45', '2023-06-05 06:38:45'),
+(4, 2, 2, '2023-06-16', '15.00 - 16.00', 'test kedua', 'Pending', '2023-06-05 07:18:01', '2023-06-05 07:18:01'),
+(5, 1, 1, '2023-06-30', '17.00 - 18.00', 'test3', 'Pending', '2023-06-05 07:23:38', '2023-06-05 07:23:38'),
+(6, 1, 2, '2023-07-13', '09.00 - 10.00', 'test4', 'Pending', '2023-06-05 07:27:16', '2023-06-05 07:27:16'),
+(7, 1, 2, '2023-07-02', '09.00 - 10.00', 'test5', 'Pending', '2023-06-05 07:29:27', '2023-06-05 07:29:27'),
+(8, 1, 2, '2023-06-24', '09.00 - 10.00', 'test6', 'Pending', '2023-06-05 07:30:35', '2023-06-05 07:30:35');
 
 -- --------------------------------------------------------
 
@@ -229,7 +241,7 @@ ALTER TABLE `dokter`
 -- AUTO_INCREMENT for table `janji`
 --
 ALTER TABLE `janji`
-  MODIFY `idJanji` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idJanji` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `migrations`
