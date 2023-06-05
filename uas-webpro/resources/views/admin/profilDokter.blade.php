@@ -89,16 +89,13 @@
                                     <br><br><br>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="d-grid">                        
-                                                <!-- <a class="btn btn-outline-secondary" href="{{url('/admin/updatedokter/'.$dokter['id'])}}">
-                                                    Update
-                                                </a> -->
+                                            <div class="d-grid">
                                                 <button class="btn" onclick="openModal(`{{ $dokter['id'] }}`, `{{ $dokter['namaDokter'] }}`, `{{ $dokter['jenisDokter'] }}`)">Update</button>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="d-grid">
-                                                <button class="btn btn-danger">Delete</button>
+                                                <a class="btn" href="{{url('/admin/deletedokter')}}/{{$dokter['id']}}">Delete</a>
                                             </div>
                                         </div>
                                     </div>

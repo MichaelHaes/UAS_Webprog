@@ -108,7 +108,13 @@ class AdminController extends Controller
         
         return redirect()->route('dokter');
     }
-    
+
+    public function deleteDokter($id)
+    {
+        DB::delete("DELETE FROM dokter WHERE idDokter = ?", [$id]);
+        
+        return redirect()->route('dokter');
+    }
 
 
     public function pasien() {
