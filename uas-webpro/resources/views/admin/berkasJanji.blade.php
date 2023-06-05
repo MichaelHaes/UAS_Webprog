@@ -65,7 +65,33 @@
 <br>
 <div class="container">
     <div class="text-center">
-        <img src="{{url('/images/berkas.png')}}" alt="..." style="width: 30%;">
+        <img src="{{url('/images/berkas.png')}}" alt="..." style="width: 7.5%;">
+        <h3>Berkas Janji</h3>
+    </div>
+    <div class="card">
+        <div class="card-body row">
+            @foreach($janjis as $janji)
+                <div class="col-lg-6">
+                    <div class="card mb-3" >
+                        <div class="card">
+                            <div class="card-header">
+                                {{$janji['idJanji']}}
+                            </div>
+                            <div class="card-body row">
+                                <strong class="col-3">Nama Pasien</strong> <p class="col-9">: {{$janji['namaPasien']}}</p>
+                                <strong class="col-3">Nama Dokter</strong> <p class="col-9">: {{$janji['namaDokter']}}</p>
+                                <strong class="col-3">Tanggal Temu</strong><p class="col-9">: {{$janji['tanggal_temu']}}</p>
+                                <strong class="col-3">Jam Temu</strong>    <p class="col-9">: {{$janji['jam_temu']}}</p>
+                                <strong class="col-3">Keluhan</strong>     <p class="col-9">: {{$janji['keluhan']}}</p>
+                                <strong class="col-3">Status</strong>      <p class="col-9">: {{$janji['status']}}</p>
+                            </div>
+                            <button class="btn">Accept</button>
+                            <button class="btn">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 </div>
 <br>

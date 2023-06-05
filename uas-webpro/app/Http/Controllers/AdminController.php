@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dokter;
 use App\Models\Pasien;
+use App\Models\Janji;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
@@ -82,7 +83,6 @@ class AdminController extends Controller
 
     public function tambahDokter(Request $request) {
         $path = $request->file('foto')->storePublicly('dokter', 'public');
-        $ext = $request->file('foto')->extension();
 
         $dokter = new Dokter();
         $dokter->namaDokter = $request->nama;
@@ -142,10 +142,27 @@ class AdminController extends Controller
     }
 
     public function berkas() {
+        $janjis = Janji::all(); 
+        $janjiData = [];
+
+        foreach ($janjis as $janji) {
+            $pasien = Pasien::where('idPasien', $janji->idPasien)->first();
+            $dokter = Dokter::where('idDokter', $janji->idDokter)->first();
+            $janjiData[] = [
+                'idJanji' => $janji->idJanji,
+                'namaPasien' => $pasien->nama,
+                'namaDokter' => $dokter->namaDokter,
+                'tanggal_temu' => $janji->tanggal_temu,
+                'jam_temu' => $janji->jam_temu,
+                'keluhan' => $janji->keluhan,
+                'status' => $janji->status
+            ];
+        }
         return view('admin/berkasJanji',
             [
                 'username'=>Session::get('username'),
-                'password'=>Session::get('password')
+                'password'=>Session::get('password'),
+                'janjis'=>$janjiData
             ]);
     }
 
