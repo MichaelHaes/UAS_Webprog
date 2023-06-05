@@ -41,6 +41,7 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/admin/deletedokter/{id}', 'deleteDokter')->middleware('web');
     Route::get('/admin/pasien', 'pasien')->middleware('web');
     Route::get('/admin/berkas', 'berkas')->middleware('web');
+    Route::post('/admin/berkas/action', 'persetujuanBerkas')->middleware('web');
     Route::get('/admin/profil', 'profil')->middleware('web');
     Route::get('/admin/logout', 'logout')->name('logout');
 });
@@ -55,6 +56,7 @@ Route::controller(PasienController::class)->group(function(){
     Route::post('/pasien/register', 'register');
     Route::get('/pasien/janji', 'janji')->middleware('web')->name('janji');
     Route::post('/pasien/janji/confirm', 'janjiConfirm')->middleware('web');
+    Route::post('/pasien/review/{id}', 'reviewProses')->middleware('web');
     Route::get('/pasien/review', 'review')->middleware('web');
     Route::get('/pasien/profil', 'profil')->middleware('web');
     Route::post('/pasien/forgotpass', 'forgotpass');

@@ -60,13 +60,90 @@
     <br>
     <div class="container">
         <div class="text-center">
-            <img src="{{url('/images/review.png')}}" alt="..." style="width: 30%;">
+            <img src="{{url('/images/review.png')}}" alt="..." style="width: 7.5%;">
+            <h3>Review Dokter</h3>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                @foreach($dokters as $dokter)
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h3 class="mb-1">{{$dokter['namaDokter']}}</h3>
+                                    <h6 class="text-muted">{{$dokter['jenisDokter']}}</h6>
+                                    <br><br><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="d-grid">
+                                                <button class="btn" onclick="openModal(`{{ $dokter['idDokter'] }}`)">Review</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
     <br>
+    <!-- Modal Review -->
+    <script type="text/javascript">
+        function openModal(id) {
+            var form = document.getElementById('updateForm');
+
+            form.action = "{{ url('/pasien/review') }}/" + id;
+
+            var update = document.getElementById('modalReview');
+            var modal = new bootstrap.Modal(update);
+            modal.show();
+
+        }
+    </script>
+    <div class="modal fade" id="modalReview" tabindex="-1" aria-labelledby="modalReview" aria-hidden="true">    
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h5>Review Dokter</h5>
+                    </div>
+                    <br>
+                    <form id="updateForm" action="" method="post">
+                        @csrf
+                        <div class="mb-3 row">
+                            <label for="username" class="col-sm-3 col-form-label">Rating</label>
+                            <div class="form-check col-sm-9">
+                                <input id="rate1" type="radio" name="rate" class="form-check-input" value="1">
+                                <label class="form-check-label" for="rate">1</label><br>
+                                <input id="rate2" type="radio" name="rate" class="form-check-input" value="2">
+                                <label class="form-check-label" for="rate">2</label><br>
+                                <input id="rate3" type="radio" name="rate" class="form-check-input" value="3">
+                                <label class="form-check-label" for="rate">3</label><br>
+                                <input id="rate4" type="radio" name="rate" class="form-check-input" value="4">
+                                <label class="form-check-label" for="rate">4</label><br>
+                                <input id="rate5" type="radio" name="rate" class="form-check-input" value="5">
+                                <label class="form-check-label" for="rate">5</label><br>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-floating">
+                                <textarea id="review" name="review" class="form-control" placeholder="review"></textarea>
+                                <label for="review">Review</label>
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
-<footer class="text-white text-center text-lg-start navbar fixed-bottom" style="background-color: #008cb4;">
+<footer class="text-white text-center text-lg-start navbar" style="background-color: #008cb4;">
     <!-- Grid container -->
     <div class="container p-4">
         <!--Grid row-->

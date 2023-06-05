@@ -166,6 +166,41 @@ class AdminController extends Controller
             ]);
     }
 
+    public function persetujuanBerkas(Request $request) {
+        $action = $request->input('action');
+
+        if ($action === 'accept') {
+            DB::update("UPDATE janji SET status = ? WHERE idJanji = ?",
+            ['Accepted', $request->input('idJanji')]);
+        } elseif ($action === 'decline') {
+            DB::update("UPDATE janji SET status = ? WHERE idJanji = ?",
+            ['Declined', $request->input('idJanji')]);
+        }
+
+        $janjis = Janji::all(); 
+        $janjiData = [];
+
+        foreach ($janjis as $janji) {
+            $pasien = Pasien::where('idPasien', $janji->idPasien)->first();
+            $dokter = Dokter::where('idDokter', $janji->idDokter)->first();
+            $janjiData[] = [
+                'idJanji' => $janji->idJanji,
+                'namaPasien' => $pasien->nama,
+                'namaDokter' => $dokter->namaDokter,
+                'tanggal_temu' => $janji->tanggal_temu,
+                'jam_temu' => $janji->jam_temu,
+                'keluhan' => $janji->keluhan,
+                'status' => $janji->status
+            ];
+        }
+        return view('admin/berkasJanji',
+            [
+                'username'=>Session::get('username'),
+                'password'=>Session::get('password'),
+                'janjis'=>$janjiData
+            ]);
+    }
+
     public function profil() {
         $admin = Admin::first();
         return view('admin/profilAdmin',
