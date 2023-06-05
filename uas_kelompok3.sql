@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2023 at 06:45 PM
+-- Generation Time: Jun 05, 2023 at 01:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -60,8 +60,8 @@ CREATE TABLE `dokter` (
 --
 
 INSERT INTO `dokter` (`idDokter`, `namaDokter`, `jenisDokter`, `fotoDokter`, `created_at`, `updated_at`) VALUES
-(1, 'Mikael', 'Dokter Umum', 'dokter/ooQKdCBnQmpuoWaxl6T5Qg27YEjzZIEhFEFReufI.png', '2023-06-04 01:08:17', '2023-06-04 01:08:17'),
-(2, 'Harry', 'Dokter Hewan', 'dokter/qJQdbyhW7MuteVgfR5YHFeBkJDOzqjULzUbzm27g.png', '2023-06-04 01:08:31', '2023-06-04 01:08:31');
+(1, 'Mikael Doc', 'Dokter Umum', 'dokter/ooQKdCBnQmpuoWaxl6T5Qg27YEjzZIEhFEFReufI.png', '2023-06-04 01:08:17', '2023-06-04 01:08:17'),
+(2, 'Harry Nih', 'Dokter Hewan', 'dokter/qJQdbyhW7MuteVgfR5YHFeBkJDOzqjULzUbzm27g.png', '2023-06-04 01:08:31', '2023-06-04 01:08:31');
 
 -- --------------------------------------------------------
 
@@ -74,6 +74,7 @@ CREATE TABLE `janji` (
   `idDokter` bigint(20) UNSIGNED NOT NULL,
   `idPasien` bigint(20) UNSIGNED NOT NULL,
   `tanggal_temu` date NOT NULL,
+  `jam_temu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `keluhan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -129,7 +130,9 @@ CREATE TABLE `pasien` (
 
 INSERT INTO `pasien` (`idPasien`, `username`, `nama`, `tempatLahir`, `tanggalLahir`, `telepon`, `alamat`, `password`, `created_at`, `updated_at`) VALUES
 (1, 'pasien', 'pasien', 'Tangerang', '2023-06-02', '12345678', 'Tangerang', '$2y$10$kjxQ2URCgf8/OymhC1/bb.0R2pIohnsdqJPT8mq8K7EigiUOHkHM6', '2023-06-04 01:07:51', '2023-06-04 01:07:51'),
-(2, 'michael', 'Michael Harry Setiawan', 'Cirebon', '2002-10-01', '0812345678', 'Allogio', '$2y$10$iMHA.TFwefFBbMf9atsZ9eoekt5adfC3lNzPPZxEnzM4SYLKEP4PG', '2023-06-04 07:40:21', '2023-06-04 07:40:21');
+(2, 'michael', 'Michael Harry Setiawan', 'Cirebon', '2002-10-01', '0812345678', 'Allogio', '$2y$10$/62AsmZ21L6v2waHVszVi.zbsG8Q1umg4yD3IZtaN.fwe9VVfnFfy', '2023-06-04 07:40:21', '2023-06-04 07:40:21'),
+(3, 'test', 'Test Coba', 'Tangerang', '2023-05-31', '12345', 'Tangerang', '$2y$10$4eXmeuQ9CD9l5E5IL5EB5Oeo4d4oTSPGjr1zIQuPtpnoz3uEWCHye', '2023-06-05 02:48:46', '2023-06-05 02:48:46'),
+(4, 'gatau', 'Test Lagi', 'Tangerang', '2023-06-01', '12345678', 'Siliwangi', '$2y$10$u12YcXjKWcyooVs5Q4HPiuBuDOARm7BWwIcZVQ6ih2Sr.gv/rdJi2', '2023-06-05 02:50:36', '2023-06-05 02:50:36');
 
 -- --------------------------------------------------------
 
@@ -220,7 +223,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `dokter`
 --
 ALTER TABLE `dokter`
-  MODIFY `idDokter` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idDokter` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `janji`
@@ -238,7 +241,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `idPasien` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idPasien` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
