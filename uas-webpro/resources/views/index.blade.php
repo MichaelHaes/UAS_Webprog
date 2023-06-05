@@ -366,28 +366,6 @@
                 </p>
             </div>
         </div>
-        <!-- <div class="d-flex flex-row" id="visimisi">
-            <div class="card mx-2" style="width: 40rem; border: 2px solid #ccc; border-radius: 10px; padding: 10px; margin-top: 10px;">
-                <div class="card-body">
-                    <h4 class="d-flex justify-content-center" style="color: #333; margin-bottom: 10px;">Visi</h4>
-                    <p style="font-size: 16px; line-height: 1.5; text-align: justify;">
-                    Menjadi penyedia layanan kesehatan yang dapat menyehatkan masyarakat, memasyarakatkan kesehatan, serta terdepan dalam memberikan perawatan berkualitas tinggi dan inovatif kepada pasien, dengan fokus pada pemulihan dan kesejahteraan yang holistik
-                    </p>    
-                </div>
-            </div>
-            <div class="card mx-2" style="width: 40rem; border: 2px solid #ccc; border-radius: 10px; padding: 10px; margin-top: 10px;">
-                <div class="card-body">
-                    <h4 class="d-flex justify-content-center" style="color: #333; margin-bottom: 10px;">Misi</h4>
-                        <ol style="font-size: 16px; line-height: 1.5; text-align: left;">
-                        <li>Sebagai mitra pemerintah maupun swasta dalam memberikan pelayanan prefentif, kuratif, dan rehabilitative yang komprehensif dan berkesinambungan.</li>
-                        <li>Memberikan pelayanan medis dasar yang berbasis hemat dan terjangkau.</li>
-                        <li>Memberikan pelayanan kesehatan yang cepat, tepat, bermutu, dan terjangkau.</li>
-                        <li>Menumbuhkan kesadaran budaya hidup sehat.</li>
-                        <li>Menjalin kemitraan dengan masyarakat sekitar.</li>
-                    </ol>
-                </div>
-            </div>
-        </div> -->
         <div class="container">
             <div class="row">
                 <div class="col-md-6" style="margin-top: 10px;">
@@ -443,13 +421,13 @@
                 <div>
                     <div class="d-flex justify-content-start">
                         <img src="{{url('images/pinpoint.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
-                        <p class="mb-2 ml-2">Jl. Boulevard no 74 Gading Serpong, Kelapa Dua, Tangerang</p>
+                        <p class="mb-2 ml-2">Jl. Boulevard no 74 Gading Serpong<br>Kelapa Dua, Tangerang</p>
                     </div>
                 </div>
                 <div>
                     <div class="d-flex justify-content-start">
                         <img src="{{url('images/mail.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
-                        <p class="mb-2 ml-2">admisi@klinikkitasehat.ac.id tanya@klinikkitasehat.ac.id</p>
+                        <p class="mb-2 ml-2">admisi@klinikkitasehat.ac.id<br>tanya@klinikkitasehat.ac.id</p>
                     </div>
                 </div>
                 <div>

@@ -53,10 +53,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/pasien/janji')}}">Buat Janji</a>
+                        <a class="nav-link float-end" href="{{url('/pasien/janji')}}">Buat Janji</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/pasien/review')}}">Review Dokter</a>
+                        <a class="nav-link float-end" href="{{url('/pasien/review')}}">Review Dokter</a>
                     </li>
                 </ul>
             </div>
@@ -98,7 +98,7 @@
             </div>
         </div>
 
-        <div class="card w-50 mx-auto">
+        <!-- <div class="card w-50 mx-auto">
             <div class="card-body">
                 @foreach($dokters as $dokter)
                     <div class="card mb-3">
@@ -116,7 +116,36 @@
                     </div>
                 @endforeach
             </div>
+        </div> -->
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="mx-auto">
+                        <div class="row">
+                            @foreach($dokters as $dokter)
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <img src="{{asset($dokter['foto'])}}" class="rounded-circle border border-dark imgDokter" width="150" height="150">
+                                    <h3 class="mt-3 mb-1">{{$dokter['namaDokter']}}</h3>
+                                    <h6 class="text-muted">{{$dokter['jenisDokter']}}</h6>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+
+
     </div>
 </body>
 <br>
