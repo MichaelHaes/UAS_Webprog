@@ -91,7 +91,7 @@
                     <div class="form-group row">
                         <label for="tanggal" class="col-sm-2 col-form-label">Keluhan:</label>
                         <div class="col-sm-10">
-                            <input type="text" id="keluhan" class="form-control">
+                            <textarea id="keluhan" class="form-control"></textarea>
                         </div>
                     </div>
                     <br>
@@ -103,7 +103,7 @@
                     </div>
                     <br>
                     <div class="form-group row">
-                        <label for="tanggal" class="col-sm-2 col-form-label">Tanggal:</label>
+                        <label for="tanggal" class="col-sm-2 col-form-label">Jam:</label>
                         <div class="col-sm-10">
                             <select id="waktu" name="waktu" class="form-control">
                                 <option>9.00 - 10.00</option>
