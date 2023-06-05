@@ -41,6 +41,7 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/admin/deletedokter/{id}', 'deleteDokter')->middleware('web');
     Route::get('/admin/pasien', 'pasien')->middleware('web');
     Route::get('/admin/berkas', 'berkas')->middleware('web');
+    Route::post('/admin/berkas/action', 'persetujuanBerkas')->middleware('web');
     Route::get('/admin/profil', 'profil')->middleware('web');
     Route::get('/admin/logout', 'logout')->name('logout');
 });
