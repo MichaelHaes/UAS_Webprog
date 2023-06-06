@@ -150,6 +150,17 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="mb-3 row">
+                            <div class="col-sm-3">
+                                <img src="{{ captcha_src() }}" alt="CAPTCHA">
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="captcha" class="form-control">
+                                    <button type="button" id="change-captcha" class="btn btn-secondary">Change CAPTCHA</button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="d-grid">
                             <button class="btn btn-primary">Log In</button>
                         </div>
@@ -174,6 +185,24 @@
                                         <div>
                                             <button class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#modalForgotPass">Forgot password?</button>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                    @if($errors->has('captcha'))
+                        <script type="text/javascript">
+                            window.addEventListener('DOMContentLoaded', function() {
+                                var modalPasien = document.getElementById('modalPasien');
+                                var modal = new bootstrap.Modal(modalPasien);
+                                modal.show();
+                            });
+                        </script>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="card card-body border-0">
+                                    <div class="alert alert-danger">
+                                        {{ $errors->first('captcha') }}
                                     </div>
                                 </div>
                             </div>
@@ -532,6 +561,11 @@
 
 
 <script>
+    document.getElementById('change-captcha').addEventListener('click', function() {
+        var captchaImage = document.querySelector('img[alt="CAPTCHA"]');
+        captchaImage.src = captchaImage.src + '&reload=' + new Date().getTime();
+    });
+    
     function togglePasswordVisibility() {
         var passwordInput = document.getElementById("passwordInput");
         var toggleButton = document.getElementById("toggleButton");

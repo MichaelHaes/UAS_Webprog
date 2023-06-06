@@ -54,6 +54,12 @@ class PasienController extends Controller
 
     public function login(Request $request)
     {
+        $request->validate([
+            'captcha' => 'required|captcha',
+        ], [
+            'captcha.required' => 'CAPTCHA is required.',
+            'captcha.captcha' => 'CAPTCHA is incorrect. Please try again.',
+        ]);
         $pasien = Pasien::where('username', $request->username)->first();
         if($pasien && Hash::check($request->password, $pasien->password)) {
             $dokters = Dokter::all();
