@@ -85,12 +85,21 @@
                                 <strong class="col-3">Keluhan</strong>     <p class="col-9">: {{$janji['keluhan']}}</p>
                                 <strong class="col-3">Status</strong>      <p class="col-9">: {{$janji['status']}}</p>
                             </div>
-                            <form action="{{url('/admin/berkas/action')}}" method="POST">
-                                @csrf
-                                <input type="hidden" name="idJanji" value="{{$janji['idJanji']}}">
-                                <button class="btn" name="action" value="accept">Accept</button>
-                                <button class="btn" name="action" value="decline">Decline</button>
-                            </form>
+                            @if($janji['status'] !== 'Reviewed')
+                                <form action="{{url('/admin/berkas/action')}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="idJanji" value="{{$janji['idJanji']}}">
+                                    <button class="btn" name="action" value="accept">Accept</button>
+                                    <button class="btn" name="action" value="decline">Decline</button>
+                                </form>
+                            @else
+                                <form action="{{url('/admin/berkas/action')}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="idJanji" value="{{$janji['idJanji']}}">
+                                    <button class="btn" name="action" value="accept" disabled>Accept</button>
+                                    <button class="btn" name="action" value="decline" disabled>Decline</button>
+                                </form>
+                            @endif
                         </div>
                     </div>
                 </div>
