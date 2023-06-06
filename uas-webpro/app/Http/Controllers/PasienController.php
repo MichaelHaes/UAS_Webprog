@@ -7,7 +7,6 @@ use App\Models\Dokter;
 use App\Models\Janji;
 use App\Models\Review;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -30,13 +29,26 @@ class PasienController extends Controller
         $dokterData = [];
 
         foreach ($dokters as $dokter) {
+            $reviews = Review::where('idDokter', $dokter->idDokter)->get();
             $foto = Storage::url($dokter->fotoDokter);
-
+        
+            $reviewData = [];
+            foreach ($reviews as $review) {
+                $reviewData[] = [
+                    'idReview' => $review->idReview,
+                    'idDokter' => $review->idDokter,
+                    'idPasien' => $review->idPasien,
+                    'rating' => $review->rating,
+                    'review' => $review->review,
+                ];
+            }
+        
             $dokterData[] = [
-                'id' => $dokter->id,
+                'id' => $dokter->idDokter,
                 'namaDokter' => $dokter->namaDokter,
                 'jenisDokter' => $dokter->jenisDokter,
-                'foto' => $foto
+                'foto' => $foto,
+                'review' => $reviewData,
             ];
         }
         return view('pasien/dashboard',
@@ -54,15 +66,29 @@ class PasienController extends Controller
         $dokterData = [];
 
         foreach ($dokters as $dokter) {
+            $reviews = Review::where('idDokter', $dokter->idDokter)->get();
             $foto = Storage::url($dokter->fotoDokter);
-
+        
+            $reviewData = [];
+            foreach ($reviews as $review) {
+                $reviewData[] = [
+                    'idReview' => $review->idReview,
+                    'idDokter' => $review->idDokter,
+                    'idPasien' => $review->idPasien,
+                    'rating' => $review->rating,
+                    'review' => $review->review,
+                ];
+            }
+        
             $dokterData[] = [
-                'id' => $dokter->id,
+                'id' => $dokter->idDokter,
                 'namaDokter' => $dokter->namaDokter,
                 'jenisDokter' => $dokter->jenisDokter,
-                'foto' => $foto
+                'foto' => $foto,
+                'review' => $reviewData,
             ];
         }
+        
 
         $pasien = Pasien::where('username', $request->username)->first();
         if($pasien && Hash::check($request->password, $pasien->password)) {
@@ -170,13 +196,14 @@ class PasienController extends Controller
 
         foreach ($janjis as $janji) {
             $janjiData[] = [
-                'idDokter' => $janji->idDokter
+                'idDokter' => $janji->idDokter,
+                'idPasien' => $janji->idPasien,
+                'idJanji' => $janji->idJanji
             ];
         }
         $idDokters = collect($janjiData)->pluck('idDokter')->toArray();
         $dokters = Dokter::whereIn('idDokter', $idDokters)->get();
 
-        // return $dokters;
         return view('pasien/reviewDokter',
             [
                 'pasien'=>Session::get('pasien'),
@@ -192,6 +219,7 @@ class PasienController extends Controller
         $review = new Review();
         $review->idDokter = $id;
         $review->idPasien = Session::get('pasien')->idPasien;
+        $review->idJanji = $request->idJanji;
         $review->rating = $request->rate;
         $review->review = $request->review;
         $review->save();
@@ -206,12 +234,17 @@ class PasienController extends Controller
 
         foreach ($janjis as $janji) {
             $janjiData[] = [
-                'idDokter' => $janji->idDokter
+                'idDokter' => $janji->idDokter,
+                'idJanji' => $janji->idJanji
             ];
         }
         $idDokters = collect($janjiData)->pluck('idDokter')->toArray();
         $dokters = Dokter::whereIn('idDokter', $idDokters)->get();
 
+        foreach ($janjiData as $janji) {
+            DB::update("UPDATE janji SET status = ? WHERE idjanji = ?",
+                ['Reviewed', $janji['idJanji']]);
+        }
         return view('pasien/reviewDokter',
             [
                 'pasien'=>Session::get('pasien'),

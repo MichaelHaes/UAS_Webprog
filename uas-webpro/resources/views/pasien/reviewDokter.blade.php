@@ -63,9 +63,9 @@
             <img src="{{url('/images/review.png')}}" alt="..." style="width: 7.5%;">
             <h3>Review Dokter</h3>
         </div>
-        <div class="card">
-            <div class="card-body">
-                @foreach($dokters as $dokter)
+        @foreach($dokters as $dokter)
+            <div class="card">
+                <div class="card-body">
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="row">
@@ -84,9 +84,9 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                </div>
             </div>
-        </div>
+        @endforeach
     </div>
     <br>
     <!-- Modal Review -->
@@ -112,6 +112,9 @@
                     <br>
                     <form id="updateForm" action="" method="post">
                         @csrf
+                        @foreach($janjis as $janji)
+                        <input type="hidden" name="idJanji" value="{{ $janji['idJanji'] }}">
+                        @endforeach
                         <div class="mb-3 row">
                             <label for="username" class="col-sm-3 col-form-label">Rating</label>
                             <div class="form-check col-sm-9">

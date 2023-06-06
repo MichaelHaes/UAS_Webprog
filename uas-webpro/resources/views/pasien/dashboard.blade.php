@@ -110,6 +110,14 @@
                                 <div class="col">
                                     <h3 class="mb-1">{{$dokter['namaDokter']}}</h3>
                                     <h6 class="text-muted">{{$dokter['jenisDokter']}}</h6>
+                                    @foreach ($dokter['review'] as $review)
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <span class="badge bg-secondary rounded-pill">{{$review['rating']}}/5</span>
+                                                <span>"{{$review['review']}}"</span> 
+                                            </li>
+                                        </ul>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
