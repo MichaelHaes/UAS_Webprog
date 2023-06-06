@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id('idReview')->autoIncrement();
             $table->unsignedBigInteger('idDokter');
             $table->unsignedBigInteger('idPasien');
+            $table->unsignedBigInteger('idJanji');
+            $table->foreign('idJanji')->references('idJanji')->on('janji');
             $table->foreign('idDokter')->references('idDokter')->on('janji');
             $table->foreign('idPasien')->references('idPasien')->on('janji');
             $table->integer('rating');

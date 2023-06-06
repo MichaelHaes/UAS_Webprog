@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2023 at 04:58 PM
+-- Generation Time: Jun 06, 2023 at 08:29 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -86,12 +86,8 @@ CREATE TABLE `janji` (
 --
 
 INSERT INTO `janji` (`idJanji`, `idDokter`, `idPasien`, `tanggal_temu`, `jam_temu`, `keluhan`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '2023-06-23', '09.00 - 10.00', 'Test', 'Pending', '2023-06-05 06:38:45', '2023-06-05 06:38:45'),
-(4, 2, 2, '2023-06-16', '15.00 - 16.00', 'test kedua', 'Pending', '2023-06-05 07:18:01', '2023-06-05 07:18:01'),
-(5, 1, 1, '2023-06-30', '17.00 - 18.00', 'test3', 'Pending', '2023-06-05 07:23:38', '2023-06-05 07:23:38'),
-(6, 1, 2, '2023-07-13', '09.00 - 10.00', 'test4', 'Pending', '2023-06-05 07:27:16', '2023-06-05 07:27:16'),
-(7, 1, 2, '2023-07-02', '09.00 - 10.00', 'test5', 'Pending', '2023-06-05 07:29:27', '2023-06-05 07:29:27'),
-(8, 1, 2, '2023-06-24', '09.00 - 10.00', 'test6', 'Pending', '2023-06-05 07:30:35', '2023-06-05 07:30:35');
+(1, 1, 1, '2023-05-30', '09.00 - 10.00', 'test bang', 'Reviewed', '2023-06-05 23:24:46', '2023-06-05 23:24:46'),
+(2, 1, 2, '2023-05-28', '09.00 - 10.00', 'test kedua', 'Accepted', '2023-06-05 23:25:08', '2023-06-05 23:25:08');
 
 -- --------------------------------------------------------
 
@@ -113,9 +109,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2023_06_02_212114_create_pasien_table', 1),
 (12, '2023_06_02_212049_create_admin_table', 2),
 (13, '2023_06_02_212014_create_dokter_table', 3),
-(14, '2019_12_14_000001_create_personal_access_tokens_table', 4),
-(15, '2023_06_02_211826_create_janji_table', 4),
-(16, '2023_06_02_212138_create_review_table', 4);
+(17, '2019_12_14_000001_create_personal_access_tokens_table', 4),
+(18, '2023_06_02_211826_create_janji_table', 4),
+(19, '2023_06_02_212138_create_review_table', 4);
 
 -- --------------------------------------------------------
 
@@ -175,11 +171,19 @@ CREATE TABLE `review` (
   `idReview` bigint(20) UNSIGNED NOT NULL,
   `idDokter` bigint(20) UNSIGNED NOT NULL,
   `idPasien` bigint(20) UNSIGNED NOT NULL,
+  `idJanji` bigint(20) UNSIGNED NOT NULL,
   `rating` int(11) NOT NULL,
   `review` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`idReview`, `idDokter`, `idPasien`, `idJanji`, `rating`, `review`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 1, 4, 'test', '2023-06-05 23:28:31', '2023-06-05 23:28:31');
 
 --
 -- Indexes for dumped tables
@@ -224,6 +228,7 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `review`
   ADD PRIMARY KEY (`idReview`),
+  ADD KEY `review_idjanji_foreign` (`idJanji`),
   ADD KEY `review_iddokter_foreign` (`idDokter`),
   ADD KEY `review_idpasien_foreign` (`idPasien`);
 
@@ -241,13 +246,13 @@ ALTER TABLE `dokter`
 -- AUTO_INCREMENT for table `janji`
 --
 ALTER TABLE `janji`
-  MODIFY `idJanji` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idJanji` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `pasien`
@@ -265,7 +270,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `idReview` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idReview` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -283,6 +288,7 @@ ALTER TABLE `janji`
 --
 ALTER TABLE `review`
   ADD CONSTRAINT `review_iddokter_foreign` FOREIGN KEY (`idDokter`) REFERENCES `janji` (`idDokter`),
+  ADD CONSTRAINT `review_idjanji_foreign` FOREIGN KEY (`idJanji`) REFERENCES `janji` (`idJanji`),
   ADD CONSTRAINT `review_idpasien_foreign` FOREIGN KEY (`idPasien`) REFERENCES `janji` (`idPasien`);
 COMMIT;
 
