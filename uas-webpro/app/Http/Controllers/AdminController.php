@@ -15,9 +15,6 @@ use Illuminate\Validation\ValidationException;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return view('admin/loginAdmin');
@@ -25,11 +22,13 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin/dashboardAdmin',
-            [
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password')
+        if(session()->has('token'))
+            return view('admin/dashboardAdmin');
+        else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
             ]);
+        }
     }
 
     public function login(Request $request)
@@ -38,12 +37,8 @@ class AdminController extends Controller
         if(Hash::check($request->password, $res[0]->password)) {
             Session::start();
             Session::put('username', $request->username);
-            Session::put('password', $request->password);
-            return view('admin/dashboardAdmin',
-                [
-                    'username'=>Session::get('username'),
-                    'password'=>Session::get('password')
-                ]);
+            Session::put('token', $request->_token);
+            return view('admin/dashboardAdmin');
         } else {
             throw ValidationException::withMessages([
                 'passwordAdmin' => 'Wrong Password!',
@@ -59,156 +54,185 @@ class AdminController extends Controller
 
 
     public function dokter() {
-        $dokters = Dokter::all();
-        $dokterData = [];
+        if(session()->has('token')) {
+            $dokters = Dokter::all();
+            $dokterData = [];
 
-        foreach ($dokters as $dokter) {
-            $foto = Storage::url($dokter->fotoDokter);
+            foreach ($dokters as $dokter) {
+                $foto = Storage::url($dokter->fotoDokter);
 
-            $dokterData[] = [
-                'id' => $dokter->idDokter,
-                'namaDokter' => $dokter->namaDokter,
-                'jenisDokter' => $dokter->jenisDokter,
-                'foto' => $foto
-            ];
-        }
-        
-        return view('admin/profilDokter',
-            [
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password'),
-                'dokters'=>$dokterData
+                $dokterData[] = [
+                    'id' => $dokter->idDokter,
+                    'namaDokter' => $dokter->namaDokter,
+                    'jenisDokter' => $dokter->jenisDokter,
+                    'foto' => $foto
+                ];
+            }
+            
+            return view('admin/profilDokter',
+                [
+                    'dokters'=>$dokterData
+                ]);
+        } else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
             ]);
+        }
     }
 
-    public function tambahDokter(Request $request) {
-        $path = $request->file('foto')->storePublicly('dokter', 'public');
+    public function tambahDokter(Request $request) 
+    {
+        if(session()->has('token')) {
+            $path = $request->file('foto')->storePublicly('dokter', 'public');
 
-        $dokter = new Dokter();
-        $dokter->namaDokter = $request->nama;
-        $dokter->jenisDokter = $request->spesialisasi;
-        $dokter->fotoDokter = $path;
-        $dokter->save();
-        
+            $dokter = new Dokter();
+            $dokter->namaDokter = $request->nama;
+            $dokter->jenisDokter = $request->spesialisasi;
+            $dokter->fotoDokter = $path;
+            $dokter->save();
+            return redirect()->route('dokter');
+        } else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
+            ]);
+        }
 
-        return redirect()->route('dokter');
     }
 
     public function updateDokter($id, Request $request)
     {
-        $dokter = Dokter::where('idDokter', $id)->firstOrFail();
-    
-        $path = $dokter->fotoDokter;
-        if ($request->hasFile('foto')) {
-            $path = $request->file('foto')->storePublicly('dokter', 'public');
-        }
-
-        DB::update("UPDATE dokter SET namaDokter = ?, jenisDokter = ?, fotoDokter = ? WHERE idDokter = ?",
-        [$request->query('nama'), $request->query('spesialisasi'), $path, $id]);
-
+        if(session()->has('token')) {
+            $dokter = Dokter::where('idDokter', $id)->firstOrFail();
         
-        return redirect()->route('dokter');
+            $path = $dokter->fotoDokter;
+            if ($request->hasFile('foto')) {
+                $path = $request->file('foto')->storePublicly('dokter', 'public');
+            }
+
+            DB::update("UPDATE dokter SET namaDokter = ?, jenisDokter = ?, fotoDokter = ? WHERE idDokter = ?",
+            [$request->query('nama'), $request->query('spesialisasi'), $path, $id]);
+
+            
+            return redirect()->route('dokter');
+        } else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
+            ]);
+        }
     }
 
     public function deleteDokter($id)
     {
-        DB::delete("DELETE FROM dokter WHERE idDokter = ?", [$id]);
-        
-        return redirect()->route('dokter');
+        if(session()->has('token')) {
+            DB::delete("DELETE FROM dokter WHERE idDokter = ?", [$id]);
+            
+            return redirect()->route('dokter');
+        } else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
+            ]);
+        }
     }
 
 
-    public function pasien() {
-        $pasiens = Pasien::all();
-        $pasienData = [];
+    public function pasien() 
+    {
+        if(session()->has('token')) {
+            $pasiens = Pasien::all();
+            $pasienData = [];
 
-        foreach ($pasiens as $pasien) {
-            $pasienData[] = [
-                'id' => $pasien->idPasien,
-                'username'=>$pasien->username,
-                'nama' => $pasien->nama,
-                'tempatlahir' => $pasien->tempatLahir,
-                'tanggallahir' => $pasien->tanggalLahir,
-                'telepon' => $pasien->telepon,
-                'alamat' => $pasien->alamat
-            ];
-        }
-        return view('admin/dataPasien',
-            [
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password'),
-                'pasien'=>$pasienData
+            foreach ($pasiens as $pasien) {
+                $pasienData[] = [
+                    'id' => $pasien->idPasien,
+                    'username'=>$pasien->username,
+                    'nama' => $pasien->nama,
+                    'tempatlahir' => $pasien->tempatLahir,
+                    'tanggallahir' => $pasien->tanggalLahir,
+                    'telepon' => $pasien->telepon,
+                    'alamat' => $pasien->alamat
+                ];
+            }
+            return view('admin/dataPasien', ['pasien'=>$pasienData]);
+        } else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
             ]);
+        }
     }
 
-    public function berkas() {
-        $janjis = Janji::all(); 
-        $janjiData = [];
+    public function berkas() 
+    {
+        if(session()->has('token')) {
+            $janjis = Janji::all(); 
+            $janjiData = [];
 
-        foreach ($janjis as $janji) {
-            $pasien = Pasien::where('idPasien', $janji->idPasien)->first();
-            $dokter = Dokter::where('idDokter', $janji->idDokter)->first();
-            $janjiData[] = [
-                'idJanji' => $janji->idJanji,
-                'namaPasien' => $pasien->nama,
-                'namaDokter' => $dokter->namaDokter,
-                'tanggal_temu' => $janji->tanggal_temu,
-                'jam_temu' => $janji->jam_temu,
-                'keluhan' => $janji->keluhan,
-                'status' => $janji->status
-            ];
-        }
-        return view('admin/berkasJanji',
-            [
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password'),
-                'janjis'=>$janjiData
+            foreach ($janjis as $janji) {
+                $pasien = Pasien::where('idPasien', $janji->idPasien)->first();
+                $dokter = Dokter::where('idDokter', $janji->idDokter)->first();
+                $janjiData[] = [
+                    'idJanji' => $janji->idJanji,
+                    'namaPasien' => $pasien->nama,
+                    'namaDokter' => $dokter->namaDokter,
+                    'tanggal_temu' => $janji->tanggal_temu,
+                    'jam_temu' => $janji->jam_temu,
+                    'keluhan' => $janji->keluhan,
+                    'status' => $janji->status
+                ];
+            }
+            return view('admin/berkasJanji', ['janjis'=>$janjiData]);
+        } else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
             ]);
+        }
     }
 
     public function persetujuanBerkas(Request $request) {
-        $action = $request->input('action');
+        if(session()->has('token')) {
+            $action = $request->input('action');
 
-        if ($action === 'accept') {
-            DB::update("UPDATE janji SET status = ? WHERE idJanji = ?",
-            ['Accepted', $request->input('idJanji')]);
-        } elseif ($action === 'decline') {
-            DB::update("UPDATE janji SET status = ? WHERE idJanji = ?",
-            ['Declined', $request->input('idJanji')]);
-        }
+            if ($action === 'accept') {
+                DB::update("UPDATE janji SET status = ? WHERE idJanji = ?",
+                ['Accepted', $request->input('idJanji')]);
+            } elseif ($action === 'decline') {
+                DB::update("UPDATE janji SET status = ? WHERE idJanji = ?",
+                ['Declined', $request->input('idJanji')]);
+            }
 
-        $janjis = Janji::all(); 
-        $janjiData = [];
+            $janjis = Janji::all(); 
+            $janjiData = [];
 
-        foreach ($janjis as $janji) {
-            $pasien = Pasien::where('idPasien', $janji->idPasien)->first();
-            $dokter = Dokter::where('idDokter', $janji->idDokter)->first();
-            $janjiData[] = [
-                'idJanji' => $janji->idJanji,
-                'namaPasien' => $pasien->nama,
-                'namaDokter' => $dokter->namaDokter,
-                'tanggal_temu' => $janji->tanggal_temu,
-                'jam_temu' => $janji->jam_temu,
-                'keluhan' => $janji->keluhan,
-                'status' => $janji->status
-            ];
-        }
-        return view('admin/berkasJanji',
-            [
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password'),
-                'janjis'=>$janjiData
+            foreach ($janjis as $janji) {
+                $pasien = Pasien::where('idPasien', $janji->idPasien)->first();
+                $dokter = Dokter::where('idDokter', $janji->idDokter)->first();
+                $janjiData[] = [
+                    'idJanji' => $janji->idJanji,
+                    'namaPasien' => $pasien->nama,
+                    'namaDokter' => $dokter->namaDokter,
+                    'tanggal_temu' => $janji->tanggal_temu,
+                    'jam_temu' => $janji->jam_temu,
+                    'keluhan' => $janji->keluhan,
+                    'status' => $janji->status
+                ];
+            }
+            return view('admin/berkasJanji', ['janjis'=>$janjiData]);
+        } else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
             ]);
+        }
     }
 
-    public function profil() {
-        $admin = Admin::first();
-        return view('admin/profilAdmin',
-            [
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password'),
-                'admin'=>$admin
+    public function profil() 
+    {    
+        if(session()->has('token')) {
+            $admin = Admin::first();
+            return view('admin/profilAdmin', ['admin'=>$admin]);
+        } else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
             ]);
+        }
     }
 
 }

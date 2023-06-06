@@ -133,6 +133,28 @@
             </div>
         </div>
     </nav>
+    
+    <div class="toast-container p-3" id="toastPlacement">
+        <div id="invalidTokenToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Alert!</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                @if($errors->has('tokenInvalid'))
+                    <script type="text/javascript">
+                        window.addEventListener('DOMContentLoaded', function() {
+                            var invalidTokenToast = document.getElementById('invalidTokenToast');
+                            var toast = new bootstrap.Toast(invalidTokenToast);
+                            toast.show();
+                        });
+                    </script>
+                    {{ $errors->first('tokenInvalid') }}
+                @endif
+            </div>
+        </div>
+    </div>
+
 
     <!-- Modal Pasien -->
     <div class="modal fade" id="modalPasien" tabindex="-1" aria-labelledby="modalPasien" aria-hidden="true">    

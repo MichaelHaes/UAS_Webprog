@@ -57,7 +57,7 @@
             </div>
             <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{$username}}
+                    {{session('username')}}
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="{{url('/admin/profil')}}">Profil Admin</a></li>
@@ -135,7 +135,6 @@
                     </div>
                     <br>
                     <form id="updateForm" action="" method="get" enctype="multipart/form-data">
-                        @csrf
                         <div class="mb-3 row">
                             <label for="username" class="col-sm-3 col-form-label">Nama Dokter</label>
                             <div class="col-sm-9">
@@ -173,7 +172,6 @@
                     </div>
                     <br>
                     <form action="{{url('/admin/tambahdokter')}}" method="post" enctype="multipart/form-data">
-                        @csrf
                         <div class="mb-3 row">
                             <label for="username" class="col-sm-3 col-form-label">Nama Dokter</label>
                             <div class="col-sm-9">
@@ -200,70 +198,58 @@
             </div>
         </div>
     </div>
-
 <br>
+</body>
 <footer class="text-white text-center text-lg-start navbar" style="background-color: #008cb4;">
-    <!-- Grid container -->
-    <div class="container p-2">
-        <!--Grid row-->
+    <div class="container p-4">
         <div class="row mt-4">
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-            <h5 class="text-uppercase mb-4 text-center">Tentang Klinik</h5>
+            <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-4 text-center">Tentang Klinik</h5>
 
-            <p class="text-center">
-            Klinik Kita Sehat selalu memberikan layanan kesehatan untuk semua orang dengan cepat dan harga yang terjangkau.
-            </p>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase mb-4 text-center">INFORMASI KLINIK</h5>
-            <div class="d-flex flex-column">
-                <div>
-                    <div class="d-flex justify-content-start">
-                        <img src="{{url('images/pinpoint.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
-                         <p>Jl. Boulevard no 74 Gading Serpong, Kelapa Dua, Tangerang</p>
+                <p class="text-center">
+                Klinik Kita Sehat selalu memberikan layanan kesehatan untuk semua orang dengan cepat dan harga yang terjangkau.
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-4 text-center">INFORMASI KLINIK</h5>
+                <div class="d-flex flex-column">
+                    <div>
+                        <div class="d-flex justify-content-start">
+                            <img src="{{url('images/pinpoint.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
+                            <p>Jl. Boulevard no 74 Gading Serpong, Kelapa Dua, Tangerang</p>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <div class="d-flex justify-content-start">
-                        <img src="{{url('images/mail.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
-                        <p>admisi@klinikkitasehat.ac.id tanya@klinikkitasehat.ac.id</p>
-                    </div>
-                </div> 
-                <div>
-                    <div class="d-flex justify-content-start">
-                        <img src="{{url('images/call.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
-                        <p>+62 823 7070 5050 (chat)<br>+62 823 7070 6060 (call)</p>
+                    <div>
+                        <div class="d-flex justify-content-start">
+                            <img src="{{url('images/mail.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
+                            <p>admisi@klinikkitasehat.ac.id tanya@klinikkitasehat.ac.id</p>
+                        </div>
+                    </div> 
+                    <div>
+                        <div class="d-flex justify-content-start">
+                            <img src="{{url('images/call.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
+                            <p>+62 823 7070 5050 (chat)<br>+62 823 7070 6060 (call)</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--Grid column-->
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-4 text-center">Jam Buka</h5>
 
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase mb-4 text-center">Jam Buka</h5>
-
-            <table class="table text-center text-black">
-            <tbody class="font-weight-normal">
-            <tr>
-                    <td class="text-light" style="background-color: #008cb4">Senin - Jum'at:</td>
-                    <td class="text-light" style="background-color: #008cb4">08:00 - 23:00</td>
-                    </tr>
+                <table class="table text-center text-black">
+                <tbody class="font-weight-normal">
                     <tr>
-                    <td class="text-light" style="background-color: #008cb4">Sabtu - Minggu:</td>
-                    <td class="text-light" style="background-color: #008cb4">08:00 - 21:00</td>
-                </tr>
-            </tbody>
-            </table>
+                        <td class="text-light" style="background-color: #008cb4">Senin - Jum'at:</td>
+                        <td class="text-light" style="background-color: #008cb4">08:00 - 23:00</td>
+                        </tr>
+                        <tr>
+                        <td class="text-light" style="background-color: #008cb4">Sabtu - Minggu:</td>
+                        <td class="text-light" style="background-color: #008cb4">08:00 - 21:00</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
         </div>
-        <!--Grid column-->
-        </div>
-        <!--Grid row-->
     </div>
-    <!-- Grid container -->
-</body>
+</footer>
 </html>

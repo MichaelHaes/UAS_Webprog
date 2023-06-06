@@ -52,7 +52,7 @@
             </div>
             <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{$username}}
+                    {{session('username')}}
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="{{url('/admin/profil')}}">Profil Admin</a></li>
@@ -87,14 +87,12 @@
                             </div>
                             @if($janji['status'] !== 'Reviewed')
                                 <form action="{{url('/admin/berkas/action')}}" method="POST">
-                                    @csrf
                                     <input type="hidden" name="idJanji" value="{{$janji['idJanji']}}">
                                     <button class="btn" name="action" value="accept">Accept</button>
                                     <button class="btn" name="action" value="decline">Decline</button>
                                 </form>
                             @else
                                 <form action="{{url('/admin/berkas/action')}}" method="POST">
-                                    @csrf
                                     <input type="hidden" name="idJanji" value="{{$janji['idJanji']}}">
                                     <button class="btn" name="action" value="accept" disabled>Accept</button>
                                     <button class="btn" name="action" value="decline" disabled>Decline</button>
