@@ -71,40 +71,6 @@
     </style>
 </head>
 <body class="fade-in">
-    <!-- <nav class="navbar navbar-expand-sm navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{url('/')}}">
-                <div style="display: flex; align-items: center;">
-                    <img src="{{url('images/logo.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;" id="logo">
-                </div>
-            </a>
-
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/pasien')}}">Pasien</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/admin')}}">Admin</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#modalPasien">
-                            Pasien
-                        </button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#modalAdmin">
-                            Admin
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{url('/')}}">
@@ -133,7 +99,7 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="toast-container p-3" id="toastPlacement">
         <div id="invalidTokenToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">

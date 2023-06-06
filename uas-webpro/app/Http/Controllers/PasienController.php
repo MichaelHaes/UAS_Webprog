@@ -15,94 +15,79 @@ use Illuminate\Validation\ValidationException;
 
 class PasienController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return view('pasien/loginPasien');
-    }
-
     public function dashboard()
-    {        
-        $dokters = Dokter::all();
-        $dokterData = [];
+    {
+        if(session()->has('token')) {
+            $dokters = Dokter::all();
+            $dokterData = [];
 
-        foreach ($dokters as $dokter) {
-            $reviews = Review::where('idDokter', $dokter->idDokter)->get();
-            $foto = Storage::url($dokter->fotoDokter);
-        
-            $reviewData = [];
-            foreach ($reviews as $review) {
-                $reviewData[] = [
-                    'idReview' => $review->idReview,
-                    'idDokter' => $review->idDokter,
-                    'idPasien' => $review->idPasien,
-                    'rating' => $review->rating,
-                    'review' => $review->review,
+            foreach ($dokters as $dokter) {
+                $reviews = Review::where('idDokter', $dokter->idDokter)->get();
+                $foto = Storage::url($dokter->fotoDokter);
+            
+                $reviewData = [];
+                foreach ($reviews as $review) {
+                    $reviewData[] = [
+                        'idReview' => $review->idReview,
+                        'idDokter' => $review->idDokter,
+                        'idPasien' => $review->idPasien,
+                        'rating' => $review->rating,
+                        'review' => $review->review,
+                    ];
+                }
+            
+                $dokterData[] = [
+                    'id' => $dokter->idDokter,
+                    'namaDokter' => $dokter->namaDokter,
+                    'jenisDokter' => $dokter->jenisDokter,
+                    'foto' => $foto,
+                    'review' => $reviewData,
                 ];
             }
-        
-            $dokterData[] = [
-                'id' => $dokter->idDokter,
-                'namaDokter' => $dokter->namaDokter,
-                'jenisDokter' => $dokter->jenisDokter,
-                'foto' => $foto,
-                'review' => $reviewData,
-            ];
-        }
-        return view('pasien/dashboard',
-            [
-                'pasien'=>Session::get('pasien'),
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password'),
-                'dokters'=>$dokterData
+            return view('pasien/dashboard', ['dokters'=>$dokterData]);
+        } else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
             ]);
+        }
     }
 
     public function login(Request $request)
     {
-        $dokters = Dokter::all();
-        $dokterData = [];
-
-        foreach ($dokters as $dokter) {
-            $reviews = Review::where('idDokter', $dokter->idDokter)->get();
-            $foto = Storage::url($dokter->fotoDokter);
-        
-            $reviewData = [];
-            foreach ($reviews as $review) {
-                $reviewData[] = [
-                    'idReview' => $review->idReview,
-                    'idDokter' => $review->idDokter,
-                    'idPasien' => $review->idPasien,
-                    'rating' => $review->rating,
-                    'review' => $review->review,
-                ];
-            }
-        
-            $dokterData[] = [
-                'id' => $dokter->idDokter,
-                'namaDokter' => $dokter->namaDokter,
-                'jenisDokter' => $dokter->jenisDokter,
-                'foto' => $foto,
-                'review' => $reviewData,
-            ];
-        }
-        
-
         $pasien = Pasien::where('username', $request->username)->first();
         if($pasien && Hash::check($request->password, $pasien->password)) {
+            $dokters = Dokter::all();
+            $dokterData = [];
+
+            foreach ($dokters as $dokter) {
+                $reviews = Review::where('idDokter', $dokter->idDokter)->get();
+                $foto = Storage::url($dokter->fotoDokter);
+            
+                $reviewData = [];
+                foreach ($reviews as $review) {
+                    $reviewData[] = [
+                        'idReview' => $review->idReview,
+                        'idDokter' => $review->idDokter,
+                        'idPasien' => $review->idPasien,
+                        'rating' => $review->rating,
+                        'review' => $review->review,
+                    ];
+                }
+            
+                $dokterData[] = [
+                    'id' => $dokter->idDokter,
+                    'namaDokter' => $dokter->namaDokter,
+                    'jenisDokter' => $dokter->jenisDokter,
+                    'foto' => $foto,
+                    'review' => $reviewData,
+                ];
+            }
+
             Session::start();
             Session::put('pasien', $pasien);
             Session::put('username', $request->username);
-            Session::put('password', $request->password);
-            return view('pasien/dashboard',
-                [
-                    'pasien'=>Session::get('pasien'),
-                    'username'=>Session::get('username'),
-                    'password'=>Session::get('password'),
-                    'dokters'=>$dokterData
-                ]);
+            Session::put('token', $request->_token);
+            return view('pasien/dashboard', ['dokters'=>$dokterData]);
         } else {
             throw ValidationException::withMessages([
                 'passwordPasien' => 'That password was incorrect. Please try again.',
@@ -118,151 +103,157 @@ class PasienController extends Controller
 
     public function janji()
     {
-        $dokters = Dokter::all();
-        $dokterData = [];
+        if(session()->has('token')) {
+            $dokters = Dokter::all();
+            $dokterData = [];
 
-        foreach ($dokters as $dokter) {
-            $foto = Storage::url($dokter->fotoDokter);
+            foreach ($dokters as $dokter) {
+                $foto = Storage::url($dokter->fotoDokter);
 
-            $dokterData[] = [
-                'id' => $dokter->idDokter,
-                'namaDokter' => $dokter->namaDokter,
-                'jenisDokter' => $dokter->jenisDokter,
-                'foto' => $foto
-            ];
-        }
-        return view('pasien/buatJanji',
-            [
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password'),
-                'dokters'=>$dokterData,
-                'pasien'=>Session::get('pasien')
+                $dokterData[] = [
+                    'id' => $dokter->idDokter,
+                    'namaDokter' => $dokter->namaDokter,
+                    'jenisDokter' => $dokter->jenisDokter,
+                    'foto' => $foto
+                ];
+            }
+            return view('pasien/buatJanji', ['dokters'=>$dokterData]);
+        } else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
             ]);
+        }
     }
 
     public function janjiConfirm(Request $request)
     {
-        $isExist = Janji::where('tanggal_temu', $request->tanggal)
-        ->where('jam_temu', $request->waktu)
-        ->where('idDokter', $request->dokter)
-        ->first();
+        if(session()->has('token')) {
+            $isExist = Janji::where('tanggal_temu', $request->tanggal)
+            ->where('jam_temu', $request->waktu)
+            ->where('idDokter', $request->dokter)
+            ->first();
 
-        $dokters = Dokter::all();
-        $dokterData = [];
+            $dokters = Dokter::all();
+            $dokterData = [];
 
-        foreach ($dokters as $dokter) {
-            $foto = Storage::url($dokter->fotoDokter);
+            foreach ($dokters as $dokter) {
+                $foto = Storage::url($dokter->fotoDokter);
 
-            $dokterData[] = [
-                'id' => $dokter->idDokter,
-                'namaDokter' => $dokter->namaDokter,
-                'jenisDokter' => $dokter->jenisDokter,
-                'foto' => $foto
-            ];
-        }
+                $dokterData[] = [
+                    'id' => $dokter->idDokter,
+                    'namaDokter' => $dokter->namaDokter,
+                    'jenisDokter' => $dokter->jenisDokter,
+                    'foto' => $foto
+                ];
+            }
 
-        if ($isExist) {
-            throw ValidationException::withMessages([
-                'janji' => "Doctor already have an appointment at $request->tanggal on ($request->waktu)!",
-            ]);
+            if ($isExist) {
+                throw ValidationException::withMessages([
+                    'janji' => "Doctor already have an appointment at $request->tanggal on ($request->waktu)!",
+                ]);
+            } else {
+                $janji = new Janji();
+                $janji->idDokter = $request->dokter;
+                $janji->idPasien = $request->pasien;
+                $janji->tanggal_temu = $request->tanggal;
+                $janji->jam_temu = $request->waktu;
+                $janji->keluhan = $request->keluhan;
+                $janji->status = "Pending";
+                $janji->save();
+            }
+            return redirect()->route('janji')->with(['dokters' => $dokterData]);
         } else {
-            $janji = new Janji();
-            $janji->idDokter = $request->dokter;
-            $janji->idPasien = $request->pasien;
-            $janji->tanggal_temu = $request->tanggal;
-            $janji->jam_temu = $request->waktu;
-            $janji->keluhan = $request->keluhan;
-            $janji->status = "Pending";
-            $janji->save();
-        }
-
-        return view('pasien/buatJanji',
-            [
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password'),
-                'dokters'=>$dokterData,
-                'pasien'=>Session::get('pasien')
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
             ]);
+        }
     }
 
     public function review()
     {
-        $today = now()->toDateString();
-        $janjiData = [];
-        $janjis = Janji::
-        where('idPasien', Session::get('pasien')->idPasien)
-        ->where('status', 'Accepted')
-        ->where('tanggal_temu', '<', $today)->get();
+        if(session()->has('token')) {
+            $today = now()->toDateString();
+            $janjiData = [];
+            $janjis = Janji::
+            where('idPasien', Session::get('pasien')->idPasien)
+            ->where('status', 'Accepted')
+            ->where('tanggal_temu', '<', $today)->get();
 
-        foreach ($janjis as $janji) {
-            $janjiData[] = [
-                'idDokter' => $janji->idDokter,
-                'idPasien' => $janji->idPasien,
-                'idJanji' => $janji->idJanji
-            ];
-        }
-        $idDokters = collect($janjiData)->pluck('idDokter')->toArray();
-        $dokters = Dokter::whereIn('idDokter', $idDokters)->get();
+            foreach ($janjis as $janji) {
+                $janjiData[] = [
+                    'idDokter' => $janji->idDokter,
+                    'idPasien' => $janji->idPasien,
+                    'idJanji' => $janji->idJanji
+                ];
+            }
+            $idDokters = collect($janjiData)->pluck('idDokter')->toArray();
+            $dokters = Dokter::whereIn('idDokter', $idDokters)->get();
 
-        return view('pasien/reviewDokter',
-            [
-                'pasien'=>Session::get('pasien'),
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password'),
-                'janjis'=>$janjiData,
-                'dokters'=>$dokters
+            return view('pasien/reviewDokter',
+                [
+                    'janjis'=>$janjiData,
+                    'dokters'=>$dokters
+                ]);
+        } else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
             ]);
+        }
     }
 
     public function reviewProses($id, Request $request)
     {
-        $review = new Review();
-        $review->idDokter = $id;
-        $review->idPasien = Session::get('pasien')->idPasien;
-        $review->idJanji = $request->idJanji;
-        $review->rating = $request->rate;
-        $review->review = $request->review;
-        $review->save();
+        if(session()->has('token')) {
+            $review = new Review();
+            $review->idDokter = $id;
+            $review->idPasien = Session::get('pasien')->idPasien;
+            $review->idJanji = $request->idJanji;
+            $review->rating = $request->rate;
+            $review->review = $request->review;
+            $review->save();
 
 
-        $today = now()->toDateString();
-        $janjiData = [];
-        $janjis = Janji::
-        where('idPasien', Session::get('pasien')->idPasien)
-        ->where('status', 'Accepted')
-        ->where('tanggal_temu', '<', $today)->get();
+            $today = now()->toDateString();
+            $janjiData = [];
+            $janjis = Janji::
+            where('idPasien', Session::get('pasien')->idPasien)
+            ->where('status', 'Accepted')
+            ->where('tanggal_temu', '<', $today)->get();
 
-        foreach ($janjis as $janji) {
-            $janjiData[] = [
-                'idDokter' => $janji->idDokter,
-                'idJanji' => $janji->idJanji
-            ];
-        }
-        $idDokters = collect($janjiData)->pluck('idDokter')->toArray();
-        $dokters = Dokter::whereIn('idDokter', $idDokters)->get();
+            foreach ($janjis as $janji) {
+                $janjiData[] = [
+                    'idDokter' => $janji->idDokter,
+                    'idJanji' => $janji->idJanji
+                ];
+            }
+            $idDokters = collect($janjiData)->pluck('idDokter')->toArray();
+            $dokters = Dokter::whereIn('idDokter', $idDokters)->get();
 
-        foreach ($janjiData as $janji) {
-            DB::update("UPDATE janji SET status = ? WHERE idjanji = ?",
-                ['Reviewed', $janji['idJanji']]);
-        }
-        return view('pasien/reviewDokter',
-            [
-                'pasien'=>Session::get('pasien'),
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password'),
-                'janjis'=>$janjiData,
-                'dokters'=>$dokters
+            foreach ($janjiData as $janji) {
+                DB::update("UPDATE janji SET status = ? WHERE idjanji = ?",
+                    ['Reviewed', $janji['idJanji']]);
+            }
+            return view('pasien/reviewDokter',
+                [
+                    'janjis'=>$janjiData,
+                    'dokters'=>$dokters
+                ]);
+        } else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
             ]);
+        }
     }
 
     public function profil()
     {
-        return view('pasien/profilPasien',
-            [
-                'pasien'=>Session::get('pasien'),
-                'username'=>Session::get('username'),
-                'password'=>Session::get('password')
+        if(session()->has('token')) {
+        return view('pasien/profilPasien', ['pasien'=>Session::get('pasien')]);
+        } else {
+            return redirect()->route('index')->withErrors([
+                'tokenInvalid' => 'Please log in to gain access!'
             ]);
+        }
     }
 
     public function register(Request $request)

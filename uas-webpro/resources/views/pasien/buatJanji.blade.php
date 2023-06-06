@@ -53,7 +53,7 @@
         </div>
         <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{$username}}
+                {{session('username')}}
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="{{url('/pasien/profil')}}">Profil Pasien</a></li>
@@ -70,7 +70,6 @@
         <div class="card mb-3 w-50 mx-auto">
             <div class="card-body">
                 <form action="{{url('/pasien/janji/confirm')}}" class="form-inline" method="post">
-                    @csrf
                     <div class="form-group row">
                         <label for="dokter" class="col-sm-2 col-form-label">Dokter:</label>
                         <div class="col-sm-10">
@@ -85,8 +84,8 @@
                     <div class="form-group row">
                         <label for="pasien" class="col-sm-2 col-form-label">Pasien:</label>
                         <div class="col-sm-10">
-                            <input id="pasien" class="form-control" value="{{$pasien['nama']}}" disabled>
-                            <input type="hidden" class="form-control" name="pasien" value="{{$pasien['idPasien']}}">
+                            <input id="pasien" class="form-control" value="{{ data_get(session('pasien'), 'nama') }}" disabled>
+                            <input type="hidden" class="form-control" name="pasien" value="{{ data_get(session('pasien'), 'idPasien') }}">
                         </div>
                     </div>
                     <br>

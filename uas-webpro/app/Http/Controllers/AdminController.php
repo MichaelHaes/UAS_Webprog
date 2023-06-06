@@ -15,11 +15,6 @@ use Illuminate\Validation\ValidationException;
 
 class AdminController extends Controller
 {
-    public function index()
-    {
-        return view('admin/loginAdmin');
-    }
-
     public function dashboard()
     {
         if(session()->has('token'))

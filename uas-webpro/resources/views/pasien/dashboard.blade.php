@@ -63,7 +63,7 @@
         </div>
         <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{$username}}
+                {{session('username')}}
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="{{url('/pasien/profil')}}">Profil Pasien</a></li>
@@ -125,35 +125,6 @@
                 @endforeach
             </div>
         </div>
-        <!-- <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="mx-auto">
-                        <div class="row">
-                            @foreach($dokters as $dokter)
-                            <div class="col-md-2">
-                                <div class="text-center">
-                                    <img src="{{asset($dokter['foto'])}}" class="rounded-circle border border-dark imgDokter" width="150" height="150">
-                                    <h3 class="mt-3 mb-1">{{$dokter['namaDokter']}}</h3>
-                                    <h6 class="text-muted">{{$dokter['jenisDokter']}}</h6>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div> -->
-
-
     </div>
 </body>
 <br>

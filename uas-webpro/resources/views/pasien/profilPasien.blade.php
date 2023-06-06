@@ -50,7 +50,7 @@
         </div>
         <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{$username}}
+                {{session('username')}}
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="{{url('/pasien/profil')}}">Profil Pasien</a></li>
