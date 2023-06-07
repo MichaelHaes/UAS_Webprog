@@ -90,6 +90,7 @@
                             Pasien
                         </button>
                     </li>
+                    
                     <li class="nav-item">
                         <button class="btn btn-link nav-link float-end" data-bs-toggle="modal" data-bs-target="#modalAdmin">
                             Admin
@@ -482,19 +483,16 @@
         </div>
     </div>
     <br>
-    <!-- Remove the container if you want to extend the Footer to full width. -->
+
 <footer class="text-white text-center text-lg-start" style="background-color: #008cb4;">
-  <!-- Grid container -->
   <div class="container p-4">
-    <!--Grid row-->
     <div class="row mt-4">
-      <!--Grid column-->
       <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
         <h5 class="text-uppercase mb-4 text-center">Tentang Klinik</h5>
 
 
         <p class="text-center">
-          Klinik Kita Sehat memberikan pelayanan yang cepat, prefentif kepada pasien dengan harga yang terjangkau.
+        Klinik Kita Sehat selalu memberikan layanan kesehatan untuk semua orang dengan cepat dan harga yang terjangkau.
         </p>
       </div>
       <!--Grid column-->
@@ -545,13 +543,8 @@
             </tbody>
             </table>
         </div>
-        <!--Grid column-->
         </div>
-        <!--Grid row-->
     </div>
-
-
-  <!-- Copyright -->
 </footer>
 
 

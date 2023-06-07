@@ -145,55 +145,65 @@
     
 </body>
 <br>
-<footer class="text-white text-center text-lg-start navbar" style="background-color: #008cb4;">
-    <div class="container p-4">
-        <div class="row mt-4">
-            <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase mb-4 text-center">Tentang Klinik</h5>
+<footer class="text-white text-center text-lg-start" style="background-color: #008cb4;">
+  <div class="container p-4">
+    <div class="row mt-4">
+      <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4 text-center">Tentang Klinik</h5>
 
-                <p class="text-center">
-                Klinik Kita Sehat selalu memberikan layanan kesehatan untuk semua orang dengan cepat dan harga yang terjangkau.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-uppercase mb-4 text-center">INFORMASI KLINIK</h5>
-                <div class="d-flex flex-column">
-                    <div>
-                        <div class="d-flex justify-content-start">
-                            <img src="{{url('images/pinpoint.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
-                            <p>Jl. Boulevard no 74 Gading Serpong, Kelapa Dua, Tangerang</p>
-                        </div>
+
+        <p class="text-center">
+        Klinik Kita Sehat selalu memberikan layanan kesehatan untuk semua orang dengan cepat dan harga yang terjangkau.
+        </p>
+      </div>
+      <!--Grid column-->
+
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-4 text-center">INFORMASI KLINIK</h5>
+            <div class="d-flex flex-column">
+                <div>
+                    <div class="d-flex justify-content-start">
+                        <img src="{{url('images/pinpoint.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
+                        <p class="mb-2 ml-2">Jl. Boulevard no 74 Gading Serpong<br>Kelapa Dua, Tangerang</p>
                     </div>
-                    <div>
-                        <div class="d-flex justify-content-start">
-                            <img src="{{url('images/mail.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
-                            <p>admisi@klinikkitasehat.ac.id tanya@klinikkitasehat.ac.id</p>
-                        </div>
-                    </div> 
-                    <div>
-                        <div class="d-flex justify-content-start">
-                            <img src="{{url('images/call.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
-                            <p>+62 823 7070 5050 (chat)<br>+62 823 7070 6060 (call)</p>
-                        </div>
+                </div>
+                <div>
+                    <div class="d-flex justify-content-start">
+                        <img src="{{url('images/mail.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
+                        <p class="mb-2 ml-2">admisi@klinikkitasehat.ac.id<br>tanya@klinikkitasehat.ac.id</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex justify-content-start">
+                        <img src="{{url('images/call.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
+                        <p class="mb-2 ml-2">+62 823 7070 5050 (chat)<br>+62 823 7070 6060 (call)</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-uppercase mb-4 text-center">Jam Buka</h5>
+        </div>
+        <!--Grid column-->
 
-                <table class="table text-center text-black">
-                <tbody class="font-weight-normal">
-                    <tr>
-                        <td class="text-light" style="background-color: #008cb4">Senin - Jum'at:</td>
-                        <td class="text-light" style="background-color: #008cb4">08:00 - 23:00</td>
-                        </tr>
-                        <tr>
-                        <td class="text-light" style="background-color: #008cb4">Sabtu - Minggu:</td>
-                        <td class="text-light" style="background-color: #008cb4">08:00 - 21:00</td>
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-4 text-center">Jam Buka</h5>
+
+
+            <table class="table text-center text-black">
+            <tbody class="font-weight-normal">
+                <tr>
+                    <td class="text-light" style="background-color: #008cb4">Senin - Jum'at:</td>
+                    <td class="text-light" style="background-color: #008cb4">08:00 - 23:00</td>
                     </tr>
-                </tbody>
-                </table>
-            </div>
+                    <tr>
+                    <td class="text-light" style="background-color: #008cb4">Sabtu - Minggu:</td>
+                    <td class="text-light" style="background-color: #008cb4">08:00 - 21:00</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
         </div>
     </div>
 </footer>

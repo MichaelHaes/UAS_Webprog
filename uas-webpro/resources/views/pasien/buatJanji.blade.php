@@ -210,7 +210,6 @@
         </div>
         <!--Grid column-->
         </div>
-        Grid row
     </div>
     <!-- Grid container -->
 </html>
