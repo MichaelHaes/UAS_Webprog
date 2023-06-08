@@ -70,6 +70,7 @@
         <div class="card mb-3 w-50 mx-auto">
             <div class="card-body">
                 <form action="{{url('/pasien/janji/confirm')}}" class="form-inline" method="post">
+                    @csrf
                     <div class="form-group row">
                         <label for="dokter" class="col-sm-2 col-form-label">Dokter:</label>
                         <div class="col-sm-10">
