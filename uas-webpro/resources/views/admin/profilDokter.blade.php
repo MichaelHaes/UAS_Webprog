@@ -216,13 +216,13 @@
                     <div>
                         <div class="d-flex justify-content-start">
                             <img src="{{url('images/pinpoint.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
-                            <p>Jl. Boulevard no 74 Gading Serpong, Kelapa Dua, Tangerang</p>
+                            <p>Jl. Boulevard no 74 Gading Serpong<br>Kelapa Dua, Tangerang</p>
                         </div>
                     </div>
                     <div>
                         <div class="d-flex justify-content-start">
                             <img src="{{url('images/mail.png')}}" class="img-responsive mx-3 mt-3" width="20" height="20" style="margin-left: 10px;">
-                            <p>admisi@klinikkitasehat.ac.id tanya@klinikkitasehat.ac.id</p>
+                            <p>admisi@klinikkitasehat.ac.id<br>tanya@klinikkitasehat.ac.id</p>
                         </div>
                     </div> 
                     <div>
