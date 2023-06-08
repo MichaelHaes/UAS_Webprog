@@ -89,14 +89,14 @@
                                 <form action="{{url('/admin/berkas/action')}}" method="POST">
                                     @csrf
                                     <input type="hidden" name="idJanji" value="{{$janji['idJanji']}}">
-                                    <button class="btn" name="action" value="accept">Accept</button>
-                                    <button class="btn" name="action" value="decline">Decline</button>
+                                    <button class="btn btn-primary" name="action" value="accept">Accept</button>
+                                    <button class="btn btn-secondary" name="action" value="decline">Decline</button>
                                 </form>
                             @else
                                 <form action="{{url('/admin/berkas/action')}}" method="POST">
                                     <input type="hidden" name="idJanji" value="{{$janji['idJanji']}}">
-                                    <button class="btn" name="action" value="accept" disabled>Accept</button>
-                                    <button class="btn" name="action" value="decline" disabled>Decline</button>
+                                    <button class="btn btn-primary" name="action" value="accept" disabled>Accept</button>
+                                    <button class="btn btn-secondary" name="action" value="decline" disabled>Decline</button>
                                 </form>
                             @endif
                         </div>

@@ -185,8 +185,6 @@ class PasienController extends Controller
             ->where('status', 'Accepted')
             ->where('tanggal_temu', '<', $today)->get();
 
-        
-
             foreach ($janjis->all() as $janji) {
                 $janjiData[] = [
                     'idDokter' => $janji->idDokter,
