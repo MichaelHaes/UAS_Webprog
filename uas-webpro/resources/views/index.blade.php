@@ -67,6 +67,10 @@
             #divGambar {
                 height: 400px;
             }
+
+            .eyepassword:hover{
+                cursor: pointer;
+            }
         }
     </style>
 </head>
@@ -145,9 +149,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="password" class="form-control" id="passwordInput">
-                                    <button type="button" id="toggleButton" class="btn btn-secondary" onclick="togglePasswordVisibility()">
-                                        Show
-                                    </button>
+                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepassword" onclick="togglePasswordVisibility()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -158,7 +160,7 @@
                             <div class="col-sm-9">
                                 <div class="input-group">
                                     <input type="text" name="captcha" class="form-control">
-                                    <button type="button" id="change-captcha" class="btn btn-secondary">Change CAPTCHA</button>
+                                    <img src="images/refresh.png" height="20" width="20" id="change-captcha" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -266,9 +268,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="password" class="form-control" id="passwordInputRegister">
-                                    <button type="button" id="toggleButtonReg" class="btn btn-secondary" onclick="togglePasswordVisibilityReg()">
-                                        Show
-                                    </button>
+                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepassword" onclick="togglePasswordVisibilityReg()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -277,9 +277,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="confirmPassword" class="form-control" id="passwordConfirmRegister">
-                                    <button type="button" id="toggleButtonRegConfirm" class="btn btn-secondary" onclick="togglePasswordVisibilityRegConfirm()">
-                                        Show
-                                    </button>
+                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepassword" onclick="togglePasswordVisibilityRegConfirm()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>  
@@ -401,9 +399,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="password" class="form-control" id="passwordInputAdmin">
-                                    <button type="button" id="toggleButtonAdmin" class="btn btn-secondary" onclick="togglePasswordVisibilityAdmin()">
-                                        Show
-                                    </button>
+                                        <img src="images/eyeopen.png" height="20" width="20" id="eyepassword" onclick="togglePasswordVisibilityAdmin()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -561,86 +557,80 @@
     
     function togglePasswordVisibility() {
         var passwordInput = document.getElementById("passwordInput");
-        var toggleButton = document.getElementById("toggleButton");
-
-
+        var eyepassword = document.getElementById("eyepassword")
+        
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            toggleButton.textContent = "Hide";
+            eyepassword.setAttribute("src", "images/eyeclosed.png")
         } else {
             passwordInput.type = "password";
-            toggleButton.textContent = "Show";
+            eyepassword.setAttribute("src", "images/eyeopen.png")
         }
     }
    
     function togglePasswordVisibilityAdmin() {
         var passwordInput = document.getElementById("passwordInputAdmin");
-        var toggleButton = document.getElementById("toggleButtonAdmin");
-
-
+        var eyepassword = document.getElementById("eyepassword")
+        
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            toggleButton.textContent = "Hide";
+            eyepassword.setAttribute("src", "images/eyeclosed.png")
         } else {
             passwordInput.type = "password";
-            toggleButton.textContent = "Show";
+            eyepassword.setAttribute("src", "images/eyeopen.png")
         }
     }
    
    function togglePasswordVisibilityReg() {
        var passwordInput = document.getElementById("passwordInputRegister");
-       var toggleButton = document.getElementById("toggleButtonReg");
-
-
-       if (passwordInput.type === "password") {
-           passwordInput.type = "text";
-           toggleButton.textContent = "Hide";
-       } else {
-           passwordInput.type = "password";
-           toggleButton.textContent = "Show";
-       }
+       var eyepassword = document.getElementById("eyepassword")
+        
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyepassword.setAttribute("src", "images/eyeclosed.png")
+        } else {
+            passwordInput.type = "password";
+            eyepassword.setAttribute("src", "images/eyeopen.png")
+        }
    }
 
    function togglePasswordVisibilityRegConfirm() {
        var passwordInput = document.getElementById("passwordConfirmRegister");
-       var toggleButton = document.getElementById("toggleButtonRegConfirm");
-
-
-       if (passwordInput.type === "password") {
-           passwordInput.type = "text";
-           toggleButton.textContent = "Hide";
-       } else {
-           passwordInput.type = "password";
-           toggleButton.textContent = "Show";
-       }
+       var eyepassword = document.getElementById("eyepassword")
+        
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyepassword.setAttribute("src", "images/eyeclosed.png")
+        } else {
+            passwordInput.type = "password";
+            eyepassword.setAttribute("src", "images/eyeopen.png")
+        }
    }
    
    function togglePasswordVisibilityForgot() {
        var passwordInput = document.getElementById("passwordInputForgot");
-       var toggleButton = document.getElementById("toggleButtonForgot");
-
-
-       if (passwordInput.type === "password") {
-           passwordInput.type = "text";
-           toggleButton.textContent = "Hide";
-       } else {
-           passwordInput.type = "password";
-           toggleButton.textContent = "Show";
-       }
+       var eyepassword = document.getElementById("eyepassword")
+        
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyepassword.setAttribute("src", "images/eyeclosed.png")
+        } else {
+            passwordInput.type = "password";
+            eyepassword.setAttribute("src", "images/eyeopen.png")
+        }
    }
 
    function togglePasswordVisibilityForgotConfirm() {
        var passwordInput = document.getElementById("passwordConfirmForgot");
-       var toggleButton = document.getElementById("toggleButtonForgotConfirm");
-
-
-       if (passwordInput.type === "password") {
-           passwordInput.type = "text";
-           toggleButton.textContent = "Hide";
-       } else {
-           passwordInput.type = "password";
-           toggleButton.textContent = "Show";
-       }
+       var eyepassword = document.getElementById("eyepassword")
+        
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyepassword.setAttribute("src", "images/eyeclosed.png")
+        } else {
+            passwordInput.type = "password";
+            eyepassword.setAttribute("src", "images/eyeopen.png")
+        }
    }
 </script>
 </html>
