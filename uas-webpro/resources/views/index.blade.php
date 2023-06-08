@@ -43,6 +43,9 @@
             background-color: #008cb4;
         }
 
+        .showhidepass:hover {
+            cursor: pointer;
+        }
 
         @media only screen and (max-width: 575px) {
             .navbar {
@@ -145,7 +148,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="password" class="form-control" id="passwordInput">
-                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepassword" onclick="togglePasswordVisibility()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+                                    <img class="showhidepass" src="images/eyeopen.png" height="20" width="20" id="eyepassword" onclick="togglePasswordVisibility()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -156,7 +159,7 @@
                             <div class="col-sm-9">
                                 <div class="input-group">
                                     <input type="text" name="captcha" class="form-control">
-                                    <img src="images/refresh.png" height="20" width="20" id="change-captcha" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+                                    <img class="showhidepass" src="images/refresh.png" height="20" width="20" id="change-captcha" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -264,7 +267,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="password" class="form-control" id="passwordInputRegister">
-                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepasswordReg" onclick="togglePasswordVisibilityReg()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+                                    <img class="showhidepass" src="images/eyeopen.png" height="20" width="20" id="eyepasswordReg" onclick="togglePasswordVisibilityReg()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -273,7 +276,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="confirmPassword" class="form-control" id="passwordConfirmRegister">
-                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepasswordRegConfirm" onclick="togglePasswordVisibilityRegConfirm()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+                                    <img class="showhidepass" src="images/eyeopen.png" height="20" width="20" id="eyepasswordRegConfirm" onclick="togglePasswordVisibilityRegConfirm()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>  
@@ -329,7 +332,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="password" class="form-control" id="passwordInputForgot">
-                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepasswordForgot" onclick="togglePasswordVisibilityForgot()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+                                    <img class="showhidepass" src="images/eyeopen.png" height="20" width="20" id="eyepasswordForgot" onclick="togglePasswordVisibilityForgot()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -338,7 +341,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="confirmpassword" class="form-control" id="passwordConfirmForgot">
-                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepasswordForgotConfirm" onclick="togglePasswordVisibilityForgotConfirm()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+                                    <img class="showhidepass" src="images/eyeopen.png" height="20" width="20" id="eyepasswordForgotConfirm" onclick="togglePasswordVisibilityForgotConfirm()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -391,7 +394,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="password" class="form-control" id="passwordInputAdmin">
-                                        <img src="images/eyeopen.png" height="20" width="20" id="eyepasswordAdmin" onclick="togglePasswordVisibilityAdmin()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+                                        <img class="showhidepass" src="images/eyeopen.png" height="20" width="20" id="eyepasswordAdmin" onclick="togglePasswordVisibilityAdmin()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
