@@ -39,7 +39,7 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/admin/updatedokter/{id}', 'updateDokter');
     Route::get('/admin/deletedokter/{id}', 'deleteDokter');
     Route::get('/admin/pasien', 'pasien');
-    Route::get('/admin/berkas', 'berkas');
+    Route::get('/admin/berkas', 'berkas')->name('berkas');
     Route::post('/admin/berkas/action', 'persetujuanBerkas');
     Route::get('/admin/profil', 'profil');
     Route::get('/admin/logout', 'logout')->name('logout');
@@ -55,7 +55,7 @@ Route::controller(PasienController::class)->group(function(){
     Route::get('/pasien/janji', 'janji')->name('janji');
     Route::post('/pasien/janji/confirm', 'janjiConfirm');
     Route::post('/pasien/review/{id}', 'reviewProses');
-    Route::get('/pasien/review', 'review');
+    Route::get('/pasien/review', 'review')->name('review');
     Route::get('/pasien/profil', 'profil');
     Route::post('/pasien/forgotpass', 'forgotpass');
 });

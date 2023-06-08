@@ -185,7 +185,9 @@ class PasienController extends Controller
             ->where('status', 'Accepted')
             ->where('tanggal_temu', '<', $today)->get();
 
-            foreach ($janjis as $janji) {
+        
+
+            foreach ($janjis->all() as $janji) {
                 $janjiData[] = [
                     'idDokter' => $janji->idDokter,
                     'idPasien' => $janji->idPasien,
@@ -224,6 +226,7 @@ class PasienController extends Controller
             $janjis = Janji::
             where('idPasien', Session::get('pasien')->idPasien)
             ->where('status', 'Accepted')
+            ->where('idDokter', $id)
             ->where('tanggal_temu', '<', $today)->get();
 
             foreach ($janjis as $janji) {
@@ -239,11 +242,12 @@ class PasienController extends Controller
                 DB::update("UPDATE janji SET status = ? WHERE idjanji = ?",
                     ['Reviewed', $janji['idJanji']]);
             }
-            return view('pasien/reviewDokter',
-                [
-                    'janjis'=>$janjiData,
-                    'dokters'=>$dokters
-                ]);
+            // return view('pasien/reviewDokter',
+            //     [
+            //         'janjis'=>$janjiData,
+            //         'dokters'=>$dokters
+            //     ]);
+            return redirect()->route('review')->with('janjis', $janjiData)->with('dokters', $dokters);
         } else {
             return redirect()->route('index')->withErrors([
                 'tokenInvalid' => 'Please log in to gain access!'

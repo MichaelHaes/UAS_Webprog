@@ -135,6 +135,7 @@
                     </div>
                     <br>
                     <form id="updateForm" action="" method="get" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-3 row">
                             <label for="username" class="col-sm-3 col-form-label">Nama Dokter</label>
                             <div class="col-sm-9">
@@ -172,6 +173,7 @@
                     </div>
                     <br>
                     <form action="{{url('/admin/tambahdokter')}}" method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-3 row">
                             <label for="username" class="col-sm-3 col-form-label">Nama Dokter</label>
                             <div class="col-sm-9">

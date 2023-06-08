@@ -210,7 +210,8 @@ class AdminController extends Controller
                     'status' => $janji->status
                 ];
             }
-            return view('admin/berkasJanji', ['janjis'=>$janjiData]);
+            // return view('admin/berkasJanji', ['janjis'=>$janjiData]);
+            return redirect()->route('berkas')->with('janjis', $janjiData);
         } else {
             return redirect()->route('index')->withErrors([
                 'tokenInvalid' => 'Please log in to gain access!'

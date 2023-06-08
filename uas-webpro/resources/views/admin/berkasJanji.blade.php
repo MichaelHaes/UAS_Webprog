@@ -87,6 +87,7 @@
                             </div>
                             @if($janji['status'] !== 'Reviewed')
                                 <form action="{{url('/admin/berkas/action')}}" method="POST">
+                                    @csrf
                                     <input type="hidden" name="idJanji" value="{{$janji['idJanji']}}">
                                     <button class="btn" name="action" value="accept">Accept</button>
                                     <button class="btn" name="action" value="decline">Decline</button>
