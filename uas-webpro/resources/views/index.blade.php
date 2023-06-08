@@ -42,8 +42,12 @@
         .custom-bg {
             background-color: #008cb4;
         }
+<<<<<<< HEAD
 
         .showhidepass:hover {
+=======
+        img:hover {
+>>>>>>> 9d6705d1f3c21b022e1f8a6e23dbc31f7f41b7d8
             cursor: pointer;
         }
 
