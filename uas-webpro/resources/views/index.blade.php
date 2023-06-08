@@ -42,7 +42,9 @@
         .custom-bg {
             background-color: #008cb4;
         }
-
+        img:hover {
+            cursor: pointer;
+        }
 
         @media only screen and (max-width: 575px) {
             .navbar {
