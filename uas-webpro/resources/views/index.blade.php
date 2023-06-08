@@ -67,10 +67,6 @@
             #divGambar {
                 height: 400px;
             }
-
-            .eyepassword:hover{
-                cursor: pointer;
-            }
         }
     </style>
 </head>
@@ -268,7 +264,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="password" class="form-control" id="passwordInputRegister">
-                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepassword" onclick="togglePasswordVisibilityReg()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepasswordReg" onclick="togglePasswordVisibilityReg()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -277,7 +273,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="confirmPassword" class="form-control" id="passwordConfirmRegister">
-                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepassword" onclick="togglePasswordVisibilityRegConfirm()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepasswordRegConfirm" onclick="togglePasswordVisibilityRegConfirm()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>  
@@ -333,9 +329,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="password" class="form-control" id="passwordInputForgot">
-                                    <button type="button" id="toggleButtonForgot" class="btn btn-secondary" onclick="togglePasswordVisibilityForgot()">
-                                        Show
-                                    </button>
+                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepasswordForgot" onclick="togglePasswordVisibilityForgot()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -344,9 +338,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="confirmpassword" class="form-control" id="passwordConfirmForgot">
-                                    <button type="button" id="toggleButtonForgotConfirm" class="btn btn-secondary" onclick="togglePasswordVisibilityForgotConfirm()">
-                                        Show
-                                    </button>
+                                    <img src="images/eyeopen.png" height="20" width="20" id="eyepasswordForgotConfirm" onclick="togglePasswordVisibilityForgotConfirm()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -399,7 +391,7 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="password" name="password" class="form-control" id="passwordInputAdmin">
-                                        <img src="images/eyeopen.png" height="20" width="20" id="eyepassword" onclick="togglePasswordVisibilityAdmin()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+                                        <img src="images/eyeopen.png" height="20" width="20" id="eyepasswordAdmin" onclick="togglePasswordVisibilityAdmin()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
                         </div>
@@ -561,16 +553,16 @@
         
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            eyepassword.setAttribute("src", "images/eyeclosed.png")
+            eyepassword.setAttribute("src", "images/eyeclosed.png");
         } else {
             passwordInput.type = "password";
-            eyepassword.setAttribute("src", "images/eyeopen.png")
+            eyepassword.setAttribute("src", "images/eyeopen.png");
         }
     }
    
     function togglePasswordVisibilityAdmin() {
         var passwordInput = document.getElementById("passwordInputAdmin");
-        var eyepassword = document.getElementById("eyepassword")
+        var eyepassword = document.getElementById("eyepasswordAdmin")
         
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
@@ -583,7 +575,7 @@
    
    function togglePasswordVisibilityReg() {
        var passwordInput = document.getElementById("passwordInputRegister");
-       var eyepassword = document.getElementById("eyepassword")
+       var eyepassword = document.getElementById("eyepasswordReg")
         
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
@@ -596,7 +588,7 @@
 
    function togglePasswordVisibilityRegConfirm() {
        var passwordInput = document.getElementById("passwordConfirmRegister");
-       var eyepassword = document.getElementById("eyepassword")
+       var eyepassword = document.getElementById("eyepasswordRegConfirm")
         
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
@@ -609,7 +601,7 @@
    
    function togglePasswordVisibilityForgot() {
        var passwordInput = document.getElementById("passwordInputForgot");
-       var eyepassword = document.getElementById("eyepassword")
+       var eyepassword = document.getElementById("eyepasswordForgot")
         
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
@@ -622,7 +614,7 @@
 
    function togglePasswordVisibilityForgotConfirm() {
        var passwordInput = document.getElementById("passwordConfirmForgot");
-       var eyepassword = document.getElementById("eyepassword")
+       var eyepassword = document.getElementById("eyepasswordForgotConfirm")
         
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
