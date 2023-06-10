@@ -75,6 +75,17 @@
         .btn-link {
             
         }
+
+        .fade-in {
+            animation: fadeInAnimation 0.5s ease-in forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInAnimation {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
     </style>
 </head>
 <body class="fade-in">
@@ -85,8 +96,6 @@
                     <img src="{{url('images/logo.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;" id="logo">
                 </div>
             </a>
-
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -630,6 +639,7 @@
             eyepassword.setAttribute("src", "images/eyeopen.png")
         }
    }
+
 </script>
 </html>
 

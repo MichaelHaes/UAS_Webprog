@@ -15,10 +15,11 @@
 
         .custom-bg {
             background-color: #008cb4;
+            background-color: #00c7fc;
         }
 
         .fade-in {
-            animation: fadeInAnimation 1s ease-in forwards;
+            animation: fadeInAnimation 0.5s ease-in forwards;
             opacity: 0;
         }
         
@@ -72,7 +73,7 @@
                 @foreach($pasien as $pasen)
                 <div class="col-lg-4">
                     <div class="card mb-3" >
-                        <div class="card-header">
+                        <div class="card-header" style="background-color: #00c7fc">
                             <p class="col-8"><strong class="col-4">ID #</strong>{{$pasen['id']}}</p>
                         </div>
                         <div class="card-body row">

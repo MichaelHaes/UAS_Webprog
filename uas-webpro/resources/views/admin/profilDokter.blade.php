@@ -22,7 +22,7 @@
         }
 
         .fade-in {
-            animation: fadeInAnimation 1s ease-in forwards;
+            animation: fadeInAnimation 0.5s ease-in forwards;
             opacity: 0;
         }
         
