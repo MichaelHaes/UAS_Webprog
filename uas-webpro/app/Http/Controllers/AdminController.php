@@ -60,7 +60,8 @@ class AdminController extends Controller
                     'id' => $dokter->idDokter,
                     'namaDokter' => $dokter->namaDokter,
                     'jenisDokter' => $dokter->jenisDokter,
-                    'foto' => $foto
+                    'foto' => $foto,
+                    'deleted' => $dokter->deleted
                 ];
             }
             
@@ -119,7 +120,7 @@ class AdminController extends Controller
     public function deleteDokter($id)
     {
         if(session()->has('token')) {
-            DB::delete("DELETE FROM dokter WHERE idDokter = ?", [$id]);
+            DB::update("UPDATE dokter SET deleted = ? WHERE idDokter = ?", [true, $id]);
             
             return redirect()->route('dokter');
         } else {
@@ -164,6 +165,7 @@ class AdminController extends Controller
             foreach ($janjis as $janji) {
                 $pasien = Pasien::where('idPasien', $janji->idPasien)->first();
                 $dokter = Dokter::where('idDokter', $janji->idDokter)->first();
+                
                 $janjiData[] = [
                     'idJanji' => $janji->idJanji,
                     'namaPasien' => $pasien->nama,

@@ -120,6 +120,7 @@ class PasienController extends Controller
                     'id' => $dokter->idDokter,
                     'namaDokter' => $dokter->namaDokter,
                     'jenisDokter' => $dokter->jenisDokter,
+                    'deleted' => $dokter->deleted,
                     'foto' => $foto
                 ];
             }

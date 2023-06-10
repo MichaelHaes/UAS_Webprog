@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('jenisDokter');
             $table->string('fotoDokter');
             $table->timestamps();
+            $table->boolean('deleted')->nullable();
         });
     }
 

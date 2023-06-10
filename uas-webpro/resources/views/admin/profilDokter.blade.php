@@ -93,20 +93,37 @@
                                     <img src="{{asset($dokter['foto'])}}" class="imgDokter">
                                 </div>
                                 <div class="col">
-                                    <h3 class="mb-1">{{$dokter['namaDokter']}}</h3>
+                                    <h3 class="mb-1">{{$dokter['namaDokter']}}
+                                        @if($dokter['deleted'])
+                                            (Deleted)
+                                        @endif
+                                    </h3>
                                     <h6 class="text-muted">{{$dokter['jenisDokter']}}</h6>
                                     <br><br><br>
                                     <div class="row">
-                                        <div class="col">
-                                            <div class="d-grid">
-                                                <button class="btn btn-success" onclick="openModal(`{{ $dokter['id'] }}`, `{{ $dokter['namaDokter'] }}`, `{{ $dokter['jenisDokter'] }}`)">Update</button>
+                                        @if($dokter['deleted'])
+                                            <div class="col">
+                                                <div class="d-grid">
+                                                    <button class="btn btn-success" disabled onclick="openModal(`{{ $dokter['id'] }}`, `{{ $dokter['namaDokter'] }}`, `{{ $dokter['jenisDokter'] }}`) ">Update</button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="d-grid">
-                                                <a class="btn btn-danger" href="{{url('/admin/deletedokter')}}/{{$dokter['id']}}">Delete</a>
+                                            <div class="col">
+                                                <div class="d-grid">
+                                                    <button class="btn btn-danger" disabled>Delete</button>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @else
+                                            <div class="col">
+                                                <div class="d-grid">
+                                                    <button class="btn btn-success" onclick="openModal(`{{ $dokter['id'] }}`, `{{ $dokter['namaDokter'] }}`, `{{ $dokter['jenisDokter'] }}`)">Update</button>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="d-grid">
+                                                    <a class="btn btn-danger" href="{{url('/admin/deletedokter')}}/{{$dokter['id']}}">Delete</a>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

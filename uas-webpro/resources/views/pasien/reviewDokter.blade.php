@@ -136,22 +136,24 @@
         </div>
         <div class="card w-75 mx-auto">
             @foreach($dokters as $dokter)
-                <div class="card-body">
-                    <div class="card mb-3"> 
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="d-flex justify-content-center">
-                                        <h3 class="mb-1">{{$dokter['namaDokter']}}</h3>
-                                    </div>
-                                    <div class="d-flex justify-content-center">
-                                        <h6 class="text-muted">{{$dokter['jenisDokter']}}</h6>
-                                    </div>
-                                    <br><br><br>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="d-grid w-50 mx-auto">
-                                                <button class="btn btn-primary" onclick="openModal(`{{ $dokter['idDokter'] }}`)">Review</button>
+                @if(!$dokter['deleted'])
+                    <div class="card-body">
+                        <div class="card mb-3"> 
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="d-flex justify-content-center">
+                                            <h3 class="mb-1">{{$dokter['namaDokter']}}</h3>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <h6 class="text-muted">{{$dokter['jenisDokter']}}</h6>
+                                        </div>
+                                        <br><br><br>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="d-grid w-50 mx-auto">
+                                                    <button class="btn btn-primary" onclick="openModal(`{{ $dokter['idDokter'] }}`)">Review</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -159,7 +161,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @endforeach
         </div>
     </div>
