@@ -73,8 +73,18 @@
                 @foreach($pasien as $pasen)
                 <div class="col-lg-4">
                     <div class="card mb-3" >
+                        <!-- <div class="card-header" style="background-color: #00c7fc">
+                            <p class="d-flex jsutify-content-center text-center">
+                                <strong class="col-4">ID #</strong>
+                                {{$pasen['id']}}
+                            </p>
+                        </div> -->
                         <div class="card-header" style="background-color: #00c7fc">
-                            <p class="col-8"><strong class="col-4">ID #</strong>{{$pasen['id']}}</p>
+                            <div class="d-flex flex-row justify-content-center">
+                                <p class="mt-3 fs-5" >
+                                    <strong class="col-4">ID #{{$pasen['id']}}</strong>
+                                </p>
+                            </div>
                         </div>
                         <div class="card-body row">
                             <strong class="col-4">Nama</strong>          <p class="col-8">: {{$pasen['nama']}}</p>

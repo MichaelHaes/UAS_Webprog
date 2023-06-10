@@ -101,7 +101,7 @@
                 </ul>
             </div>
             <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {{session('username')}}
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">

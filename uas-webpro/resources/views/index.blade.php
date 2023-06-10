@@ -46,31 +46,6 @@
         .showhidepass:hover {
             cursor: pointer;
         }
-
-        @media only screen and (max-width: 575px) {
-            .navbar {
-                height: 85px;
-            }
-
-
-            .logo {
-                margin-bottom: 10px;
-            }
-        } 
-
-
-        @media only screen and (max-width: 1200px) {
-            #gambarKlinik {
-                width: 100%;
-                max-width: 600px;
-                height: auto;
-            }
-
-
-            #divGambar {
-                height: 400px;
-            }
-        }
         
         .btn-link {
             

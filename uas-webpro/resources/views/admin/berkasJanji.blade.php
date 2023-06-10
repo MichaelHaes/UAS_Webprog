@@ -51,7 +51,7 @@
                 </ul>
             </div>
             <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {{session('username')}}
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -72,10 +72,14 @@
         <div class="card-body row">
             @foreach($janjis as $janji)
                 <div class="col-lg-6">
-                    <div class="card mb-3" >
+                    <div class="card mb-3">
                         <div class="card">
-                            <div class="card-header">
-                                {{$janji['idJanji']}}
+                            <div class="card-header" style="background-color: #00c7fc">
+                                <div class="d-flex flex-row justify-content-center">
+                                    <p class="mt-3 fs-5" >
+                                        <strong class="col-4">{{$janji['idJanji']}}</strong>
+                                    </p>
+                                </div>
                             </div>
                             <div class="card-body row">
                                 <strong class="col-3">Nama Pasien</strong> <p class="col-9">: {{$janji['namaPasien']}}</p>
@@ -85,20 +89,22 @@
                                 <strong class="col-3">Keluhan</strong>     <p class="col-9">: {{$janji['keluhan']}}</p>
                                 <strong class="col-3">Status</strong>      <p class="col-9">: {{$janji['status']}}</p>
                             </div>
+                            <div class="d-flex justify-content-center mb-3">
                             @if($janji['status'] !== 'Reviewed')
                                 <form action="{{url('/admin/berkas/action')}}" method="POST">
                                     @csrf
                                     <input type="hidden" name="idJanji" value="{{$janji['idJanji']}}">
-                                    <button class="btn btn-primary" name="action" value="accept">Accept</button>
-                                    <button class="btn btn-secondary" name="action" value="decline">Decline</button>
+                                    <button class="btn btn-success" name="action" value="accept">Accept</button>
+                                    <button class="btn btn-danger" name="action" value="decline">Decline</button>
                                 </form>
                             @else
                                 <form action="{{url('/admin/berkas/action')}}" method="POST">
                                     <input type="hidden" name="idJanji" value="{{$janji['idJanji']}}">
-                                    <button class="btn btn-primary" name="action" value="accept" disabled>Accept</button>
-                                    <button class="btn btn-secondary" name="action" value="decline" disabled>Decline</button>
+                                    <button class="btn btn-success" name="action" value="accept" disabled>Accept</button>
+                                    <button class="btn btn-danger" name="action" value="decline" disabled>Decline</button>
                                 </form>
                             @endif
+                            </div>
                         </div>
                     </div>
                 </div>
