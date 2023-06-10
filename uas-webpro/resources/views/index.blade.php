@@ -71,6 +71,7 @@
                 height: 400px;
             }
         }
+        
     </style>
 </head>
 <body class="fade-in">
@@ -140,7 +141,7 @@
                         <div class="mb-3 row">
                             <label for="username" class="col-sm-2 col-form-label">Username</label>
                             <div class="col-sm-10">
-                                <input type="text" name="username" class="form-control" autofocus>
+                                <input type="text" name="username" class="form-control focus-ring" autofocus>
                             </div>
                         </div>
                         <div class="mb-3 row">

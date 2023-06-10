@@ -63,7 +63,7 @@
             <img src="{{url('/images/review.png')}}" alt="..." style="width: 7.5%;">
             <h3>Review Dokter</h3>
         </div>
-        <div class="card">
+        <div class="card w-75 mx-auto">
             @foreach($dokters as $dokter)
                 <div class="card-body">
                     <div class="card mb-3"> 
@@ -75,8 +75,8 @@
                                     <br><br><br>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="d-grid">
-                                                <button class="btn" onclick="openModal(`{{ $dokter['idDokter'] }}`)">Review</button>
+                                            <div class="d-grid w-50 mx-auto">
+                                                <button class="btn btn-primary" onclick="openModal(`{{ $dokter['idDokter'] }}`)">Review</button>
                                             </div>
                                         </div>
                                     </div>
