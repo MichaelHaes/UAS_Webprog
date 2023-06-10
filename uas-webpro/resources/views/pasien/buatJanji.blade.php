@@ -93,14 +93,14 @@
                     <div class="form-group row">
                         <label for="tanggal" class="col-sm-2 col-form-label">Keluhan:</label>
                         <div class="col-sm-10">
-                            <textarea id="keluhan" class="form-control" name="keluhan"></textarea>
+                            <textarea id="keluhan" class="form-control" name="keluhan" required></textarea>
                         </div>
                     </div>
                     <br>
                     <div class="form-group row">
                         <label for="tanggal" class="col-sm-2 col-form-label">Tanggal:</label>
                         <div class="col-sm-10">
-                            <input type="date" id="tanggal" class="form-control" name="tanggal">
+                            <input type="date" id="tanggal" class="form-control" name="tanggal" required>
                         </div>
                     </div>
                     <br>

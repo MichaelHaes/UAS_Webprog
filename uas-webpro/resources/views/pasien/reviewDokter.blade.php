@@ -132,7 +132,7 @@
                         </div>
                         <div class="mb-3">
                             <div class="form-floating">
-                                <textarea id="review" name="review" class="form-control" placeholder="review"></textarea>
+                                <textarea id="review" name="review" class="form-control" placeholder="review" required></textarea>
                                 <label for="review">Review</label>
                             </div>
                         </div>

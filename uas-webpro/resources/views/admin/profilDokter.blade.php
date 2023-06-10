@@ -30,6 +30,11 @@
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
+
+        .update {
+            background-color: blue;
+            
+        }
         
     </style>
 </head>
@@ -68,6 +73,10 @@
     </nav>
     <br>
     <div class="container" id="containerSize">
+        <div class="text-center">
+            <img src="{{url('/images/profil.png')}}" alt="..." style="width: 7.5%;">
+            <h3>Profil Dokter</h3>
+        </div>
         <div class="d-grid col-4 mx-auto">
             <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalDokter">
                 Tambah Dokter
@@ -90,12 +99,12 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="d-grid">
-                                                <button class="btn" onclick="openModal(`{{ $dokter['id'] }}`, `{{ $dokter['namaDokter'] }}`, `{{ $dokter['jenisDokter'] }}`)">Update</button>
+                                                <button class="btn btn-success" onclick="openModal(`{{ $dokter['id'] }}`, `{{ $dokter['namaDokter'] }}`, `{{ $dokter['jenisDokter'] }}`)">Update</button>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="d-grid">
-                                                <a class="btn" href="{{url('/admin/deletedokter')}}/{{$dokter['id']}}">Delete</a>
+                                                <a class="btn btn-danger" href="{{url('/admin/deletedokter')}}/{{$dokter['id']}}">Delete</a>
                                             </div>
                                         </div>
                                     </div>

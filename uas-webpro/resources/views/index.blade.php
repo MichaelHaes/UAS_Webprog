@@ -72,6 +72,9 @@
             }
         }
         
+        .btn-link {
+            
+        }
     </style>
 </head>
 <body class="fade-in">
@@ -170,7 +173,7 @@
                     </form>
                    
                     <div class="d-flex justify-content-center mt-3">
-                        <button class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#modalRegister">Register</button>
+                        <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modalRegister" style="text-decoration-line: none;">Register</button>
                     </div>
                     @if($errors->has('passwordPasien'))
                         <script type="text/javascript">
@@ -186,7 +189,7 @@
                                     <div class="alert alert-danger">
                                         {{ $errors->first('passwordPasien') }}
                                         <div>
-                                            <button class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#modalForgotPass">Forgot password?</button>
+                                            <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modalForgotPass" style="text-decoration-line: none;">Forgot password?</button>
                                         </div>
                                     </div>
                                 </div>
@@ -286,7 +289,7 @@
                         </div>
                     </form>
                     <div class="d-flex justify-content-center mt-3">
-                        <button class="btn btn-link nav-link" id="loginLink" data-bs-toggle="modal" data-bs-target="#modalPasien">Already have an account?</button>
+                        <button class="btn btn-link" id="loginLink" data-bs-toggle="modal" data-bs-target="#modalPasien"style="text-decoration-line: none;" >Already have an account?</button>
                     </div>
                     @if($errors->has('registration'))
                         <script type="text/javascript">
@@ -429,11 +432,10 @@
     </div>
 
 
-    <div class="container">
+    <div class="container" >
         <div class="text-center" id="divGambar">
             <img src="{{url('/images/klinik.jpg')}}" alt="..." style="width: 50%;" id="gambarKlinik">
         </div>
-
 
         <div class="d-flex justify-content-center">
             <div class="card-body">
