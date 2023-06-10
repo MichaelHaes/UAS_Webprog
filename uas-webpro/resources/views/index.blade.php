@@ -47,21 +47,72 @@
             cursor: pointer;
         }
         
+        .btn-link {
+            
+        }
+
         .fade-in {
             animation: fadeInAnimation 0.5s ease-in forwards;
             opacity: 0;
         }
 
+        /* #cardvisi{
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            height: 303px;
+        } */
+
         @keyframes fadeInAnimation {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
-
-        .visimisi{
-            height: 300px;
-            width:auto;
-        }
         
+        @media (min-width: 1px) {
+            #cardvisi{
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                padding: 10px;
+                height: auto;
+            }
+        }
+
+        @media (min-width: 768px) {
+            #cardvisi{
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                padding: 10px;
+                height: 492.25px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            #cardvisi{
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                padding: 10px;
+                height: 349.38px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            #cardvisi{
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                padding: 10px;
+                height: 326px;
+            }
+        }
+
+        @media (min-width: 1286px) {
+            #cardvisi{
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                padding: 10px;
+                height: 303px;
+            }
+        }
+
     </style>
 </head>
 <body class="fade-in">
@@ -276,7 +327,7 @@
                     <div class="d-flex justify-content-center mt-3">
                         <button class="btn btn-link" id="loginLink" data-bs-toggle="modal" data-bs-target="#modalPasien"style="text-decoration-line: none;" >Already have an account?</button>
                     </div>
-                    @if($errors->has('registration') || $errors->has('username') || $errors->has('password'))
+                    @if($errors->has('registration'))
                         <script type="text/javascript">
                             window.addEventListener('DOMContentLoaded', function() {
                                 var modalRegister = document.getElementById('modalRegister');
@@ -289,8 +340,6 @@
                                 <div class="card card-body border-0">
                                     <div class="alert alert-danger">
                                         {{ $errors->first('registration') }}
-                                        {{ $errors->first('username') }}
-                                        {{ $errors->first('password') }}
                                     </div>
                                 </div>
                             </div>
@@ -437,8 +486,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6" style="margin-top: 10px;">
-                    <div class="card" style="border: 2px solid #ccc; border-radius: 10px; padding: 10px;">
-                        <div class="card-body visimisi">
+                    <div class="card" id="cardvisi">
+                        <div class="card-body">
                             <h4 class="text-center" style="color: #333; margin-bottom: 10px;">Visi</h4>
                             <p style="font-size: 16px; line-height: 1.5; text-align: justify;">
                                 Menjadi penyedia layanan kesehatan yang dapat menyehatkan masyarakat, memasyarakatkan kesehatan, serta terdepan dalam memberikan perawatan berkualitas tinggi dan inovatif kepada pasien, dengan fokus pada pemulihan dan kesejahteraan yang holistik
@@ -448,7 +497,7 @@
                 </div>
                 <div class="col-md-6" style="margin-top: 10px;">
                     <div class="card" style="border: 2px solid #ccc; border-radius: 10px; padding: 10px;">
-                        <div class="card-body visimisi">
+                        <div class="card-body">
                             <h4 class="text-center" style="color: #333; margin-bottom: 10px;">Misi</h4>
                             <ol style="font-size: 16px; line-height: 1.5; text-align: left;">
                                 <li>Sebagai mitra pemerintah maupun swasta dalam memberikan pelayanan prefentif, kuratif, dan rehabilitative yang komprehensif dan berkesinambungan.</li>
