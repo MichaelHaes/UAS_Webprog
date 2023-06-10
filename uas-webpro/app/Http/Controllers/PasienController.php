@@ -214,7 +214,7 @@ class PasienController extends Controller
             $review->idDokter = $id;
             $review->idPasien = Session::get('pasien')->idPasien;
             $review->idJanji = $request->idJanji;
-            $review->rating = $request->rate;
+            $review->rating = $request->rating;
             $review->review = $request->review;
             $review->save();
 

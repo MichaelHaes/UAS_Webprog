@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('idJanji')->references('idJanji')->on('janji');
             $table->foreign('idDokter')->references('idDokter')->on('janji');
             $table->foreign('idPasien')->references('idPasien')->on('janji');
-            $table->integer('rating');
+            $table->float('rating');
             $table->text('review');
             $table->timestamps();
         });
