@@ -87,7 +87,7 @@
         .rating > input:checked ~ label,
         .rating:not(:checked) > label:hover, 
         .rating:not(:checked) > label:hover ~ label{
-            color: #2ce679;
+            color: gold;
         }
 
         .rating > input:checked + label:hover,
@@ -184,15 +184,16 @@
                     <div class="text-center">
                         <h5>Review Dokter</h5>
                     </div>
-                    <br>
                     <form id="updateForm" action="" method="post">
                         @csrf
                         @foreach($janjis as $janji)
                             <input type="hidden" name="idJanji" value="{{ $janji['idJanji'] }}">
                         @endforeach
-                        <div class="mb-3 row">
-                            <label for="username" class="col-sm-3 col-form-label">Rating</label>
-                            <div class="form-check col-sm-9">
+                        <div class="d-flex flex-column mb-3">
+                            <div class="d-flex justify-content-center">
+                                <label for="username" class="">Rating</label>
+                            </div>
+                            <div class="d-flex justify-content-center">
                                 <fieldset class="rating">
                                     <input type="radio" id="star5" name="rating" value="5"/><label for="star5" class="full" title="Awesome"></label>
                                     <input type="radio" id="star4.5" name="rating" value="4.5"/><label for="star4.5" class="half"></label>
@@ -206,8 +207,9 @@
                                     <input type="radio" id="star0.5" name="rating" value="0.5"/><label for="star0.5" class="half"></label>
                                 </fieldset>
                             </div>
-                        </div>
-                        <div class="mb-3">
+                            <div class="d-flex justify-content-center mt-2">
+                                <p for="username" class="">Write review for doctor:</p>
+                            </div>
                             <div class="form-floating">
                                 <textarea id="review" name="review" class="form-control" placeholder="review" required></textarea>
                                 <label for="review">Review</label>
