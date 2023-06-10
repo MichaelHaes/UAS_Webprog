@@ -8,6 +8,7 @@ use App\Models\Janji;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
@@ -267,6 +268,15 @@ class PasienController extends Controller
 
     public function register(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'username' => 'required|alpha_dash|lowercase',
+            'password' => 'required|min:8',
+        ]);
+    
+        if ($validator->fails()) {
+            throw ValidationException::withMessages($validator->errors()->toArray());
+        }
+        
         $isExist = Pasien::where('username', $request->username)->first();
 
         if ($isExist) {

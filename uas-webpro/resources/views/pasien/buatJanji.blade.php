@@ -77,7 +77,7 @@
                             <select id="dokter" name="dokter" class="form-control">
                             @foreach($dokters as $dokter)
                                 @if(!$dokter['deleted'])
-                                    <option value="{{$dokter['id']}}">{{$dokter['namaDokter']}}</option>
+                                    <option value="{{$dokter['id']}}">{{$dokter['namaDokter']}} ({{$dokter['jenisDokter']}})</option>
                                 @endif
                             @endforeach
                             </select>

@@ -275,7 +275,7 @@
                     <div class="d-flex justify-content-center mt-3">
                         <button class="btn btn-link" id="loginLink" data-bs-toggle="modal" data-bs-target="#modalPasien"style="text-decoration-line: none;" >Already have an account?</button>
                     </div>
-                    @if($errors->has('registration'))
+                    @if($errors->has('registration') || $errors->has('username') || $errors->has('password'))
                         <script type="text/javascript">
                             window.addEventListener('DOMContentLoaded', function() {
                                 var modalRegister = document.getElementById('modalRegister');
@@ -288,6 +288,8 @@
                                 <div class="card card-body border-0">
                                     <div class="alert alert-danger">
                                         {{ $errors->first('registration') }}
+                                        {{ $errors->first('username') }}
+                                        {{ $errors->first('password') }}
                                     </div>
                                 </div>
                             </div>
