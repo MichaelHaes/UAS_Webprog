@@ -60,6 +60,11 @@
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
+
+        .visimisi{
+            height: 300px;
+            width:auto;
+        }
         
     </style>
 </head>
@@ -437,7 +442,7 @@
             <div class="row">
                 <div class="col-md-6" style="margin-top: 10px;">
                     <div class="card" style="border: 2px solid #ccc; border-radius: 10px; padding: 10px;">
-                        <div class="card-body">
+                        <div class="card-body visimisi">
                             <h4 class="text-center" style="color: #333; margin-bottom: 10px;">Visi</h4>
                             <p style="font-size: 16px; line-height: 1.5; text-align: justify;">
                                 Menjadi penyedia layanan kesehatan yang dapat menyehatkan masyarakat, memasyarakatkan kesehatan, serta terdepan dalam memberikan perawatan berkualitas tinggi dan inovatif kepada pasien, dengan fokus pada pemulihan dan kesejahteraan yang holistik
@@ -447,7 +452,7 @@
                 </div>
                 <div class="col-md-6" style="margin-top: 10px;">
                     <div class="card" style="border: 2px solid #ccc; border-radius: 10px; padding: 10px;">
-                        <div class="card-body">
+                        <div class="card-body visimisi">
                             <h4 class="text-center" style="color: #333; margin-bottom: 10px;">Misi</h4>
                             <ol style="font-size: 16px; line-height: 1.5; text-align: left;">
                                 <li>Sebagai mitra pemerintah maupun swasta dalam memberikan pelayanan prefentif, kuratif, dan rehabilitative yang komprehensif dan berkesinambungan.</li>
