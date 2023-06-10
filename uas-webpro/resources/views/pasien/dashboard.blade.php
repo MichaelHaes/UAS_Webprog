@@ -14,6 +14,10 @@
             width: 120px;
         }
 
+        .text {
+            text-align: center;
+        }
+        
         .navbar{
             background-color: #008cb4;
         }
@@ -89,6 +93,14 @@
                     </a>
                     <div class="text">
                         <p>Buat Janji</p>
+                    </div>
+                </div>
+                <div class="item animate__animated animate__slideInUp hover-img">
+                    <a class="nav-link" href="{{url('/pasien/profil')}}">
+                        <img src="{{url('images/profil.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
+                    </a>
+                    <div class="text">
+                        <p>Profil Pasien</p>
                     </div>
                 </div>
                 <div class="item animate__animated animate__slideInRight hover-img">
