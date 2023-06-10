@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2023 at 08:29 AM
+-- Generation Time: Jun 10, 2023 at 07:39 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -87,7 +87,14 @@ CREATE TABLE `janji` (
 
 INSERT INTO `janji` (`idJanji`, `idDokter`, `idPasien`, `tanggal_temu`, `jam_temu`, `keluhan`, `status`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, '2023-05-30', '09.00 - 10.00', 'test bang', 'Reviewed', '2023-06-05 23:24:46', '2023-06-05 23:24:46'),
-(2, 1, 2, '2023-05-28', '09.00 - 10.00', 'test kedua', 'Accepted', '2023-06-05 23:25:08', '2023-06-05 23:25:08');
+(2, 1, 2, '2023-05-28', '09.00 - 10.00', 'test kedua', 'Reviewed', '2023-06-05 23:25:08', '2023-06-05 23:25:08'),
+(3, 1, 2, '2023-06-29', '09.00 - 10.00', 'test kesekian', 'Accepted', '2023-06-06 02:36:32', '2023-06-06 02:36:32'),
+(4, 1, 2, '2023-07-07', '09.00 - 10.00', 'testtt', 'Accepted', '2023-06-08 06:05:48', '2023-06-08 06:05:48'),
+(5, 1, 2, '2023-05-01', '09.00 - 10.00', 'test', 'Reviewed', '2023-06-08 06:16:41', '2023-06-08 06:16:41'),
+(6, 1, 2, '2023-03-30', '09.00 - 10.00', 'test 14', 'Accepted', '2023-06-08 06:16:50', '2023-06-08 06:16:50'),
+(7, 2, 2, '2023-04-07', '18.00 - 19.00', 'test juga', 'Accepted', '2023-06-08 06:21:53', '2023-06-08 06:21:53'),
+(8, 1, 2, '2023-07-05', '09.00 - 10.00', 'test', 'Pending', '2023-06-08 06:31:51', '2023-06-08 06:31:51'),
+(9, 1, 2, '2023-04-11', '17.00 - 18.00', 'aaaa', 'Accepted', '2023-06-08 06:42:14', '2023-06-08 06:42:14');
 
 -- --------------------------------------------------------
 
@@ -183,7 +190,11 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`idReview`, `idDokter`, `idPasien`, `idJanji`, `rating`, `review`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 4, 'test', '2023-06-05 23:28:31', '2023-06-05 23:28:31');
+(1, 1, 1, 1, 4, 'test', '2023-06-05 23:28:31', '2023-06-05 23:28:31'),
+(2, 1, 2, 2, 3, 'testttt', '2023-06-08 06:06:27', '2023-06-08 06:06:27'),
+(3, 1, 2, 7, 3, 'test', '2023-06-08 06:26:16', '2023-06-08 06:26:16'),
+(4, 1, 2, 7, 3, 'test', '2023-06-08 06:29:56', '2023-06-08 06:29:56'),
+(5, 2, 2, 7, 4, 'nih', '2023-06-08 06:39:24', '2023-06-08 06:39:24');
 
 --
 -- Indexes for dumped tables
@@ -246,7 +257,7 @@ ALTER TABLE `dokter`
 -- AUTO_INCREMENT for table `janji`
 --
 ALTER TABLE `janji`
-  MODIFY `idJanji` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idJanji` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -270,7 +281,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `idReview` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idReview` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
