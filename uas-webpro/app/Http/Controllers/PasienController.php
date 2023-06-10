@@ -55,14 +55,15 @@ class PasienController extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
-            'captcha' => 'required|captcha'
-        ], [
-            'captcha.required' => 'CAPTCHA is required.',
-            'captcha.captcha' => 'CAPTCHA is incorrect. Please try again.',
-        ]);
         $pasien = Pasien::where('username', $request->username)->first();
         if($pasien && Hash::check($request->password, $pasien->password)) {
+            $request->validate([
+                'captcha' => 'required|captcha'
+            ], [
+                'captcha.required' => 'CAPTCHA is required.',
+                'captcha.captcha' => 'CAPTCHA is incorrect. Please try again.',
+            ]);
+
             $dokters = Dokter::all();
             $dokterData = [];
 
@@ -94,7 +95,7 @@ class PasienController extends Controller
             Session::put('pasien', $pasien);
             Session::put('username', $request->username);
             Session::put('token', $request->_token);
-            return view('pasien/dashboard', ['dokters'=>$dokterData]);
+            return redirect()->route('dashboard')->with(['dokters' => $dokterData]);
         } else {
             throw ValidationException::withMessages([
                 'passwordPasien' => 'That password was incorrect. Please try again.',
@@ -306,6 +307,14 @@ class PasienController extends Controller
 
     public function forgotpass(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'newpassword' => 'required|min:8'
+        ]);
+        
+        if ($validator->fails()) {
+            throw new ValidationException($validator);
+        }
+
         $pasien = Pasien::where('username', $request->username)->first();
 
         if (!$pasien) {

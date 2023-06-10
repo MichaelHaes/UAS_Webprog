@@ -46,22 +46,11 @@
         .showhidepass:hover {
             cursor: pointer;
         }
-        
-        .btn-link {
-            
-        }
 
         .fade-in {
             animation: fadeInAnimation 0.5s ease-in forwards;
             opacity: 0;
         }
-
-        /* #cardvisi{
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            padding: 10px;
-            height: 303px;
-        } */
 
         @keyframes fadeInAnimation {
             0% { opacity: 0; }
@@ -371,7 +360,7 @@
                             <label for="password" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
-                                    <input type="password" name="password" class="form-control" id="passwordInputForgot">
+                                    <input type="password" name="newpassword" class="form-control" id="passwordInputForgot">
                                     <img class="showhidepass" src="images/eyeopen.png" height="20" width="20" id="eyepasswordForgot" onclick="togglePasswordVisibilityForgot()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
@@ -380,7 +369,7 @@
                             <label for="password" class="col-sm-2 col-form-label">Confirm Password</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
-                                    <input type="password" name="confirmpassword" class="form-control" id="passwordConfirmForgot">
+                                    <input type="password" name="confirmnewpassword" class="form-control" id="passwordConfirmForgot">
                                     <img class="showhidepass" src="images/eyeopen.png" height="20" width="20" id="eyepasswordForgotConfirm" onclick="togglePasswordVisibilityForgotConfirm()" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
                                 </div>
                             </div>
@@ -389,7 +378,7 @@
                             <button class="btn btn-primary">Confirm</button>
                         </div>
                     </form>
-                    @if($errors->has('forgotpass'))
+                    @if($errors->has('forgotpass') || $errors->has('newpassword'))
                         <script type="text/javascript">
                             window.addEventListener('DOMContentLoaded', function() {
                                 var modalForgotPass = document.getElementById('modalForgotPass');
@@ -402,6 +391,7 @@
                                 <div class="card card-body border-0">
                                     <div class="alert alert-danger">
                                         {{ $errors->first('forgotpass') }}
+                                        {{ $errors->first('newpassword') }}
                                     </div>
                                 </div>
                             </div>
