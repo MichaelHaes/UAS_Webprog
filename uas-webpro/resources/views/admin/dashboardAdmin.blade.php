@@ -71,6 +71,10 @@
             100% { opacity: 1; }
         }
 
+        .hover-img:hover {
+            scale: 1.1;
+        }
+
     </style>
 </head>
 
@@ -115,7 +119,7 @@
         <br>
         <div class="container w-50">
             <div class="d-flex justify-content-between">
-                <div class="item animate__animated animate__slideInLeft">
+                <div class="item animate__animated animate__slideInLeft hover-img">
                     <a class="nav-link" href="{{url('/admin/dokter')}}">
                         <img src="{{url('images/profil.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
                     </a>
@@ -123,7 +127,7 @@
                         <p>Profil Dokter</p>
                     </div>
                 </div>
-                <div class="item animate__animated animate__slideInUp">
+                <div class="item animate__animated animate__slideInUp hover-img">
                     <a class="nav-link" href="{{url('/admin/pasien')}}">
                         <img src="{{url('images/data.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
                     </a>
@@ -131,7 +135,7 @@
                         <p>Data Pasien</p>
                     </div>
                 </div>
-                <div class="item animate__animated animate__slideInRight">
+                <div class="item animate__animated animate__slideInRight hover-img">
                     <a class="nav-link" href="{{url('/admin/berkas')}}">
                         <img src="{{url('images/berkas.png')}}" class="img-responsive" width="75" height="75" style="margin-left: 10px;">
                     </a>
