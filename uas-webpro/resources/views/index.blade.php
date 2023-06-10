@@ -47,10 +47,6 @@
             cursor: pointer;
         }
         
-        .btn-link {
-            
-        }
-
         .fade-in {
             animation: fadeInAnimation 0.5s ease-in forwards;
             opacity: 0;
