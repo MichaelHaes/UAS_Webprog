@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2023 at 07:39 AM
+-- Generation Time: Jun 10, 2023 at 12:49 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`idAdmin`, `username`, `password`) VALUES
-(1, 'admin', '$2y$10$L3LUeu0tshSmsPPEJVg1P.C7BMbivGXF.8SFQ3Ynenx3fxqv5asZO');
+(1, 'admin', '$2y$10$tv7kc2mDRYieR3xW85qNOunlJUj8MUNyEonNao94UtlqEHHEXrM5S');
 
 -- --------------------------------------------------------
 
@@ -52,16 +52,22 @@ CREATE TABLE `dokter` (
   `jenisDokter` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fotoDokter` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `dokter`
 --
 
-INSERT INTO `dokter` (`idDokter`, `namaDokter`, `jenisDokter`, `fotoDokter`, `created_at`, `updated_at`) VALUES
-(1, 'Mikael Doc', 'Dokter Umum', 'dokter/ooQKdCBnQmpuoWaxl6T5Qg27YEjzZIEhFEFReufI.png', '2023-06-04 01:08:17', '2023-06-04 01:08:17'),
-(2, 'Harry Nih', 'Dokter Hewan', 'dokter/qJQdbyhW7MuteVgfR5YHFeBkJDOzqjULzUbzm27g.png', '2023-06-04 01:08:31', '2023-06-04 01:08:31');
+INSERT INTO `dokter` (`idDokter`, `namaDokter`, `jenisDokter`, `fotoDokter`, `created_at`, `updated_at`, `deleted`) VALUES
+(1, 'Dr. Andreas', 'Dokter THT', 'dokter/ALzvL1JOxXKsQKSQF5flFXpya2AHqep9JyZ96nCj.jpg', '2023-06-10 03:19:30', '2023-06-10 03:19:30', NULL),
+(3, 'Dr. Budi', 'Dokter Jantung', 'dokter/UDoj8vUcJbDObGkUz1808ZBsnCGn0B3DNtu9WXav.jpg', '2023-06-10 03:20:13', '2023-06-10 03:20:13', NULL),
+(4, 'Dr. Caroline', 'Dokter Otak dan Neurologi', 'dokter/3A4MNL6Ip3OoWfr3qtwAjCr9iFWJrs2eWX7EMgPh.jpg', '2023-06-10 03:21:41', '2023-06-10 03:21:41', NULL),
+(6, 'Dr. Mulyanti', 'Dokter Gigi', 'dokter/N5PYoUgnIdAoGA7YwbhoS4QXZifd0f5I8EVY1rmE.jpg', '2023-06-10 03:22:32', '2023-06-10 03:22:32', NULL),
+(7, 'Dr. Mulyanto', 'Dokter Tulang', 'dokter/KOBqJyVWNjOizS6cQOSyZaxyqaAFYWX0hxrcqg51.jpg', '2023-06-10 03:23:03', '2023-06-10 03:23:03', NULL),
+(8, 'Dr. Panji', 'Dokter Penyakit Dalam', 'dokter/8uGYRXlrBl39eIhavp7FHcM1QRFXaTpROonEzXkD.jpg', '2023-06-10 03:23:25', '2023-06-10 03:23:25', NULL),
+(9, 'Dr. Yanto', 'Dokter Umum', 'dokter/yZpmCFCMoDPLiu8mUdCqGzBZvXHr25dtwEosf3PR.jpg', '2023-06-10 03:24:07', '2023-06-10 03:24:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -86,15 +92,7 @@ CREATE TABLE `janji` (
 --
 
 INSERT INTO `janji` (`idJanji`, `idDokter`, `idPasien`, `tanggal_temu`, `jam_temu`, `keluhan`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '2023-05-30', '09.00 - 10.00', 'test bang', 'Reviewed', '2023-06-05 23:24:46', '2023-06-05 23:24:46'),
-(2, 1, 2, '2023-05-28', '09.00 - 10.00', 'test kedua', 'Reviewed', '2023-06-05 23:25:08', '2023-06-05 23:25:08'),
-(3, 1, 2, '2023-06-29', '09.00 - 10.00', 'test kesekian', 'Accepted', '2023-06-06 02:36:32', '2023-06-06 02:36:32'),
-(4, 1, 2, '2023-07-07', '09.00 - 10.00', 'testtt', 'Accepted', '2023-06-08 06:05:48', '2023-06-08 06:05:48'),
-(5, 1, 2, '2023-05-01', '09.00 - 10.00', 'test', 'Reviewed', '2023-06-08 06:16:41', '2023-06-08 06:16:41'),
-(6, 1, 2, '2023-03-30', '09.00 - 10.00', 'test 14', 'Accepted', '2023-06-08 06:16:50', '2023-06-08 06:16:50'),
-(7, 2, 2, '2023-04-07', '18.00 - 19.00', 'test juga', 'Accepted', '2023-06-08 06:21:53', '2023-06-08 06:21:53'),
-(8, 1, 2, '2023-07-05', '09.00 - 10.00', 'test', 'Pending', '2023-06-08 06:31:51', '2023-06-08 06:31:51'),
-(9, 1, 2, '2023-04-11', '17.00 - 18.00', 'aaaa', 'Accepted', '2023-06-08 06:42:14', '2023-06-08 06:42:14');
+(1, 4, 1, '2023-06-01', '09.00 - 10.00', 'Saya punya keluhan sekarang otak saya sakit kebanyakan mikir buat ujian. Apalagi kita harus bikin website', 'Accepted', '2023-06-10 03:42:12', '2023-06-10 03:42:12');
 
 -- --------------------------------------------------------
 
@@ -113,12 +111,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(11, '2023_06_02_212114_create_pasien_table', 1),
-(12, '2023_06_02_212049_create_admin_table', 2),
-(13, '2023_06_02_212014_create_dokter_table', 3),
-(17, '2019_12_14_000001_create_personal_access_tokens_table', 4),
-(18, '2023_06_02_211826_create_janji_table', 4),
-(19, '2023_06_02_212138_create_review_table', 4);
+(20, '2023_06_02_212014_create_dokter_table', 1),
+(21, '2023_06_02_212049_create_admin_table', 2),
+(22, '2023_06_02_212114_create_pasien_table', 3),
+(23, '2019_12_14_000001_create_personal_access_tokens_table', 4),
+(24, '2023_06_02_211826_create_janji_table', 4),
+(25, '2023_06_02_212138_create_review_table', 4);
 
 -- --------------------------------------------------------
 
@@ -144,10 +142,7 @@ CREATE TABLE `pasien` (
 --
 
 INSERT INTO `pasien` (`idPasien`, `username`, `nama`, `tempatLahir`, `tanggalLahir`, `telepon`, `alamat`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'pasien', 'pasien', 'Tangerang', '2023-06-02', '12345678', 'Tangerang', '$2y$10$kjxQ2URCgf8/OymhC1/bb.0R2pIohnsdqJPT8mq8K7EigiUOHkHM6', '2023-06-04 01:07:51', '2023-06-04 01:07:51'),
-(2, 'michael', 'Michael Harry Setiawan', 'Cirebon', '2002-10-01', '0812345678', 'Allogio', '$2y$10$/62AsmZ21L6v2waHVszVi.zbsG8Q1umg4yD3IZtaN.fwe9VVfnFfy', '2023-06-04 07:40:21', '2023-06-04 07:40:21'),
-(3, 'test', 'Test Coba', 'Tangerang', '2023-05-31', '12345', 'Tangerang', '$2y$10$4eXmeuQ9CD9l5E5IL5EB5Oeo4d4oTSPGjr1zIQuPtpnoz3uEWCHye', '2023-06-05 02:48:46', '2023-06-05 02:48:46'),
-(4, 'gatau', 'Test Lagi', 'Tangerang', '2023-06-01', '12345678', 'Siliwangi', '$2y$10$u12YcXjKWcyooVs5Q4HPiuBuDOARm7BWwIcZVQ6ih2Sr.gv/rdJi2', '2023-06-05 02:50:36', '2023-06-05 02:50:36');
+(1, 'michael', 'Michael Harry Setiawan', 'Jakarta', '2023-05-31', '0123456789', 'Tangerang Allogio', '$2y$10$oXGQMqHVdaXHJbXzPfaORu2byO3M2ayiqUZQ5YTujTtRKGHwDxNCC', '2023-06-10 03:34:56', '2023-06-10 03:34:56');
 
 -- --------------------------------------------------------
 
@@ -179,22 +174,11 @@ CREATE TABLE `review` (
   `idDokter` bigint(20) UNSIGNED NOT NULL,
   `idPasien` bigint(20) UNSIGNED NOT NULL,
   `idJanji` bigint(20) UNSIGNED NOT NULL,
-  `rating` int(11) NOT NULL,
+  `rating` double(8,2) NOT NULL,
   `review` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `review`
---
-
-INSERT INTO `review` (`idReview`, `idDokter`, `idPasien`, `idJanji`, `rating`, `review`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 4, 'test', '2023-06-05 23:28:31', '2023-06-05 23:28:31'),
-(2, 1, 2, 2, 3, 'testttt', '2023-06-08 06:06:27', '2023-06-08 06:06:27'),
-(3, 1, 2, 7, 3, 'test', '2023-06-08 06:26:16', '2023-06-08 06:26:16'),
-(4, 1, 2, 7, 3, 'test', '2023-06-08 06:29:56', '2023-06-08 06:29:56'),
-(5, 2, 2, 7, 4, 'nih', '2023-06-08 06:39:24', '2023-06-08 06:39:24');
 
 --
 -- Indexes for dumped tables
@@ -251,25 +235,25 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `dokter`
 --
 ALTER TABLE `dokter`
-  MODIFY `idDokter` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idDokter` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `janji`
 --
 ALTER TABLE `janji`
-  MODIFY `idJanji` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idJanji` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `idPasien` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idPasien` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -281,7 +265,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `idReview` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idReview` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
